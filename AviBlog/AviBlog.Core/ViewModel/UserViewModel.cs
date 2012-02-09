@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace AviBlog.Core.ViewModel
 {
-    public class UserViewModel
+    public class UserViewModel : BaseViewModel
     {
         public int Id { get; set; }
 

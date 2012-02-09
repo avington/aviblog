@@ -1,0 +1,6 @@
+﻿@using AviBlog.Core.Helpers
+@model AviBlog.Core.ViewModel.RolesViewModel
+
+@Html.HiddenFor(x => x.RoleId)           
+@CheckBoxListHelper.CheckBoxForCustom(Html, x => x.IsChecked)
+@Html.LabelFor(x => x.RoleName)

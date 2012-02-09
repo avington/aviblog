@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using AutoMapper;
+using AviBlog.Core.Mappings;
 using StructureMap;
 
 namespace AviBlog.Web.App_Start
@@ -19,7 +20,11 @@ namespace AviBlog.Web.App_Start
 
         public static void RegisterMappings()
         {
-            Mapper.Initialize(x => x.AddProfile(new UserMapperProfile()));
+            Mapper.Initialize(x =>
+                                  {
+                                      x.AddProfile(new UserMapperProfile());
+                                      x.AddProfile(new UserRoleMapperProfile());
+                                  });;
         }
     }
 }

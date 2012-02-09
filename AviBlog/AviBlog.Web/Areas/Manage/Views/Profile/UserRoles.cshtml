@@ -1,0 +1,24 @@
+﻿@using AviBlog.Core.ViewModel
+@model UserRolesViewModel
+
+@{
+    ViewBag.Title = "UserRoles";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>UserRoles</h2>
+<p>
+    Roles for user: @Model.UserName
+<p>
+    Full Name: @string.Format("{0} {1}", Model.FirstName, Model.LastName)
+</p>
+<div>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(x => x.UserName)
+        @Html.ListBoxFor(x => Model.SelectedRoleIds, Model.MultiSelectRoles) 
+    </fieldset>
+    <input type="submit" value="Update Roles" />
+}
+</div>

@@ -14,6 +14,7 @@ namespace AviBlog.Web.Tests
             Bootstrapper.RegisterMappings();
             Mapper.AssertConfigurationIsValid();
         }
+
          
     }
 }

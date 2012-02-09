@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using AviBlog.Core.ActionFilters;
 using AviBlog.Core.Services;
 using AviBlog.Core.ViewModel;
@@ -47,6 +48,24 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View(userView);
         }
 
+        [HttpPost]
+        public ActionResult Create(UserViewModel user)
+        {
+            string result= string.Empty;
+            if (ModelState.IsValid)
+            {
+                 result = _userService.AddUser(user);
+                if (string.IsNullOrEmpty(result))
+                {
+                    var routeValues = new RouteValueDictionary();
+                    routeValues.Add("userName",user.UserName);
+                    return RedirectToActionPermanent("roles", routeValues);
+                }
+            }
+            user.ErrorMessage = result;
+            return View(user);
+        }
+
         public ActionResult Edit(int id)
         {
             throw new NotImplementedException();
@@ -55,6 +74,18 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         public ActionResult Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public ActionResult Roles(string userName)
+        {
+            UserRolesViewModel viewModel = _userService.GetUserRoles(userName);
+            return View("UserRoles", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Roles(UserRolesViewModel view)
+        {
+            return View();
         }
     }
 }

@@ -6,5 +6,7 @@ namespace AviBlog.Core.Services
     public interface IProfileUserService
     {
         IList<UserViewModel> GetAllUsers();
+        string AddUser(UserViewModel user);
+        UserRolesViewModel GetUserRoles(string userName);
     }
 }

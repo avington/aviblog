@@ -75,7 +75,6 @@
     <Compile Include="App_Start\AviBlogRegistry.cs" />
     <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\RouteManager.cs" />
-    <Compile Include="App_Start\UserMapperProfile.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ElmahController.cs" />
     <Compile Include="Areas\Manage\Controllers\ProfileController.cs" />
@@ -210,6 +209,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Manage\Views\Profile\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manage\Views\Profile\UserRoles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manage\Views\Profile\EditorTemplates\RolesViewModel.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
