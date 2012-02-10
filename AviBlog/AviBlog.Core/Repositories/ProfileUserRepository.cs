@@ -39,5 +39,47 @@ namespace AviBlog.Core.Repositories
         {
             return _context.UserRoles.ToList();
         }
+
+        public string RemoveAllUserRoles(string userName)
+        {
+            var user = _context.UserProfiles.FirstOrDefault(x => x.UserName == userName);
+            if (user == null) return "The specified user could not be found.";
+            user.Roles.Clear();
+            _context.SaveChanges();
+            return string.Empty;
+        }
+
+        public string AddUserRoles(IEnumerable<string> roleIds, string userName )
+        {
+            if (string.IsNullOrEmpty(userName)) return "No User was provided to add roles to.";
+            if (roleIds == null) return string.Empty;
+            
+            var user = _context.UserProfiles
+                .FirstOrDefault(x => x.UserName == userName);
+
+            if (user == null) return "The specified user could not be found.";
+            foreach (string roleId in roleIds)
+            {
+                int id;
+                if (! int.TryParse(roleId,out id))
+                    continue;
+
+                var role = _context.UserRoles.FirstOrDefault(x => x.Id == id);
+                if (role == null) continue;
+
+                user.Roles.Add(role);
+            }
+            _context.SaveChanges();
+            return string.Empty;
+        }
+
+        public string DeleteUser(int id)
+        {
+            var user = _context.UserProfiles.FirstOrDefault(x => x.Id == id);
+            if (user == null) return "The specified user could not found.";
+            _context.UserProfiles.Remove(user);
+            _context.SaveChanges();
+            return string.Empty;
+        }
     }
 }

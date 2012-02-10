@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AviBlog.Core.ActionFilters;
@@ -24,7 +22,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         [AdminAuthorize]
         public ActionResult Index()
         {
-            var users = _userService.GetAllUsers();
+            IList<UserViewModel> users = _userService.GetAllUsers();
             return View(users);
         }
 
@@ -51,14 +49,14 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         [HttpPost]
         public ActionResult Create(UserViewModel user)
         {
-            string result= string.Empty;
+            string result = string.Empty;
             if (ModelState.IsValid)
             {
-                 result = _userService.AddUser(user);
+                result = _userService.AddUser(user);
                 if (string.IsNullOrEmpty(result))
                 {
                     var routeValues = new RouteValueDictionary();
-                    routeValues.Add("userName",user.UserName);
+                    routeValues.Add("userName", user.UserName);
                     return RedirectToActionPermanent("roles", routeValues);
                 }
             }
@@ -68,12 +66,19 @@ namespace AviBlog.Web.Areas.Manage.Controllers
 
         public ActionResult Edit(int id)
         {
-            throw new NotImplementedException();
+            var userView = _userService.GetUserById(id);
+            return View(userView);
         }
 
         public ActionResult Delete(int id)
         {
-            throw new NotImplementedException();
+            string errorMessage = _userService.DeleteUserById(id);
+            var users = _userService.GetAllUsers();
+            if (string.IsNullOrEmpty(errorMessage))
+            {               
+                ViewBag.ErrorMessage = errorMessage;
+            }
+            return View("Index", users);
         }
 
         public ActionResult Roles(string userName)
@@ -85,7 +90,14 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         [HttpPost]
         public ActionResult Roles(UserRolesViewModel view)
         {
-            return View();
+            string errorMessage = _userService.UpdateUserRoles(view);
+            var list = _userService.GetAllUsers();
+            return string.IsNullOrEmpty(errorMessage) ? View("Index",list) : View("UserRoles", view);
+        }
+
+        public ActionResult EditRoles(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

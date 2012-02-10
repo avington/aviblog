@@ -8,5 +8,8 @@ namespace AviBlog.Core.Services
         IList<UserViewModel> GetAllUsers();
         string AddUser(UserViewModel user);
         UserRolesViewModel GetUserRoles(string userName);
+        string UpdateUserRoles(UserRolesViewModel userRolesViewModel);
+        UserViewModel GetUserById(int id);
+        string DeleteUserById(int id);
     }
-}
+}   

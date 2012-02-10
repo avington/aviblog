@@ -49,6 +49,29 @@ namespace AviBlog.Core.Services
             return view;
         }
 
+        public string UpdateUserRoles(UserRolesViewModel userRolesViewModel)
+        {
+            string errorMessage = _profileUserRepository.RemoveAllUserRoles(userRolesViewModel.UserName);
+            if (!string.IsNullOrEmpty(errorMessage))
+                return errorMessage;
+            errorMessage = _profileUserRepository.AddUserRoles(userRolesViewModel.SelectedRoleIds,
+                                                               userRolesViewModel.UserName);
+            return errorMessage;
+        }
+
+        public UserViewModel GetUserById(int id)
+        {
+            UserProfile user = _profileUserRepository.GetUserProfiles().FirstOrDefault(x => x.Id == id);
+            if (user == null) return new UserViewModel {ErrorMessage = "User was not found."};
+            var view = _mappingService.MapView(user);
+            return view;
+        }
+
+        public string DeleteUserById(int id)
+        {
+            return _profileUserRepository.DeleteUser(id);
+        }
+
         #endregion
     }
 }
