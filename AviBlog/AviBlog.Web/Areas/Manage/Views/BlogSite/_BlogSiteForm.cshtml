@@ -1,0 +1,55 @@
+﻿@model AviBlog.Core.ViewModel.BlogSiteViewModel
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"> </script>
+@using (Html.BeginForm())
+{
+    <div id="edit-blog-form">
+        @Html.ValidationSummary(true)
+        @Html.LabelFor(model => model.ErrorMessage)
+        <fieldset>
+            <legend>Manage Blog Site Settings</legend>
+            @Html.HiddenFor(model => model.BlogId)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BlogName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BlogName)
+                @Html.ValidationMessageFor(model => model.BlogName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SubHead)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SubHead)
+                @Html.ValidationMessageFor(model => model.SubHead)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.HostName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.HostName)
+                @Html.ValidationMessageFor(model => model.HostName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IsPrimary)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsPrimary)
+                @Html.ValidationMessageFor(model => model.IsPrimary)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IsActive)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsActive)
+                @Html.ValidationMessageFor(model => model.IsActive)
+            </div>
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    </div>
+}
+

@@ -1,0 +1,12 @@
+﻿@model IList<AviBlog.Core.Entities.HtmlFragment>
+
+@{
+    ViewBag.Title = "Html Fragments";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Html Fragments</h2>
+
+<div>
+    @Html.Partial("_HtmlFragments", Model)
+</div>

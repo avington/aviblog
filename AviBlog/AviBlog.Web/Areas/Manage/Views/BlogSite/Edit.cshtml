@@ -1,0 +1,13 @@
+﻿@model AviBlog.Core.ViewModel.BlogSiteViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Edit</h2>
+
+@Html.Partial("_BlogSiteForm",Model)
+
+<div>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("View HTML Fragments", "Index", "HtmlFragments", new { id = Model.BlogId },null))
+</div>

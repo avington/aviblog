@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using AviBlog.Core.Entities;
@@ -44,7 +45,11 @@ namespace AviBlog.Core.Mappings
             }
 
 
-            var selectRoles = new MultiSelectList(view.Roles, "RoleId", "RoleName");
+            var selectRoles = new MultiSelectList(view.Roles, "RoleId", "RoleName",
+                view.Roles
+                .Where(x => x.IsChecked)
+                .Select(x =>x.RoleId));
+
             view.MultiSelectRoles = selectRoles;
 
             return view;

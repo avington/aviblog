@@ -43,9 +43,16 @@ namespace AviBlog.Core.Services
         {
             UserProfile user = _profileUserRepository.GetUserProfiles()
                 .FirstOrDefault(x => x.UserName == userName);
+            var view = MapUserToRoles(user);
+            return view;
+        }
+
+        private UserRolesViewModel MapUserToRoles(UserProfile user)
+        {
+            if (user == null) return new UserRolesViewModel();
             IList<UserRole> roles = _profileUserRepository.GetAllRoles();
 
-            UserRolesViewModel view = _mappingService.MapUserRoles(user,roles);
+            UserRolesViewModel view = _mappingService.MapUserRoles(user, roles);
             return view;
         }
 
@@ -70,6 +77,14 @@ namespace AviBlog.Core.Services
         public string DeleteUserById(int id)
         {
             return _profileUserRepository.DeleteUser(id);
+        }
+
+        public UserRolesViewModel GetUserRolesById(int id)
+        {
+            UserProfile user = _profileUserRepository.GetUserProfiles()
+                .FirstOrDefault(x => x.Id == id);
+            var view = MapUserToRoles(user);
+            return view;
         }
 
         #endregion

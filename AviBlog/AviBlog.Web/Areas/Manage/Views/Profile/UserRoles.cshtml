@@ -20,5 +20,6 @@
         @Html.ListBoxFor(x => Model.SelectedRoleIds, Model.MultiSelectRoles) 
     </fieldset>
     <input type="submit" value="Update Roles" />
+    @Html.ActionLink("Return to user list.","Index")
 }
 </div>

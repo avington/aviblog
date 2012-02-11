@@ -47,6 +47,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [AdminAuthorize]
         public ActionResult Create(UserViewModel user)
         {
             string result = string.Empty;
@@ -64,12 +65,16 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View(user);
         }
 
+        [AdminAuthorize]
         public ActionResult Edit(int id)
         {
             var userView = _userService.GetUserById(id);
+            userView.Password = string.Empty;
+            userView.ConfirmPassword = string.Empty;
             return View(userView);
         }
 
+        [AdminAuthorize]
         public ActionResult Delete(int id)
         {
             string errorMessage = _userService.DeleteUserById(id);
@@ -81,6 +86,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View("Index", users);
         }
 
+        [AdminAuthorize]
         public ActionResult Roles(string userName)
         {
             UserRolesViewModel viewModel = _userService.GetUserRoles(userName);
@@ -88,6 +94,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [AdminAuthorize]
         public ActionResult Roles(UserRolesViewModel view)
         {
             string errorMessage = _userService.UpdateUserRoles(view);
@@ -95,9 +102,11 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return string.IsNullOrEmpty(errorMessage) ? View("Index",list) : View("UserRoles", view);
         }
 
+        [AdminAuthorize]
         public ActionResult EditRoles(int id)
         {
-            throw new NotImplementedException();
+            UserRolesViewModel viewModel = _userService.GetUserRolesById(id);
+            return View("UserRoles", viewModel);
         }
     }
 }

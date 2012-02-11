@@ -10,6 +10,6 @@ namespace AviBlog.Core.Entities
         public string HostName { get; set; }
         public bool IsPrimary { get; set; }
         public bool IsActive { get; set; }
-        public virtual ICollection<HeadScript> HeadScripts { get; set; }
+        public virtual ICollection<HtmlFragment> HtmlFragments { get; set; }
     }
 }

@@ -17,22 +17,24 @@ namespace AviBlog.Core.Context
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<HeadScript> HeadScripts { get; set; }
+        public DbSet<HtmlFragment> HeadScripts { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Trackback> Trackbacks { get; set; }
+        public DbSet<HtmlFragmentLocation> HtmlFragmentLocations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PostConfiguration());
             modelBuilder.Configurations.Add(new BlogConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
-            modelBuilder.Configurations.Add(new HeadScriptConfiguration());
+            modelBuilder.Configurations.Add(new HtmlFragementConfiguration());
             modelBuilder.Configurations.Add(new TagConfiguration());
             modelBuilder.Configurations.Add(new UserProfileConfiguration());
             modelBuilder.Configurations.Add(new UserRoleConfiguration());
             modelBuilder.Configurations.Add(new TrackbackConfiguration());
+            modelBuilder.Configurations.Add(new HtmlFragmentLocationConfiguration());
             base.OnModelCreating(modelBuilder);
         }
          

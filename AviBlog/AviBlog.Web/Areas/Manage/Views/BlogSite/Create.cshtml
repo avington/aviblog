@@ -1,0 +1,10 @@
+﻿@model AviBlog.Core.ViewModel.BlogSiteViewModel
+
+@{
+    ViewBag.Title = "Create New Blog Site";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create New Blog Site</h2>
+
+@Html.Partial("_BlogSiteForm",Model)

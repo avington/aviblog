@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AviBlog.Core.Entities.HtmlFragment>
+<h3>Html Fragments</h3>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>Script Location</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit","HtmlFragments", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", "HtmlFragments", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

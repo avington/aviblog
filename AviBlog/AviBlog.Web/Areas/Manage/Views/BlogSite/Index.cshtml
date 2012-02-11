@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AviBlog.Core.ViewModel.BlogSiteViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            BlogName
+        </th>
+        <th>
+            SubHead
+        </th>
+        <th>
+            HostName
+        </th>
+        <th>
+            IsPrimary
+        </th>
+        <th>
+            IsActive
+        </th>
+        <th>
+            BlogId
+        </th>
+        <th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubHead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HostName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPrimary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BlogId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BlogId })
+        </td>
+    </tr>
+}
+
+</table>
