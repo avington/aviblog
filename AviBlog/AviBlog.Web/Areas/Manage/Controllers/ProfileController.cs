@@ -68,10 +68,21 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         [AdminAuthorize]
         public ActionResult Edit(int id)
         {
-            var userView = _userService.GetUserById(id);
+            UserViewModel userView = _userService.GetUserById(id);
             userView.Password = string.Empty;
             userView.ConfirmPassword = string.Empty;
             return View(userView);
+        }
+
+        [HttpPost]
+        [AdminAuthorize]
+        public ActionResult Edit(UserViewModel viewModel)
+        {
+            string errorMessage = _userService.UpdateUser(viewModel);
+            if (string.IsNullOrEmpty(errorMessage))
+                return RedirectToActionPermanent("Index");
+            viewModel.ErrorMessage = errorMessage;
+            return View(viewModel);
         }
 
         [AdminAuthorize]

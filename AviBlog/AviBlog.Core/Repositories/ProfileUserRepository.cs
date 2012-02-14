@@ -81,5 +81,17 @@ namespace AviBlog.Core.Repositories
             _context.SaveChanges();
             return string.Empty;
         }
+
+        public string UpdateUserProfile(UserProfile userProfile)
+        {
+            var user = _context.UserProfiles.FirstOrDefault(x => x.Id == userProfile.Id);
+            if (user == null) return "The specified user could not be found.";
+            user.Email = userProfile.Email;
+            user.FirstName = userProfile.FirstName;
+            user.Password = userProfile.Password;
+            user.UserName = userProfile.UserName;
+            _context.SaveChanges();
+            return string.Empty;
+        }
     }
 }

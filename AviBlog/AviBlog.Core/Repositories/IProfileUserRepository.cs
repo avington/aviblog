@@ -13,5 +13,6 @@ namespace AviBlog.Core.Repositories
         string RemoveAllUserRoles(string userName);
         string AddUserRoles(IEnumerable<string> roleIds, string userName );
         string DeleteUser(int id);
+        string UpdateUserProfile(UserProfile userProfile);
     }
 }

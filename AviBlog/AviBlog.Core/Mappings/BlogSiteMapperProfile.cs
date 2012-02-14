@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using AviBlog.Core.Entities;
 using AviBlog.Core.ViewModel;
 
@@ -23,6 +24,21 @@ namespace AviBlog.Core.Mappings
             CreateMap<BlogSiteViewModel, Blog>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(x => x.BlogId))
                 ;
+
+            CreateMap<HtmlFragmentViewModel, HtmlFragment>()
+                .ForMember(dest => dest.Blogs, opt => opt.Ignore())
+                .ForMember(dest => dest.Location,
+                           opt => opt.MapFrom(x => new HtmlFragmentLocation {Id = Convert.ToInt32( x.SelectedLocationId)}));
+                ;
+
+            CreateMap<HtmlFragment, HtmlFragmentViewModel>()
+                .ForMember(dest => dest.BlogId, opt => opt.Ignore())
+                .ForMember(dest => dest.LocationList, opt => opt.Ignore())
+                .ForMember(dest => dest.ErrorMessage,opt => opt.Ignore())
+                .ForMember(dest => dest.SelectedLocationId, opt => opt.Ignore())
+                ;
+
+
         }
     }
 }

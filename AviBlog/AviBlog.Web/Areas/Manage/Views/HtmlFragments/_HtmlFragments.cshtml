@@ -1,7 +1,7 @@
-﻿@model IEnumerable<AviBlog.Core.Entities.HtmlFragment>
+﻿@model AviBlog.Core.ViewModel.BlogSiteViewModel
 <h3>Html Fragments</h3>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { blogId = Model.BlogId })
 </p>
 <table>
     <tr>
@@ -12,7 +12,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.HtmlFragments) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)

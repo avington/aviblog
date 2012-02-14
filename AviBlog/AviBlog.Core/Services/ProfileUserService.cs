@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AviBlog.Core.Encryption;
 using AviBlog.Core.Entities;
 using AviBlog.Core.Mappings;
 using AviBlog.Core.Repositories;
@@ -9,14 +10,16 @@ namespace AviBlog.Core.Services
 {
     public class ProfileUserService : IProfileUserService
     {
+        private readonly IEncryptionHelper _encryptionHelper;
         private readonly IUserProfileMappingService _mappingService;
         private readonly IProfileUserRepository _profileUserRepository;
 
         public ProfileUserService(IProfileUserRepository profileUserRepository,
-                                  IUserProfileMappingService mappingService)
+                                  IUserProfileMappingService mappingService, IEncryptionHelper encryptionHelper)
         {
             _profileUserRepository = profileUserRepository;
             _mappingService = mappingService;
+            _encryptionHelper = encryptionHelper;
         }
 
         #region IProfileUserService Members
@@ -36,6 +39,7 @@ namespace AviBlog.Core.Services
         public string AddUser(UserViewModel user)
         {
             UserProfile profile = _mappingService.MapEntity(user);
+            profile.Password = _encryptionHelper.Encrypt(user.Password);
             return _profileUserRepository.AddUserProfile(profile);
         }
 
@@ -43,16 +47,7 @@ namespace AviBlog.Core.Services
         {
             UserProfile user = _profileUserRepository.GetUserProfiles()
                 .FirstOrDefault(x => x.UserName == userName);
-            var view = MapUserToRoles(user);
-            return view;
-        }
-
-        private UserRolesViewModel MapUserToRoles(UserProfile user)
-        {
-            if (user == null) return new UserRolesViewModel();
-            IList<UserRole> roles = _profileUserRepository.GetAllRoles();
-
-            UserRolesViewModel view = _mappingService.MapUserRoles(user, roles);
+            UserRolesViewModel view = MapUserToRoles(user);
             return view;
         }
 
@@ -70,7 +65,7 @@ namespace AviBlog.Core.Services
         {
             UserProfile user = _profileUserRepository.GetUserProfiles().FirstOrDefault(x => x.Id == id);
             if (user == null) return new UserViewModel {ErrorMessage = "User was not found."};
-            var view = _mappingService.MapView(user);
+            UserViewModel view = _mappingService.MapView(user);
             return view;
         }
 
@@ -83,10 +78,27 @@ namespace AviBlog.Core.Services
         {
             UserProfile user = _profileUserRepository.GetUserProfiles()
                 .FirstOrDefault(x => x.Id == id);
-            var view = MapUserToRoles(user);
+            UserRolesViewModel view = MapUserToRoles(user);
             return view;
         }
 
+        public string UpdateUser(UserViewModel viewModel)
+        {
+            UserProfile userProfile = _mappingService.MapEntity(viewModel);
+            userProfile.Password = _encryptionHelper.Encrypt(viewModel.Password);
+            string errorMessage = _profileUserRepository.UpdateUserProfile(userProfile);
+            return errorMessage;
+        }
+
         #endregion
+
+        private UserRolesViewModel MapUserToRoles(UserProfile user)
+        {
+            if (user == null) return new UserRolesViewModel();
+            IList<UserRole> roles = _profileUserRepository.GetAllRoles();
+
+            UserRolesViewModel view = _mappingService.MapUserRoles(user, roles);
+            return view;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace AviBlog.Core.Context
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<HtmlFragment> HeadScripts { get; set; }
+        public DbSet<HtmlFragment> HtmlFragments { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }

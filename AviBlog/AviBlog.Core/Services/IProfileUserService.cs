@@ -12,5 +12,6 @@ namespace AviBlog.Core.Services
         UserViewModel GetUserById(int id);
         string DeleteUserById(int id);
         UserRolesViewModel GetUserRolesById(int id);
+        string UpdateUser(UserViewModel viewModel);
     }
 }   
