@@ -1,0 +1,39 @@
+﻿@model AviBlog.Core.ViewModel.HtmlFragmentViewModel
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Html Fragment</legend>
+
+         @Html.HiddenFor(model => model.BlogId)
+         @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ScriptBody)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(x => x.ScriptBody, 10, 100, new { @class = ".multi-line-html-fragment" })
+            @Html.ValidationMessageFor(model => model.ScriptBody)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LocationList)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SelectedLocationId,Model.LocationList)
+            @Html.ValidationMessageFor(model => model.ScriptBody)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}

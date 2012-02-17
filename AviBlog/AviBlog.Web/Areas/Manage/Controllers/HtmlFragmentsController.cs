@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AviBlog.Core.ActionFilters;
-using AviBlog.Core.Entities;
 using AviBlog.Core.Services;
 using AviBlog.Core.ViewModel;
 
@@ -38,22 +35,42 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View(viewModel);
         }
 
-
+        [AdminAuthorize]
         [HttpPost]
-        public ActionResult Edit(int id)
+        [ValidateInput(false)]
+        public ActionResult Edit(HtmlFragmentViewModel viewModel)
         {
-            throw new NotImplementedException();
+            string errorMessage = _htmlFragmentService.UpdateHtmlFragment(viewModel);
+            if (string.IsNullOrEmpty(errorMessage))
+                return RedirectToActionPermanent("Index", new {Id = viewModel.BlogId});
+            viewModel.ErrorMessage = errorMessage;
+            return View(viewModel);
         }
 
+        [AdminAuthorize]
+        public ActionResult Edit(int id, int blogId)
+        {
+            HtmlFragmentViewModel viewModel = _htmlFragmentService.GetHtmlFragment(id);
+            viewModel.BlogId = blogId;
+            return View(viewModel);
+        }
+
+        [AdminAuthorize]
         public ActionResult Index(int id)
         {
             BlogSiteViewModel view = _blogSiteService.GetBlogById(id);
             return View(view);
         }
 
-        public ActionResult Delete(int id)
+        [AdminAuthorize]
+        public ActionResult Delete(int id, int blogId)
         {
-            string errorMessage = _htmlFragmentService.DeleteById(id)
+            string errorMessage = _htmlFragmentService.DeleteById(id);
+            if (string.IsNullOrEmpty(errorMessage))
+                return RedirectToActionPermanent("Index", new {Id = blogId});
+            BlogSiteViewModel viewModel = _blogSiteService.GetBlogById(blogId);
+            viewModel.ErrorMessage = errorMessage;
+            return View("index", viewModel);
         }
     }
 }

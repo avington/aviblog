@@ -21,8 +21,8 @@
             @Html.DisplayFor(modelItem => item.Location.LocationName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit","HtmlFragments", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", "HtmlFragments", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit",new { id=item.Id, blogId = Model.BlogId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id, blogId = Model.BlogId })
         </td>
     </tr>
 }

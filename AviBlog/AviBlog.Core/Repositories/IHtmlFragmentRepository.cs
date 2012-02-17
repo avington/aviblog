@@ -10,5 +10,8 @@ namespace AviBlog.Core.Repositories
         IQueryable<HtmlFragment> GetHtmlFragmentsByBlogId(int blogId);
 
         string AddHtmlFragment(HtmlFragment entity, int blogId, string selectedLocationId);
+        string DeleteHtmlFragment(int id);
+        IQueryable<HtmlFragment> GetAllHtmlFragments();
+        string UpdateHtmlFragment(HtmlFragment entity, int blogId, string selectedLocationId);
     }
 }

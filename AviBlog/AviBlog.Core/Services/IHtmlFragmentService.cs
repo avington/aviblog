@@ -8,5 +8,7 @@ namespace AviBlog.Core.Services
         string AddHtmlFragement(HtmlFragmentViewModel viewModel);
 
         string DeleteById(int id);
+        HtmlFragmentViewModel GetHtmlFragment(int id);
+        string UpdateHtmlFragment(HtmlFragmentViewModel viewModel);
     }
 }
