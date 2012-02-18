@@ -1,0 +1,59 @@
+﻿@model AviBlog.Core.ViewModel.PostListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Posts</h2>
+
+<h3>@Model.BlogTitle</h3>
+<p class="error">@Model.ErrorMessage</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Created
+        </th>
+        <th>
+            Modified
+        </th>
+        <th>
+            Published
+        </th>
+        <th>
+            Deleted
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Posts) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreatedFormatted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModifiedFormatted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPublished)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
