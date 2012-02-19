@@ -18,10 +18,10 @@
             Title
         </th>
         <th>
-            Created
+            Date Modified
         </th>
         <th>
-            Modified
+            Date Published
         </th>
         <th>
             Published
@@ -38,10 +38,10 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateCreatedFormatted)
+            @Html.DisplayFor(modelItem => item.DateModified)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateModifiedFormatted)
+            @Html.DisplayFor(modelItem => item.DatePublished)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsPublished)

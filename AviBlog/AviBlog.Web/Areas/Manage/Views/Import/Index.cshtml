@@ -1,0 +1,24 @@
+﻿@using Microsoft.Web.Helpers
+@model dynamic
+
+@{
+    ViewBag.Title = "Import Using BlogML";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Upload</h2>
+
+@using(Html.BeginForm("Upload","Import", FormMethod.Post, new { enctype="multipart/form-data" })) { 
+    <fieldset>
+        
+        <div class="display-label">
+            @Html.Label("Import BlogML file")
+        </div>
+        <div class="editor-label">
+            <input type="file" name="files" id="file1" />
+        </div>
+         <input type="submit" />
+    </fieldset>
+
+   
+}

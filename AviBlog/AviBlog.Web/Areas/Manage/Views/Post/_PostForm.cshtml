@@ -1,0 +1,96 @@
+﻿@model AviBlog.Core.ViewModel.PostViewModel
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/ckeditor/adapters/jquery.js")" type="text/javascript"> </script>
+
+@using (Html.BeginForm())
+{
+    <section>
+        @Html.ValidationSummary(true)
+        <div class="error">
+            @Html.DisplayFor(model => model.ErrorMessage)
+        </div>
+        <fieldset>
+            <legend>Post</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Title)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PostContent)
+            </div>
+            <div class="editor-field">
+              
+                @Html.TextAreaFor(model => model.PostContent, new {@class = "admin-textarea"})
+                @Html.ValidationMessageFor(model => model.PostContent)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Description, new {@class = "admin-textarea"})
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+            <article id="admin-post-left-side">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DatePublished)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DatePublished)
+                    @Html.ValidationMessageFor(model => model.DatePublished)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.IsPublished)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.IsPublished)
+                    @Html.ValidationMessageFor(model => model.IsPublished)
+                </div>
+            </article>
+            <aside id="admin-post-right-side">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SectedUserId)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SectedUserId, Model.UserList)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SelectedBlogId)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SelectedBlogId, Model.BlogList)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TagListCommaDelimited)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TagListCommaDelimited)
+                </div>
+            </aside>
+            <div class="clear"></div>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+
+        </fieldset>
+    </section>
+}
+<script type="text/javascript">
+    $(".admin-textarea").ckeditor();
+    $('.date-dialog').datepicker();
+</script>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
