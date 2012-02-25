@@ -17,7 +17,7 @@ namespace AviBlog.Core.Repositories
 
         public Post GetPostById(int id)
         {
-            throw new System.NotImplementedException();
+            return _context.Posts.Find(id);
         }
 
         public IQueryable<Post> GetAllPosts()
@@ -32,12 +32,54 @@ namespace AviBlog.Core.Repositories
 
         public string Delete(int id)
         {
-            throw new System.NotImplementedException();
+            Post post = _context.Posts.Find(id);
+            if (post == null) return "Specified post was not found.";
+            post.IsDeleted = true;
+            _context.SaveChanges();
+            return string.Empty;
         }
 
-        public string Add(Post id)
+        public string Add(Post post, int userId, int blogId)
         {
-            throw new System.NotImplementedException();
+            var slugExists = _context.Posts.Any(x => x.Slug == post.Slug);
+            if (slugExists)
+                return "The slug that was created already exists. Modify your title.";
+
+
+            UserProfile user = _context.UserProfiles.Find(userId);
+            if (user != null) post.User = user;
+
+            Blog blog = _context.Blogs.Find(blogId);
+            post.Blog = blog;
+
+            _context.Posts.Add(post);
+            _context.SaveChanges();
+            return string.Empty;
+        }
+
+        public string Edit(Post post, int sectedUserId, int selectedBlogId)
+        {
+            var slugExists = _context.Posts.First(x => x.Slug == post.Slug);
+            if (slugExists !=null && slugExists.Id != post.Id)
+                return "The slug that was created already exists. Modify your title.";
+
+            UserProfile user = _context.UserProfiles.Find(sectedUserId);
+            Blog blog = _context.Blogs.Find(selectedBlogId);
+
+            Post updatedPost = _context.Posts.Find(post.Id);
+            if (updatedPost == null) return "The specified post could not be found.";
+
+            updatedPost.Blog = blog;
+            updatedPost.DateModified = post.DateModified;
+            updatedPost.DatePublished = post.DatePublished;
+            updatedPost.Description = post.Description;
+            updatedPost.IsDeleted = post.IsDeleted;
+            updatedPost.IsPublished = post.IsPublished;
+            updatedPost.PostContent = post.PostContent;
+            updatedPost.Slug = post.Slug;
+            updatedPost.User = user;
+            _context.SaveChanges();
+            return string.Empty;
         }
     }
 }

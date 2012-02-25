@@ -1,3 +1,4 @@
+using AutoMapper;
 using AviBlog.Core.Entities;
 using AviBlog.Core.ViewModel;
 
@@ -7,12 +8,12 @@ namespace AviBlog.Core.Mappings
     {
         public Post MapToEntity(PostViewModel viewModel)
         {
-            throw new System.NotImplementedException();
+            return Mapper.Map<PostViewModel, Post>(viewModel);
         }
 
         public PostViewModel MapToView(Post entity)
         {
-            throw new System.NotImplementedException();
+            return Mapper.Map<Post, PostViewModel>(entity);
         }
     }
 }

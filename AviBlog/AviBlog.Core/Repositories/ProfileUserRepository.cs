@@ -93,5 +93,10 @@ namespace AviBlog.Core.Repositories
             _context.SaveChanges();
             return string.Empty;
         }
+
+        public UserProfile GetUserById(int sectedUserId)
+        {
+            return _context.UserProfiles.Find(sectedUserId);
+        }
     }
 }

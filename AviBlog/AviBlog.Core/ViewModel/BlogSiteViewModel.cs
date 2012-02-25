@@ -8,7 +8,7 @@ namespace AviBlog.Core.ViewModel
     {
         public int BlogId { get; set; }
 
-        [Display(Name = "Blog Name")]
+        [Display(Name = "SelectedBlog Name")]
         [Required]
         public string BlogName { get; set; }
 
@@ -18,7 +18,7 @@ namespace AviBlog.Core.ViewModel
         [Display(Name = "Host Name")]
         public string HostName { get; set; }
 
-        [Display(Name = "Is Primary Blog")]
+        [Display(Name = "Is Primary SelectedBlog")]
         public bool IsPrimary { get; set; }
 
         [Display(Name = "Is blog Active")]

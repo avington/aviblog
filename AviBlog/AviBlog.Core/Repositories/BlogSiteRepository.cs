@@ -48,5 +48,10 @@ namespace AviBlog.Core.Repositories
             _context.SaveChanges();
             return string.Empty;
         }
+
+        public Blog GetBlogId(int selectedBlogId)
+        {
+            return _context.Blogs.Find(selectedBlogId);
+        }
     }
 }

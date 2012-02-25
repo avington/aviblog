@@ -31,5 +31,8 @@ namespace AviBlog.Core.ViewModel
 
         [Required]
         public string Email { get; set; }
+
+        [Display(Name = "Active")]
+        public bool IsActive { get; set; }
     }
 }

@@ -35,7 +35,8 @@ namespace AviBlog.Web.Tests.Initializers
                                Email = "avington12345@msn.com",
                                UserName = "admin",
                                Password = password,
-                               Blog = blog
+                               Blog = blog,
+                               IsActive = true
                            };
 
             var users = new List<UserProfile> {user};
@@ -61,7 +62,8 @@ namespace AviBlog.Web.Tests.Initializers
                                Title = "title",
                                User = user,
                                Slug = "slug",
-                               Tags = tags
+                               Tags = tags,
+                               UniqueId = Guid.NewGuid()
                            };
             
             var posts = new List<Post> {post};

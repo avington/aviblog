@@ -9,6 +9,7 @@ namespace AviBlog.Core.Repositories
         IQueryable<Post> GetAllPosts();
         string Edit(Post post);
         string Delete(int id);
-        string Add(Post id);
+        string Add(Post entity, int userId, int blogId);
+        string Edit(Post post, int sectedUserId, int selectedBlogId);
     }
 }

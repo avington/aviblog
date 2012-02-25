@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using AviBlog.Core.Services;
+using AviBlog.Core.ViewModel;
 
 namespace AviBlog.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPostService _postService;
+
+        public HomeController(IPostService postService)
+        {
+            _postService = postService;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            const int top = 5;
+            PostListViewModel viewModel = _postService.GetTopMostRecentPosts(top);
 
-            return View();
+            return View(viewModel);
         }
 
         public ActionResult About()

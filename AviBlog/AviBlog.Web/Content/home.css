@@ -1,0 +1,51 @@
+﻿/* defaul properties */
+body, button, input, select, textarea { font-family: 'Acme', Tahoma; }
+h1, h2, h3, h4 { font-family: 'Questrial', Tahoma; font-weight: 300; line-height: 1; margin: 0 0 25px 0; }
+h1 { font-size: 50px; font-weight: 800; }
+h2 { font-size: 35px; }
+h3 { font-size: 30px;  }
+h4 { font-weight: 600; font-size: 25px; margin-bottom: 15px; }
+h5 { font-size: 20px;font-weight: 600; }
+.clear { clear: both;}
+.align-left { text-align: left;}
+.align-right { text-align: right;}
+
+/* major layout */
+body { background-color: #938A07; }
+header { width: 100%;background: url('images/header.png') repeat-x; height: 163px;}
+header #header-wrapper { max-width: 1190px;margin: 0 auto;}
+section { max-width: 1190px;background-color: #fff;border-left: #ccc solid 1px;border-right: #ccc solid 1px;min-height: 400px;margin: 0 auto;padding: 25px 10px;}
+footer {width: 100%; background: url('images/footer.png') repeat-x #222; min-height: 300px;}
+footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
+
+
+#header #header-wrapper-left {float: left;padding: 40px 0 0 0; }
+#header #header-wrapper-left h1 { font-family: 'Acme', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;}
+#header #header-wrapper-left p { color: #fff;padding: 4px 4px 4px 4px;}
+#header #header-wrapper-right { float: right;width: 400px;margin-top: 55px; }
+#header #header-wrapper-right nav { float: left;}
+#header #header-wrapper-right #nav-main { width: 200px;padding: 45px 0 0 0;}
+#header #header-wrapper-right #nav-main ul li { float: left;padding: 5px 15px 5px 15px;}
+#header #header-wrapper-right #nav-main ul li a { color: #fff;font-weight: 600;;font-size: 11px;}
+#header #header-wrapper-right #nav-main ul li a:hover { color: #938A07;font-weight: 600;}
+#header #header-wrapper-right #nav-main ul li a:active { color: #938A07;font-weight: 600;}
+#header #header-wrapper-right #nav-social { width: 100px;float: right;margin-top: 15px;}
+#header #header-wrapper-right #nav-social ul { float: left;}
+#header #header-wrapper-right #nav-social ul li {float: left; padding: 5px 1px 5px 15px;width: 20px;}
+#header #header-wrapper-right #nav-social ul li a { text-decoration: none;}
+#header #header-wrapper-right #nav-social ul li a:hover { text-decoration: none;}
+#header #header-wrapper-right #nav-social ul li a:active { text-decoration: none;}
+
+#posts-wrapper {position: relative; width: 860px; float: left;overflow: hidden;}
+#posts-wrapper  article { font-family: 'Acme', Tahoma; font-weight: 300;line-height: 23px; margin: 10px 5px 15px 5px;padding: 5px 5px 5px 5px;}
+#posts-wrapper  article h2 a.post-title-link { font-size: 24px;font-weight: 700; color: #1F447D}
+#posts-wrapper  article h2 a.post-title-link:hover { font-size: 24px;font-weight: 700; color: #1F447D}
+#posts-wrapper  article h2 a.post-title-link:active { font-size: 24px;font-weight: 700; color: #1F447D}
+
+#posts-wrapper article h3 {padding: 20px 0 0 0;font-size: 22px;font-weight: 600;}
+#posts-wrapper article .post-meta-info {width: 100%;font-size: 12px;padding: 15px 2px 5px;}
+#posts-wrapper article .post-meta-info ul li { float: left;width: 400px;}
+
+
+section aside { width: 260px;float: left;}
+@media (max-width: 1150px) {section aside{ display: none;visibility: hidden;}}

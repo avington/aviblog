@@ -1,8 +1,15 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model AviBlog.Core.ViewModel.PostListViewModel
+
+@{
+    ViewBag.Title = Model.BlogTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<div id="posts-wrapper">
+    @foreach (var post in Model.Posts)
+    {
+        @Html.Partial("_Post",post)
+    }
+
+</div>
+

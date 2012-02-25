@@ -11,5 +11,6 @@ namespace AviBlog.Core.Repositories
         string Add(Blog blog);
         string DeleteBlog(int id);
         string Save(Blog blog);
+        Blog GetBlogId(int selectedBlogId);
     }
 }

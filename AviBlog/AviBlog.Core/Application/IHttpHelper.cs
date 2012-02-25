@@ -3,5 +3,7 @@
     public interface IHttpHelper
     {
         string GetCookieValue(string key);
+        string GetCurrentUserName();
+        string GetPath(string virtualDir, string fileName);
     }
 }
