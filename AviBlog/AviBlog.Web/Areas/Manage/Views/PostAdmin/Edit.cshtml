@@ -1,0 +1,9 @@
+﻿@model AviBlog.Core.ViewModel.PostViewModel
+
+@{
+    ViewBag.Title = "Edit Post";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Edit Post</h2>
+
+@Html.Partial("_PostForm",Model)

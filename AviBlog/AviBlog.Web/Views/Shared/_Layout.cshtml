@@ -8,6 +8,20 @@
         <link href="@Url.Content("~/Content/Home.css")" rel="stylesheet" type="text/css" />
         <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"> </script>
         <script src="@Url.Content("~/Scripts/modernizr-2.0.6-development-only.js")" type="text/javascript"> </script>
+        <!-- Google +1 script Start -->
+        <b:if cond='data:post.isFirstPost'>
+            <script type="text/javascript">
+                (function() {
+                    var po = document.createElement('script');
+                    po.type = 'text/javascript';
+                    po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(po, s);
+                })();
+            </script>
+        </b:if>
+        <!-- Google +1 script End -->
     </head>
     <body>
         <header id="header">
@@ -27,24 +41,25 @@
                             </li>
                         </ul>
                     </nav>
-                    <nav id="nav-social">
+                    <nav class="col3 pad_left2 nav-social">
+                        <h4>Follow Me</h4>
                         <ul>
-                            <li><a href="#" ><img src="@Url.Content("~/content/images/icons/feed.png")" alt="rss feed"/></a></li>
-                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="follow me on twitter"/></a></li>
-                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="visit my linked in profile"/></a></li>
-                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/google.png")" alt="visit my google+ page"/></a></li>
+                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
+                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="">Linkedin</a></li>
+                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/google.png")" alt="">Google+</a></li>
+                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/feed.png")" alt="">RSS Feed</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="clear"></div>
         </header>
-        <section>
-            <div class="main-content-wrapper">
+        <section id="body-wrapper">
+            <div class="main-content-wrapper col1">
                 @RenderBody()
             </div>
             <aside>
-                right side
+                @Html.Action("TagCloud","Tags")
             </aside>
             <div class="clear"></div>
         </section>

@@ -24,6 +24,7 @@ namespace AviBlog.Core.Repositories
         {
             _context.Blogs.Add(blog);
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -33,6 +34,7 @@ namespace AviBlog.Core.Repositories
             if (blog == null) return "The specified blog could not be found.";
             _context.Blogs.Remove(blog);
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -46,6 +48,7 @@ namespace AviBlog.Core.Repositories
             temp.IsPrimary = blog.IsPrimary;
             temp.SubHead = blog.SubHead;
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 

@@ -1,37 +1,73 @@
 ﻿using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AviBlog.Core.ActionFilters;
+using AviBlog.Core.Services;
+using AviBlog.Core.ViewModel;
 
 namespace AviBlog.Web.Areas.Manage.Controllers
 {
     public class ImportController : Controller
     {
-        [AdminAuthorize]
-         public ActionResult Index()
+        private readonly IBlogMLService _blogMLService;
+        private readonly IBlogSiteService _blogSiteService;
+        private readonly IProfileUserService _profileUserService;
+
+        public ImportController(IBlogMLService blogMLService, IBlogSiteService blogSiteService,
+                                IProfileUserService profileUserService)
         {
-            return View();
+            _blogMLService = blogMLService;
+            _blogSiteService = blogSiteService;
+            _profileUserService = profileUserService;
         }
 
-        [HttpPost]
-        public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
+        [AdminAuthorize]
+        public ActionResult Index()
         {
-            foreach (var file in files)
-            {
-                if (file.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/blogml"), fileName);
-                    file.SaveAs(path);
-                }
-            }
-            return RedirectToAction("Successful");
+            ImportViewModel model = ImportViewModel();
+            return View(model);
+        }
+
+        
+        [HttpPost]
+        public ActionResult Upload(IEnumerable<HttpPostedFileBase> files, ImportViewModel model)
+        {
+            string errorMessage = _blogMLService.SaveAndImport(files.ToList(), model);
+            if (string.IsNullOrEmpty(errorMessage))
+                return RedirectToAction("Successful");
+            ImportViewModel modelReloaded = ImportViewModel();
+            return View("Index",modelReloaded);
         }
 
         public ActionResult Successful()
         {
             return View();
         }
+
+        private ImportViewModel ImportViewModel()
+        {
+            List<BlogSiteViewModel> blogs = _blogSiteService.GetBlogsAll()
+                .Where(x => x.IsActive)
+                .ToList();
+            BlogSiteViewModel primary = _blogSiteService.GetBlogsAll()
+                .FirstOrDefault(x => x.IsPrimary);
+            SelectList selectList = primary == null
+                                        ? new SelectList(blogs, "BlogId", "BlogName")
+                                        : new SelectList(blogs, "BlogId", "BlogName", primary.BlogId);
+
+            List<UserViewModel> users = _profileUserService.GetAllUsers()
+                .Where(x => x.IsActive)
+                .ToList();
+            var uSelectList = new SelectList(users, "Id", "UserName");
+
+            var model = new ImportViewModel
+            {
+                BlogSiteList = selectList,
+                UserList = uSelectList
+            };
+            return model;
+        }
+
     }
 }

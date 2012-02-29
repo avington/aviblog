@@ -11,5 +11,7 @@ namespace AviBlog.Core.ViewModel
         public string SubHead { get; set; }
 
         public object UserFullName { get; set; }
+
+        public string Tag { get; set; }
     }
 }

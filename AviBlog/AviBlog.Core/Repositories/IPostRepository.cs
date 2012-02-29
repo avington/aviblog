@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using AviBlog.Core.Entities;
 
@@ -11,5 +12,6 @@ namespace AviBlog.Core.Repositories
         string Delete(int id);
         string Add(Post entity, int userId, int blogId);
         string Edit(Post post, int sectedUserId, int selectedBlogId);
+        IQueryable<Tag> GetAllTags();
     }
 }

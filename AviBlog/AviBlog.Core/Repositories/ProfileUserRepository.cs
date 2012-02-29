@@ -29,6 +29,7 @@ namespace AviBlog.Core.Repositories
             {
                 _context.UserProfiles.Add(user);
                 _context.SaveChanges();
+                _context.Dispose();
                 return string.Empty;
             }
             return "User already exists.";
@@ -46,6 +47,7 @@ namespace AviBlog.Core.Repositories
             if (user == null) return "The specified user could not be found.";
             user.Roles.Clear();
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -70,6 +72,7 @@ namespace AviBlog.Core.Repositories
                 user.Roles.Add(role);
             }
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -79,6 +82,7 @@ namespace AviBlog.Core.Repositories
             if (user == null) return "The specified user could not found.";
             _context.UserProfiles.Remove(user);
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -91,6 +95,7 @@ namespace AviBlog.Core.Repositories
             user.Password = userProfile.Password;
             user.UserName = userProfile.UserName;
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 

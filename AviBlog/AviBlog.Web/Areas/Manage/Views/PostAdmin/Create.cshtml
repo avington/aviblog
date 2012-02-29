@@ -1,0 +1,10 @@
+﻿@model AviBlog.Core.ViewModel.PostViewModel
+
+@{
+    ViewBag.Title = "Create a Post";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create a Post</h2>
+
+@Html.Partial("_PostForm",Model)

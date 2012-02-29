@@ -1,5 +1,4 @@
-﻿@using Microsoft.Web.Helpers
-@model dynamic
+﻿@model AviBlog.Core.ViewModel.ImportViewModel
 
 @{
     ViewBag.Title = "Import Using BlogML";
@@ -10,7 +9,18 @@
 
 @using(Html.BeginForm("Upload","Import", FormMethod.Post, new { enctype="multipart/form-data" })) { 
     <fieldset>
-        
+        <div class="display-label">
+            Blog Site
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.SelectedBlogSite,Model.BlogSiteList )
+        </div>
+        <div class="display-label">
+            Author to Import To
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.SelectedUserId,Model.UserList )
+        </div>
         <div class="display-label">
             @Html.Label("Import BlogML file")
         </div>

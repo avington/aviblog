@@ -1,0 +1,12 @@
+﻿@model AviBlog.Core.ViewModel.SettingViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+@Html.Partial("_SettingForm",Model)
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

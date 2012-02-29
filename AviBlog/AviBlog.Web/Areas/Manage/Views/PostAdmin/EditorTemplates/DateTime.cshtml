@@ -1,0 +1,10 @@
+﻿@inherits WebViewPage<DateTime?>
+   
+@if (Model.HasValue)
+{
+    @Html.TextBox("", (Model.Value.ToShortDateString()), new {@class = "date-dialog"})
+}
+else
+{
+    @Html.TextBox("", "", new {@class = "date-dialog"})
+}

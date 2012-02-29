@@ -6,10 +6,12 @@ namespace AviBlog.Web.Controllers
     public class PostsController : Controller
     {
         private readonly IPostService _postService;
+        private readonly ISettingsService _settingsService;
 
-        public PostsController(IPostService postService)
+        public PostsController(IPostService postService, ISettingsService settingsService)
         {
             _postService = postService;
+            _settingsService = settingsService;
         }
 
 
@@ -17,6 +19,12 @@ namespace AviBlog.Web.Controllers
         {
             var viewModel = _postService.GetPostBySlug(id);
             return View(viewModel);
+        }
+
+        public ActionResult PostSettings(string id)
+        {
+            var setting = _settingsService.GetSettingByKey(id);
+            return PartialView("_PostSettings",setting);
         }
     }
 }

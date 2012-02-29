@@ -1,0 +1,14 @@
+﻿@model AviBlog.Core.ViewModel.PostListViewModel
+
+@{
+    ViewBag.Title = "Tag: " + Model.Tag;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Posts for the tag: @Model.Tag</h4>
+<div id="posts-wrapper">
+@foreach (var post in Model.Posts)
+{
+    @Html.Partial("_Post",post)
+}
+</div>

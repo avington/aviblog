@@ -160,7 +160,7 @@ namespace AviBlog.Core.Services
                 _postRepository.GetAllPosts().FirstOrDefault(
                     x => x.Slug == slug && x.Blog.IsActive && x.Blog.IsPrimary && !x.IsDeleted && x.IsPublished);
             if (post == null) return new PostListViewModel {ErrorMessage = "The specified post was not found."};
-            
+
             var list = new PostListViewModel
                            {
                                BlogId = post.Blog.Id,
@@ -169,21 +169,53 @@ namespace AviBlog.Core.Services
                                Posts = new List<PostViewModel>()
                            };
             PostViewModel item = _postMappingService.MapToView(post);
-            item.Tags = new List<TagViewModel>();
-            foreach (var tag in post.Tags)
-            {
-                item.Tags.Add(new TagViewModel
-                                  {
-                                      Id = tag.Id,
-                                      Name = tag.TagName
-                                  });
-            }
+            item.Tags = MapTags(post);
             item.UserFullName = string.Format("{0} {1}", post.User.FirstName, post.User.LastName);
             list.Posts.Add(item);
             return list;
         }
 
+        public PostListViewModel GetAllPostsForTag(string urlEncodedTag)
+        {
+            string tag = _httpHelper.DecodeUrl(urlEncodedTag);
+            List<Post> posts = _postRepository.GetAllPosts().Where(x => x.Tags.Any(y => y.TagName == tag))
+                .Where(x => x.Blog.IsActive && x.Blog.IsPrimary && !x.IsDeleted && x.IsPublished)
+                .ToList();
+
+            var list = new PostListViewModel{Posts = new List<PostViewModel>()};
+            if (posts.Count == 0)
+            {
+                list.ErrorMessage = "The selected posts were not found.";
+                return list;
+            }
+
+
+            Blog blog = posts.First().Blog;
+            UserProfile user = posts.First().User;
+            list.BlogId = blog.Id;
+            list.BlogTitle = blog.BlogName;
+            list.SubHead = blog.SubHead;
+            list.UserFullName = user.FirstName + " " + user.LastName;
+            foreach (Post post in posts)
+            {
+                PostViewModel item = _postMappingService.MapToView(post);
+                item.Tags = MapTags(post);
+                list.Posts.Add(item);
+            }
+            list.Tag = tag;
+            return list;
+        }
+
         #endregion
+
+        private IList<TagViewModel> MapTags(Post post)
+        {
+            return post.Tags.Select(item => new TagViewModel
+                                                {
+                                                    Id = item.Id,
+                                                    Name = item.TagName
+                                                }).ToList();
+        }
 
         private IEnumerable<UserViewModel> GetUserList()
         {

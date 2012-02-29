@@ -13,11 +13,13 @@ namespace AviBlog.Core.Entities
         public string PostContent { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
+        public DateTime? DatePublished { get; set; }
         public bool IsPublished { get; set; }
         public string Slug { get; set; }
         public bool IsDeleted { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
-        public virtual ICollection<Trackback> Trackbacks { get; set; } 
+        public virtual ICollection<Trackback> Trackbacks { get; set; }
+        public Guid UniqueId { get; set; }
     }
 }

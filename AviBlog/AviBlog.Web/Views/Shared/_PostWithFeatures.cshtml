@@ -14,12 +14,12 @@
             }
         </ul>
     </div>
-    <div class="post-social">
-        <ul>
-            <li>twitter</li>
-            <li>facebook</li>
-            <li>linkedin</li>
-            <li>google+</li>
-        </ul>
+    <div class="post-tags-social">
+        @Html.Partial("_PostTags",Model.Tags)
+        @Html.Partial("_PostSocial")
+    </div>
+    <div class="clear"></div>
+    <div class="post-comments">
+        @Html.Action("PostSettings", "Posts", new { id = "DisQusScript" })
     </div>
 </article>

@@ -36,6 +36,7 @@ namespace AviBlog.Core.Repositories
             if (post == null) return "Specified post was not found.";
             post.IsDeleted = true;
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -54,6 +55,7 @@ namespace AviBlog.Core.Repositories
 
             _context.Posts.Add(post);
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -79,7 +81,13 @@ namespace AviBlog.Core.Repositories
             updatedPost.Slug = post.Slug;
             updatedPost.User = user;
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
+        }
+
+        public IQueryable<Tag> GetAllTags()
+        {
+            return _context.Tags.AsQueryable();
         }
     }
 }

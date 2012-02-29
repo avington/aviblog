@@ -12,5 +12,6 @@ namespace AviBlog.Core.Services
         string EditPost(PostViewModel post);
         PostListViewModel GetTopMostRecentPosts(int top);
         PostListViewModel GetPostBySlug(string slug);
+        PostListViewModel GetAllPostsForTag (string urlEncodedTag  );
     }
 }

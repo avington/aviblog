@@ -1,0 +1,8 @@
+﻿@model IEnumerable<AviBlog.Core.ViewModel.TagViewModel>
+<span class="post-tag-label">Tagged Under:</span>
+<ul class="post-tags-list">
+    @foreach (var tag in Model)
+    {
+        <li>@Html.ActionLink(tag.Name,"Tag","Tags",new {id = Url.Encode(tag.Name)},new {@class = "post-tag-link"})</li>
+    }
+</ul>

@@ -1,0 +1,18 @@
+﻿@model dynamic
+
+<ul class="post-social-list">
+    <li>
+        @Html.Action("PostSettings", "Posts", new { id = "GooglePlusOneScript" })
+    </li>
+    <li>
+        @Html.Action("PostSettings", "Posts", new { id = "LinkedInScript" })
+    </li>
+    <li>
+        @Html.Action("PostSettings", "Posts", new { id = "FaceBookLikeScript" })
+        @Html.Action("PostSettings", "Posts", new { id = "FaceBookLikeUrl" })
+    </li>
+    <li>
+        @Html.Action("PostSettings","Posts", new { id = "TwitterTweetThisUrl" })
+        @Html.Action("PostSettings", "Posts", new { id = "TwitterTweetthisScript" })
+    </li>
+</ul>

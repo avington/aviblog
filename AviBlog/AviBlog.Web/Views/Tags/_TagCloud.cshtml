@@ -1,0 +1,24 @@
+﻿@using AviBlog.Core.ViewModel
+@model IList<AviBlog.Core.ViewModel.TagCloudViewModel>
+
+
+<div id="tag-cloud">
+    <h4>Tag Cloud</h4>
+    <ul>
+        @foreach (TagCloudViewModel tag in Model)
+        {
+            if (tag.Weight == 1)
+            {
+                <li class="tag-cloud-small">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {id = Url.Encode(tag.TagName)},null)</li>
+            }
+            if (tag.Weight == 2)
+            {
+                <li class="tag-cloud-medium">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {id = Url.Encode(tag.TagName)},null)</li>
+            }
+            if (tag.Weight == 3)
+            {
+                <li class="tag-cloud-large">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {id = Url.Encode(tag.TagName)},null)</li>
+            }
+        }
+    </ul>
+</div>

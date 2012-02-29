@@ -46,6 +46,7 @@ namespace AviBlog.Core.Repositories
             if (blog.HtmlFragments == null) blog.HtmlFragments = new Collection<HtmlFragment>();
             blog.HtmlFragments.Add(entity);
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -55,6 +56,7 @@ namespace AviBlog.Core.Repositories
             if (fragment == null) return "The specified html fragment could not be found.";
             _context.HtmlFragments.Remove(fragment);
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
 
@@ -80,6 +82,7 @@ namespace AviBlog.Core.Repositories
             htmlFragment.Name = entity.Name;
             htmlFragment.ScriptBody = entity.ScriptBody;
             _context.SaveChanges();
+            _context.Dispose();
             return string.Empty;
         }
     }
