@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using AviBlog.Core.ActionResults;
 using AviBlog.Core.Services;
 using AviBlog.Core.ViewModel;
 
@@ -24,6 +26,13 @@ namespace AviBlog.Web.Controllers
         public ActionResult About()
         {
             return View();
+        }
+
+        public RssResult Rss()
+        {
+            var postViewModel = _postService.GetAllPostForBlog();
+            var posts = new RssResult(postViewModel);
+            return posts;
         }
     }
 }

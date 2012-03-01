@@ -5,7 +5,7 @@ namespace AviBlog.Core.Helpers
     public static class SlugHelper
     {
 
-        public static string ToSlug(this string text,int maxLength = 50)
+        public static string ToSlug(this string text,int maxLength = 75)
         {
             var str = text.ToLower();
             // invalid chars, make into spaces

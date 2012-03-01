@@ -1,66 +1,62 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.ServiceModel.Syndication;
+using System.Web;
 using System.Web.Mvc;
 using System.Xml;
 using AviBlog.Core.ViewModel;
 
 namespace AviBlog.Core.ActionResults
 {
-    public class RssResult : ActionResult
+    public class RssResult : FileResult
     {
-
-        private List<PostViewModel> _items;
-        private string _title;
-        private string _description;
-
-        /// <summary>
-        /// Initialises the RssResult
-        /// </summary>
-        /// <param name="items">The items to be added to the rss feed.</param>
-        /// <param name="title">The title of the rss feed.</param>
-        /// <param name="description">A short description about the rss feed.</param>
-        public RssResult(IEnumerable<PostViewModel> items, string title, string description)
+        private readonly PostListViewModel _view;
+        private SyndicationFeed _feed;
+        public RssResult(PostListViewModel model)
+            : base("application/rss+xml")
         {
-            _items = new List<PostViewModel>(items);
-            _title = title;
-            _description = description;
+            _view = model;
+            if (_view == null) return;
+            _feed = new SyndicationFeed(_view.BlogTitle, _view.SubHead, HttpContext.Current.Request.Url, BuildItems());
         }
 
-        public override void ExecuteResult(ControllerContext context)
+        protected override void WriteFile(HttpResponseBase response)
         {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineHandling = NewLineHandling.Entitize;
-
-            context.HttpContext.Response.ContentType = "text/xml";
-            using (XmlWriter _writer = XmlWriter.Create(context.HttpContext.Response.OutputStream, settings))
+            using (XmlWriter writer = XmlWriter.Create(response.OutputStream))
             {
-
-                // Begin structure
-                _writer.WriteStartElement("rss");
-                _writer.WriteAttributeString("version", "2.0");
-                _writer.WriteStartElement("channel");
-
-                _writer.WriteElementString("title", _title);
-                _writer.WriteElementString("description", _description);
-                _writer.WriteElementString("link", context.HttpContext.Request.Url.GetLeftPart(UriPartial.Authority));
-
-                // Individual items
-                _items.ForEach(x =>
-                {
-                    _writer.WriteStartElement("item");
-                    _writer.WriteElementString("title", x.Title);
-                    _writer.WriteElementString("description", x.Description);
-                    _writer.WriteElementString("link", context.HttpContext.Request.Url.GetLeftPart(UriPartial.Authority) + x.Slug);
-                    _writer.WriteEndElement();
-                });
-
-                // End structure
-                _writer.WriteEndElement();
-                _writer.WriteEndElement();
+                _feed.GetRss20Formatter().WriteTo(writer);
             }
         }
 
+        private IEnumerable<SyndicationItem> BuildItems()
+        {
+            if (_view == null) return new BindingList<SyndicationItem>();
+            var list = new List<SyndicationItem>();
+            var posts = _view.Posts.Take(10);
+            foreach (var post in posts)
+            {
+                var item = new SyndicationItem(post.Title, post.PostContent, GetUrl(post.Slug),
+                                               post.UniqueId.ToString(), GetLastUpdateTime(post.DatePublished));
+                list.Add(item);
+            }
+
+            return list;
+        }
+
+        private DateTimeOffset GetLastUpdateTime(DateTime? datePublished)
+        {
+            var dateVal = (datePublished.HasValue ? datePublished.Value : DateTime.MinValue);
+            DateTimeOffset offset = DateTime.SpecifyKind(dateVal, DateTimeKind.Local);
+            return offset;
+        }
+
+        private Uri GetUrl(string slug)
+        {
+            string url = string.Format("{0}/Posts/Post/{1}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority), slug);
+            return new Uri(url);
+        }
     }
 }

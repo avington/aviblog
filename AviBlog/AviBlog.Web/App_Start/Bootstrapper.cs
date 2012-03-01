@@ -25,6 +25,8 @@ namespace AviBlog.Web.App_Start
                                       x.AddProfile(new UserMapperProfile());
                                       x.AddProfile(new UserRoleMapperProfile());
                                       x.AddProfile(new BlogSiteMapperProfile());
+                                      x.AddProfile(new PostMapperProfile());
+                                      x.AddProfile(new SettingMappingProfile());
                                   });;
         }
     }

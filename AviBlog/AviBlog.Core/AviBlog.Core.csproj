@@ -34,6 +34,9 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BlogML">
+      <HintPath>..\packages\blogml.2.2.0\lib\BlogML.dll</HintPath>
+    </Reference>
     <Reference Include="DevOne.Security.Cryptography.BCrypt">
       <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
     </Reference>
@@ -47,6 +50,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -58,6 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\AdminAuthorizeActionFilter.cs" />
+    <Compile Include="ActionResults\RssResult.cs" />
+    <Compile Include="Application\HttpHelper.cs" />
+    <Compile Include="Application\IHttpHelper.cs" />
+    <Compile Include="Application\IStreamHelper.cs" />
+    <Compile Include="Application\StreamHelper.cs" />
     <Compile Include="Context\Configurations\BlogConfiguration.cs" />
     <Compile Include="Context\BlogContext.cs" />
     <Compile Include="Context\Configurations\CategoryConfiguration.cs" />
@@ -68,6 +77,7 @@
     <Compile Include="Context\Configurations\UserProfileConfiguration.cs" />
     <Compile Include="Context\Configurations\UserRoleConfiguration.cs" />
     <Compile Include="Context\Configurations\HtmlFragmentLocationConfiguration.cs" />
+    <Compile Include="Context\Configurations\SettingsConfiguration.cs" />
     <Compile Include="Encryption\EncryptionHelper.cs" />
     <Compile Include="Encryption\IEncryptionHelper.cs" />
     <Compile Include="Entities\Blog.cs" />
@@ -75,39 +85,86 @@
     <Compile Include="Entities\HtmlFragment.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\HtmlFragmentLocation.cs" />
+    <Compile Include="Entities\Setting.cs" />
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Entities\Trackback.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Helpers\CheckBoxListHelper.cs" />
+    <Compile Include="Helpers\SlugHelper.cs" />
+    <Compile Include="Mappings\BlogMLMappingService.cs" />
     <Compile Include="Mappings\BlogSiteMapperProfile.cs" />
     <Compile Include="Mappings\BlogsSiteMappingService.cs" />
+    <Compile Include="Mappings\CustomMappings\BaseFormatter.cs" />
+    <Compile Include="Mappings\CustomMappings\PostCreateDateResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\DateNonNullStringFormatter.cs" />
+    <Compile Include="Mappings\CustomMappings\DateStringFormatter.cs" />
+    <Compile Include="Mappings\CustomMappings\PostModifyDateResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\PostPublishDateResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\TagListToDelimiterResolver.cs" />
     <Compile Include="Mappings\HtmlFragmentMappingService.cs" />
+    <Compile Include="Mappings\IBlogMLMappingService.cs" />
     <Compile Include="Mappings\IHtmlFragmentMappingService.cs" />
+    <Compile Include="Mappings\ISettingMappingService.cs" />
     <Compile Include="Mappings\IUserProfileMappingService.cs" />
+    <Compile Include="Mappings\PostMapperProfile.cs" />
+    <Compile Include="Mappings\PostMappingService.cs" />
+    <Compile Include="Mappings\CustomMappings\TagListFromDelimiterResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\SlugResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\SelectedBlogIdResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\SelectedUserIdResolver.cs" />
+    <Compile Include="Mappings\SettingMappingProfile.cs" />
+    <Compile Include="Mappings\SettingMappingService.cs" />
     <Compile Include="Mappings\UserMapperProfile.cs" />
     <Compile Include="Mappings\UserProfileMappingService.cs" />
     <Compile Include="Mappings\UserRoleMapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\BlogSiteRepository.cs" />
     <Compile Include="Repositories\HtmlFragmentRepository.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\IBlogSiteRepository.cs" />
+    <Compile Include="Repositories\IImportRepository.cs" />
+    <Compile Include="Repositories\ImportRepository.cs" />
     <Compile Include="Repositories\IProfileUserRepository.cs" />
+    <Compile Include="Repositories\ISettingRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
     <Compile Include="Repositories\ProfileUserRepository.cs" />
+    <Compile Include="Repositories\SettingRepository.cs" />
+    <Compile Include="Repositories\TagRepostiory.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\BlogMLService.cs" />
     <Compile Include="Services\BlogSiteService.cs" />
     <Compile Include="Mappings\IBlogsSiteMappingService.cs" />
     <Compile Include="Services\HtmlFragmentService.cs" />
     <Compile Include="Repositories\IHtmlFragmentRepository.cs" />
+    <Compile Include="Services\IBlogMLService.cs" />
     <Compile Include="Services\IHtmlFragmentService.cs" />
+    <Compile Include="Repositories\IPostRepository.cs" />
+    <Compile Include="Mappings\IPostMappingService.cs" />
+    <Compile Include="Services\IPostService.cs" />
+    <Compile Include="Services\ISettingsService.cs" />
+    <Compile Include="Repositories\ITagRepostiory.cs" />
+    <Compile Include="Services\ITagService.cs" />
+    <Compile Include="Services\PostService.cs" />
+    <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\TagService.cs" />
     <Compile Include="ViewModel\BlogSiteViewModel.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IBlogSiteService.cs" />
     <Compile Include="Services\IProfileUserService.cs" />
     <Compile Include="Services\ProfileUserService.cs" />
+    <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\DropDownViewModel.cs" />
     <Compile Include="ViewModel\HtmlFragmentViewModel.cs" />
+    <Compile Include="ViewModel\ImportViewModel.cs" />
+    <Compile Include="ViewModel\PostListViewModel.cs" />
+    <Compile Include="ViewModel\PostViewModel.cs" />
     <Compile Include="ViewModel\RolesViewModel.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
+    <Compile Include="ViewModel\TagCloudViewModel.cs" />
+    <Compile Include="ViewModel\TagViewModel.cs" />
+    <Compile Include="ViewModel\TrackbackViewModel.cs" />
     <Compile Include="ViewModel\UserRolesViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />

@@ -23,6 +23,7 @@ namespace AviBlog.Core.Context
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Trackback> Trackbacks { get; set; }
         public DbSet<HtmlFragmentLocation> HtmlFragmentLocations { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,6 +36,7 @@ namespace AviBlog.Core.Context
             modelBuilder.Configurations.Add(new UserRoleConfiguration());
             modelBuilder.Configurations.Add(new TrackbackConfiguration());
             modelBuilder.Configurations.Add(new HtmlFragmentLocationConfiguration());
+            modelBuilder.Configurations.Add(new SettingsConfiguration());
             base.OnModelCreating(modelBuilder);
         }
          
