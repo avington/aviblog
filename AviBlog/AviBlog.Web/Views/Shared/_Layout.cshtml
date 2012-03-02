@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8" />
         <title>@ViewBag.Title</title>
-        <link href='http://fonts.googleapis.com/css?family=Questrial|Acme' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Questrial|Acme' rel='stylesheet' type='text/css'/>
         <link href="@Url.Content("~/Content/reset.css")" rel="stylesheet" type="text/css" />
         <link href="@Url.Content("~/Content/Home.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Home/Rss")" type="application/rss+xml" rel="" />
         <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"> </script>
         <script src="@Url.Content("~/Scripts/modernizr-2.0.6-development-only.js")" type="text/javascript"> </script>
         <!-- Google +1 script Start -->
@@ -27,26 +28,26 @@
         <header id="header">
             <div id="header-wrapper">
                 <div id="header-wrapper-left">
-                    <h1>STEVEN MOSELEY</h1>
+                    <h1>@Html.ActionLink("Steven Moseley","Index","Home")</h1>
                     <p>About that art of writing code, plus other minutiae.</p>
                 </div>
                 <div id="header-wrapper-right">
                     <nav id="nav-main">
                         <ul>
                             <li>
-                                <a href="#">HOME</a>
+                                @Html.ActionLink("ACTIVE","Index","Archive")
                             </li>
                             <li>
-                                <a href="#">ABOUT ME</a>
+                                @Html.ActionLink("ABOUT ME","About","Home")
                             </li>
                         </ul>
                     </nav>
                     <nav class="col3 pad_left2 nav-social">
                         <h4>Follow Me</h4>
                         <ul>
-                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
-                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="">Linkedin</a></li>
-                            <li><a href="#"><img src="@Url.Content("~/content/images/icons/google.png")" alt="">Google+</a></li>
+                            <li><a href="https://twitter.com/#!/siravington"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
+                            <li><a href="http://www.linkedin.com/pub/steve-moseley/b/122/527"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="">Linkedin</a></li>
+                            <li><a href="https://plus.google.com/106749740819311476842/posts?hl=en"><img src="@Url.Content("~/content/images/icons/google.png")" alt="">Google+</a></li>
                             <li><a href="#"><img src="@Url.Content("~/content/images/icons/feed.png")" alt="">RSS Feed</a></li>
                         </ul>
                     </nav>

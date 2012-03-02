@@ -81,6 +81,7 @@
     <Compile Include="App_Start\RouteManager.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ElmahController.cs" />
+    <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Areas\Manage\Controllers\BlogSiteController.cs" />
     <Compile Include="Areas\Manage\Controllers\HtmlFragmentsController.cs" />
     <Compile Include="Areas\Manage\Controllers\ImportController.cs" />
