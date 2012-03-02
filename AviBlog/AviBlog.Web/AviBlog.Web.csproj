@@ -437,6 +437,7 @@
     <Content Include="Views\Shared\_PostSocial.cshtml" />
     <Content Include="Views\Shared\_PostSettings.cshtml" />
     <Content Include="Views\Tags\_TagCloud.cshtml" />
+    <Content Include="Views\Archive\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\blogml\" />

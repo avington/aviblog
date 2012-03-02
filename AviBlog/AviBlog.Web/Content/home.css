@@ -69,12 +69,15 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 /* facebook like button */
 #LikePluginPagelet { width: 50px;}
 
-
+/* archive */
+#archive-list ul li { padding: 5px 0;}
+#archive-list .archive-date {padding: 5px 10px 0 2px;width: 100px;display: inline-block;}
+#archive-list .post-archive-link { color: blue; }
 
 section aside { width: 260px;float: left;}
 section aside div#tag-cloud {width: 100%}
 section aside div#tag-cloud ul { background-color: whitesmoke;display: inline-block;}
-section aside div#tag-cloud ul li { float: left;margin: 1px 3px 1px 2px;}
+section aside div#tag-cloud ul li {float: left;margin: 1px 3px 1px 2px;padding: 5px 2px;}
 section aside div#tag-cloud li.tag-cloud-small a { font-size: 12px;font-family: 'Questrial', Tahoma; font-weight: 300;color: #565656;}
 section aside div#tag-cloud ul li.tag-cloud-medium a { font-size: 14px;font-family: 'Questrial', Tahoma; font-weight: 500;color: #565656;}
 section aside div#tag-cloud ul li.tag-cloud-large a { font-size: 16px;font-family: 'Questrial', Tahoma; font-weight: 700;color: #565656;}
