@@ -1,0 +1,23 @@
+﻿@model AviBlog.Core.ViewModel.PostListViewModel
+
+@{
+    ViewBag.Title = "Archived Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Archived Posts</h2>
+<div id="archive-list">
+    <ul>
+    @foreach (var post in Model.Posts)
+    {
+        <li>
+            <div class="archive-date">@if (post.DatePublished.HasValue)
+                  {
+                      @post.DatePublished.Value.ToShortDateString()
+                  }
+            </div>
+            <span>@Html.ActionLink(post.Title,"Post","Posts",new {id = post.Slug},new {@class = "post-archive-link"})</span>
+        </li>
+    }
+    </ul>
+</div>
