@@ -81,6 +81,7 @@
     <Compile Include="App_Start\RouteManager.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ElmahController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Areas\Manage\Controllers\PingController.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Areas\Manage\Controllers\BlogSiteController.cs" />
@@ -442,6 +443,8 @@
     <Content Include="Views\Shared\_PostSettings.cshtml" />
     <Content Include="Views\Tags\_TagCloud.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
+    <Content Include="Views\Layout\_HtmlFragment.cshtml" />
+    <Content Include="Views\Posts\Preview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\blogml\" />
@@ -543,10 +546,10 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1660</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <DevelopmentServerVPath>/aviblog/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1660/aviblog</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>

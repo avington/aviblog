@@ -19,5 +19,7 @@ namespace AviBlog.Core.ViewModel
         public SelectList LocationList { get; set; }
 
         public string SelectedLocationId { get; set; }
+
+        public string SelectedLocationName { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace AviBlog.Core.ViewModel
         public bool IsActive { get; set; }
 
         [Display(Name = "Html Fragments")]
-        public virtual IList<HtmlFragment> HtmlFragments { get; set; }
+        public virtual IList<HtmlFragmentViewModel> HtmlFragments { get; set; }
 
 
     }
