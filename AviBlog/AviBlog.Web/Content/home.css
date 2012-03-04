@@ -56,7 +56,7 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 #posts-wrapper  article h2 a.post-title-link:hover { font-size: 24px;font-weight: 700; color: #1F447D}
 #posts-wrapper  article h2 a.post-title-link:active { font-size: 24px;font-weight: 700; color: #1F447D}
 
-#posts-wrapper article h3 {padding: 20px 0 0 0;font-size: 22px;font-weight: 600;}
+#posts-wrapper article h3, h2 {padding: 20px 0 0 0;font-size: 22px;font-weight: 600;}
 #posts-wrapper article .post-meta-info {width: 100%;font-size: 12px;padding: 15px 2px 5px;}
 #posts-wrapper article .post-meta-info ul li { float: left;width: 400px;}
 #posts-wrapper article .post-tags-social { width: 100%;padding: 10px 0 7px 0;}

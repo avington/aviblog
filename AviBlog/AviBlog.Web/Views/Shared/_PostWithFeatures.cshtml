@@ -5,15 +5,8 @@
         <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
     </div>
     <div>@Html.Raw(Model.PostContent) </div>
-    <div class="post-meta-info">
-        <ul>
-            <li class="align-left">Authored by: @Model.UserFullName </li>
-            @if (Model.DatePublished.HasValue)
-            {
-                <li class="align-right">Published on: @Model.DatePublished.Value.ToLongDateString()</li>
-            }
-        </ul>
-    </div>
+    
+
     <div class="post-tags-social">
         @Html.Partial("_PostTags",Model.Tags)
         @Html.Partial("_PostSocial")

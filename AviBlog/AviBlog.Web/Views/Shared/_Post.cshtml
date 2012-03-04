@@ -2,7 +2,15 @@
 
 <article>
     <div>
-        <h2>@Html.ActionLink(Model.Title,"Post","Posts",new {id = Model.Slug},new {@class = "post-title-link"})</h2>
+        <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
     </div>
     <div>@Html.Raw(Model.PostContent) </div>
+    <div class="post-meta-info">
+        <ul>        
+            @if (Model.DatePublished.HasValue)
+            {
+                <li class="align-left">Published on: @Model.DatePublished.Value.ToLongDateString()</li>
+            }
+        </ul>
+    </div>
 </article>
