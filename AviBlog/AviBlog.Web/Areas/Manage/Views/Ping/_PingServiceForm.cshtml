@@ -1,0 +1,27 @@
+﻿@model AviBlog.Core.ViewModel.PingServiceViewModel
+
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>PingServiceViewModel</legend>
+        <span id="ping-service-error" class="error" style="display:none;"></span>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PingUrl)
+        </div>
+        <div class="editor-field">
+            <input type="hidden" id="ping-service-id" value="0" />
+            @Html.EditorFor(model => model.PingUrl)
+            @Html.ValidationMessageFor(model => model.PingUrl)
+        </div>
+
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

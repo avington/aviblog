@@ -78,11 +78,13 @@
     <Compile Include="Context\Configurations\UserRoleConfiguration.cs" />
     <Compile Include="Context\Configurations\HtmlFragmentLocationConfiguration.cs" />
     <Compile Include="Context\Configurations\SettingsConfiguration.cs" />
+    <Compile Include="Context\Configurations\PingServiceConfiguration.cs" />
     <Compile Include="Encryption\EncryptionHelper.cs" />
     <Compile Include="Encryption\IEncryptionHelper.cs" />
     <Compile Include="Entities\Blog.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\HtmlFragment.cs" />
+    <Compile Include="Entities\PingService.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\HtmlFragmentLocation.cs" />
     <Compile Include="Entities\Setting.cs" />
@@ -105,8 +107,11 @@
     <Compile Include="Mappings\HtmlFragmentMappingService.cs" />
     <Compile Include="Mappings\IBlogMLMappingService.cs" />
     <Compile Include="Mappings\IHtmlFragmentMappingService.cs" />
+    <Compile Include="Mappings\IPingServiceMappingService.cs" />
     <Compile Include="Mappings\ISettingMappingService.cs" />
     <Compile Include="Mappings\IUserProfileMappingService.cs" />
+    <Compile Include="Mappings\PingServiceMappingProfile.cs" />
+    <Compile Include="Mappings\PingServiceMappingService.cs" />
     <Compile Include="Mappings\PostMapperProfile.cs" />
     <Compile Include="Mappings\PostMappingService.cs" />
     <Compile Include="Mappings\CustomMappings\TagListFromDelimiterResolver.cs" />
@@ -126,8 +131,10 @@
     <Compile Include="Repositories\IBlogSiteRepository.cs" />
     <Compile Include="Repositories\IImportRepository.cs" />
     <Compile Include="Repositories\ImportRepository.cs" />
+    <Compile Include="Repositories\IPingRepository.cs" />
     <Compile Include="Repositories\IProfileUserRepository.cs" />
     <Compile Include="Repositories\ISettingRepository.cs" />
+    <Compile Include="Repositories\PingRepository.cs" />
     <Compile Include="Repositories\PostRepository.cs" />
     <Compile Include="Repositories\ProfileUserRepository.cs" />
     <Compile Include="Repositories\SettingRepository.cs" />
@@ -142,10 +149,12 @@
     <Compile Include="Services\IHtmlFragmentService.cs" />
     <Compile Include="Repositories\IPostRepository.cs" />
     <Compile Include="Mappings\IPostMappingService.cs" />
+    <Compile Include="Services\IPingServiceService.cs" />
     <Compile Include="Services\IPostService.cs" />
     <Compile Include="Services\ISettingsService.cs" />
     <Compile Include="Repositories\ITagRepostiory.cs" />
     <Compile Include="Services\ITagService.cs" />
+    <Compile Include="Services\PingServiceService.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\TagService.cs" />
@@ -158,6 +167,7 @@
     <Compile Include="ViewModel\DropDownViewModel.cs" />
     <Compile Include="ViewModel\HtmlFragmentViewModel.cs" />
     <Compile Include="ViewModel\ImportViewModel.cs" />
+    <Compile Include="ViewModel\PingServiceViewModel.cs" />
     <Compile Include="ViewModel\PostListViewModel.cs" />
     <Compile Include="ViewModel\PostViewModel.cs" />
     <Compile Include="ViewModel\RolesViewModel.cs" />

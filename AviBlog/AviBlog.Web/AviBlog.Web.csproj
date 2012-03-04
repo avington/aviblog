@@ -81,6 +81,7 @@
     <Compile Include="App_Start\RouteManager.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ElmahController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PingController.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Areas\Manage\Controllers\BlogSiteController.cs" />
     <Compile Include="Areas\Manage\Controllers\HtmlFragmentsController.cs" />
@@ -112,6 +113,8 @@
     <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\_SettingForm.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Ping\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Ping\_PingServiceForm.cshtml" />
     <None Include="Content\home.less" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -171,6 +174,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\home.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\admin.js" />
     <Content Include="README.jQuery.vsdoc.txt" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
@@ -395,6 +399,8 @@
     <Content Include="Scripts\ckeditor\skins\v2\skin.js" />
     <Content Include="Scripts\ckeditor\skins\v2\templates.css" />
     <Content Include="Scripts\ckeditor\themes\default\theme.js" />
+    <Content Include="Scripts\Copy of jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Copy of jquery.validate.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -444,7 +450,6 @@
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Areas\Manage\Views\Shared\" />
-    <Folder Include="js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

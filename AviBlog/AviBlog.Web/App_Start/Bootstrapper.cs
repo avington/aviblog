@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿
+using System.Web.Mvc;
 using AutoMapper;
 using AviBlog.Core.Mappings;
 using StructureMap;
@@ -27,6 +28,7 @@ namespace AviBlog.Web.App_Start
                                       x.AddProfile(new BlogSiteMapperProfile());
                                       x.AddProfile(new PostMapperProfile());
                                       x.AddProfile(new SettingMappingProfile());
+                                      x.AddProfile(new PingServiceMappingProfile());
                                   });;
         }
     }

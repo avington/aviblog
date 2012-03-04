@@ -24,6 +24,7 @@ namespace AviBlog.Core.Context
         public DbSet<Trackback> Trackbacks { get; set; }
         public DbSet<HtmlFragmentLocation> HtmlFragmentLocations { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<PingService> PingServices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,6 +38,7 @@ namespace AviBlog.Core.Context
             modelBuilder.Configurations.Add(new TrackbackConfiguration());
             modelBuilder.Configurations.Add(new HtmlFragmentLocationConfiguration());
             modelBuilder.Configurations.Add(new SettingsConfiguration());
+            modelBuilder.Configurations.Add(new PingServiceConfiguration());
             base.OnModelCreating(modelBuilder);
         }
          
