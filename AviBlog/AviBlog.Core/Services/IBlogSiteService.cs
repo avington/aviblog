@@ -10,5 +10,6 @@ namespace AviBlog.Core.Services
         string AddBlog(BlogSiteViewModel view);
         string DeleteBlog(int id);
         string SaveBlog(BlogSiteViewModel view);
+        BlogSiteViewModel GetFirstPrimarySiteBlog();
     }
 }

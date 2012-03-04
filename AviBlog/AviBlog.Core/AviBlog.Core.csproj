@@ -110,6 +110,7 @@
     <Compile Include="Mappings\IPingServiceMappingService.cs" />
     <Compile Include="Mappings\ISettingMappingService.cs" />
     <Compile Include="Mappings\IUserProfileMappingService.cs" />
+    <Compile Include="Mappings\CustomMappings\LocationTagResolver.cs" />
     <Compile Include="Mappings\PingServiceMappingProfile.cs" />
     <Compile Include="Mappings\PingServiceMappingService.cs" />
     <Compile Include="Mappings\PostMapperProfile.cs" />

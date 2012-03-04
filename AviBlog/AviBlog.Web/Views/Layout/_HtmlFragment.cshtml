@@ -1,0 +1,7 @@
+﻿@using AviBlog.Core.ViewModel
+@model IList<AviBlog.Core.ViewModel.HtmlFragmentViewModel>
+
+@foreach (var item in Model)
+{
+    @Html.Raw(item.ScriptBody)
+}

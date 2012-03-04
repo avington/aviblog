@@ -1,6 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using AviBlog.Core.Entities;
+using AviBlog.Core.Mappings.CustomMappings;
 using AviBlog.Core.ViewModel;
 
 
@@ -36,6 +37,7 @@ namespace AviBlog.Core.Mappings
                 .ForMember(dest => dest.LocationList, opt => opt.Ignore())
                 .ForMember(dest => dest.ErrorMessage,opt => opt.Ignore())
                 .ForMember(dest => dest.SelectedLocationId, opt => opt.Ignore())
+                .ForMember(dest => dest.SelectedLocationName, opt => opt.ResolveUsing<LocationTagResolver>())
                 ;
 
 

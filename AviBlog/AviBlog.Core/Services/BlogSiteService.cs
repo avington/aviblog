@@ -26,6 +26,16 @@ namespace AviBlog.Core.Services
             return blogs.Select(blog => _mappingService.MapToView(blog)).ToList();
         }
 
+        public BlogSiteViewModel GetFirstPrimarySiteBlog()
+        {
+            var entity = _blogSiteRepository
+                .GetAllBlogs()
+                .FirstOrDefault(x => x.IsPrimary);
+
+            if (entity == null) return new BlogSiteViewModel();
+            return _mappingService.MapToView(entity);
+        }
+
         public BlogSiteViewModel GetBlogById(int id)
         {
             var entity = _blogSiteRepository
