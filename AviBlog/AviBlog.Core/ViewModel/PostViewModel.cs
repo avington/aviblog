@@ -57,5 +57,7 @@ namespace AviBlog.Core.ViewModel
         public Guid UniqueId { get; set; }
 
         public string UserFullName { get; set; }
+
+        public bool UseCurrentDateTime { get; set; }
     }
 }

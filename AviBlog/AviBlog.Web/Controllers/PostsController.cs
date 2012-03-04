@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using AviBlog.Core.Services;
+using AviBlog.Core.ViewModel;
 
 namespace AviBlog.Web.Controllers
 {
@@ -17,14 +19,16 @@ namespace AviBlog.Web.Controllers
 
         public ActionResult Post(string id)
         {
-            var viewModel = _postService.GetPostBySlug(id);
+            PostListViewModel viewModel = _postService.GetPostBySlug(id);
+            if (viewModel.Posts == null)
+               return new EmptyResult();
             return View(viewModel);
         }
 
         public ActionResult PostSettings(string id)
         {
-            var setting = _settingsService.GetSettingByKey(id);
-            return PartialView("_PostSettings",setting);
+            SettingViewModel setting = _settingsService.GetSettingByKey(id);
+            return PartialView("_PostSettings", setting);
         }
     }
 }

@@ -44,3 +44,4 @@ aside#admin-post-right-side{width:380px;float:left;}
 .field-validation-valid,.validation-summary-valid{display:none;} 
 #edit-blog-form #SubHead,#edit-blog-form #HostName{width:400px;}
 #TagListCommaDelimited { height: 40px;width: 200px;}
+#post-form form section fieldset div.editor-field input#Title{ width: 600px;}

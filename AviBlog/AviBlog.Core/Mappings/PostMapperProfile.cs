@@ -28,6 +28,7 @@ namespace AviBlog.Core.Mappings
                 .ForMember(dest => dest.BlogList, opt => opt.Ignore())
                 .ForMember(dest => dest.SelectedBlogId, opt => opt.ResolveUsing<SelectedBlogIdResolver>())
                 .ForMember(dest => dest.UserFullName,opt => opt.Ignore())
+                .ForMember(dest => dest.UseCurrentDateTime, opt => opt.Ignore())
                 ;
 
             CreateMap<PostViewModel, Post>()

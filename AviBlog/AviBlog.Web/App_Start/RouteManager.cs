@@ -8,6 +8,7 @@ namespace AviBlog.Web.App_Start
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("*.html|js|css|gif|jpg|jpeg|png|swf");
 
             routes.MapRoute(
                 "Default", // Route name

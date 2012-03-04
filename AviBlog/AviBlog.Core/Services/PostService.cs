@@ -96,6 +96,7 @@ namespace AviBlog.Core.Services
         {
             post.DateCreated = DateTime.Now;
             post.DateModified = DateTime.Now;
+            SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
 
             return _postRepository.Add(entity, post.SectedUserId, post.SelectedBlogId);
@@ -121,6 +122,7 @@ namespace AviBlog.Core.Services
         public string EditPost(PostViewModel post)
         {
             post.DateModified = DateTime.Now;
+            SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
 
             return _postRepository.Edit(entity, post.SectedUserId, post.SelectedBlogId);
@@ -182,7 +184,7 @@ namespace AviBlog.Core.Services
                 .Where(x => x.Blog.IsActive && x.Blog.IsPrimary && !x.IsDeleted && x.IsPublished)
                 .ToList();
 
-            var list = new PostListViewModel{Posts = new List<PostViewModel>()};
+            var list = new PostListViewModel {Posts = new List<PostViewModel>()};
             if (posts.Count == 0)
             {
                 list.ErrorMessage = "The selected posts were not found.";
@@ -207,6 +209,14 @@ namespace AviBlog.Core.Services
         }
 
         #endregion
+
+        private static void SetPublishDate(PostViewModel post)
+        {
+            if (post.IsPublished && post.UseCurrentDateTime)
+                post.DatePublished = DateTime.Now;
+            else if (post.IsPublished && !post.DatePublished.HasValue)
+                post.DatePublished = DateTime.Now;
+        }
 
         private IList<TagViewModel> MapTags(Post post)
         {
