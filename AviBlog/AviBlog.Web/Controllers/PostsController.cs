@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AviBlog.Core.Services;
 using AviBlog.Core.ViewModel;
@@ -30,5 +31,18 @@ namespace AviBlog.Web.Controllers
             SettingViewModel setting = _settingsService.GetSettingByKey(id);
             return PartialView("_PostSettings", setting);
         }
+
+        public ActionResult Preview(PostViewModel post)
+        {
+            post.Tags =
+                post.TagListCommaDelimited
+                .Split(char.Parse(","))
+                .ToList()
+                .Select(x => new TagViewModel { Name = x })
+                .ToList();
+            return View(post);
+        }
+
+
     }
 }

@@ -23,6 +23,8 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 @media all and (min-width: 1200px) {.col1{ width: 860px;overflow: hidden;}}
 @media all and (min-width: 900px) and (max-width: 1200px) {.col1{ width:560px;overflow: hidden;}}
 @media all and (max-width: 900px) {.col1{ width:360px;overflow: hidden;}}
+@media all and (max-width: 900px) {section aside { display: none;visibility: hidden;}}
+@media all and (max-width: 900px) {#header-wrapper-right { display: none;visibility: hidden;}}
 
 .col3{ width:260px;}
 .col2{ width:220px;}
@@ -83,5 +85,4 @@ section aside div#tag-cloud ul li.tag-cloud-medium a { font-size: 14px;font-fami
 section aside div#tag-cloud ul li.tag-cloud-large a { font-size: 16px;font-family: 'Questrial', Tahoma; font-weight: 700;color: #565656;}
 
 
-@media all and (max-width: 1150px) {section aside { display: none;visibility: hidden;}}
-@media all and (max-width: 1000px) {#header-wrapper-right { display: none;visibility: hidden;}}
+

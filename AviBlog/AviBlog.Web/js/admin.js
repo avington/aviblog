@@ -74,3 +74,28 @@ var pingServiceModel = (function ($, ajaxUrl, indexUrl) {
  pingServiceModel.init();
  pingServiceModel.createClicked();
  pingServiceModel.submitPingServiceUrl();
+
+
+ var postForm = (function ($, previewUrl) {
+     var $ckEditor = $(".admin-textarea");
+     var $datePicker = $('.date-dialog');
+     var $previewButton = $('#preview-button');
+     var $postForm = $('div#post-form form');
+
+     var init = function () {
+         $ckEditor.ckeditor(); //set the rich text forms
+         $datePicker.datepicker(); //set the publish date picker
+         $(document).ready(function () {
+             $previewButton.on('click', null, function () {
+                 $postForm.attr('action', previewUrl);
+                 $postForm.attr('target', '_blank');
+                 $postForm.submit();    
+             });
+         });
+
+     };
+
+     return { init: init };
+ })(jQuery, previewUrl);
+
+ postForm.init();

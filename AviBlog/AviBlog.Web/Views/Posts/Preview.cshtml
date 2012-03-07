@@ -1,0 +1,10 @@
+﻿@model AviBlog.Core.ViewModel.PostViewModel
+
+@{
+    ViewBag.Title = "Preview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="posts-wrapper">
+    @Html.Partial("_PostWithFeatures",Model)
+</div>
