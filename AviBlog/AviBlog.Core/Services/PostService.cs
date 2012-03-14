@@ -156,6 +156,7 @@ namespace AviBlog.Core.Services
             return viewModel;
         }
 
+
         public PostListViewModel GetPostBySlug(string slug)
         {
             Post post =

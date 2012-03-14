@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=2.1.265.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.2.1.265\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="BlogML">
       <HintPath>..\packages\blogml.2.2.0\lib\BlogML.dll</HintPath>
@@ -40,9 +41,9 @@
     <Reference Include="DevOne.Security.Cryptography.BCrypt">
       <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.4.3.0\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -155,10 +156,12 @@
     <Compile Include="Services\ISettingsService.cs" />
     <Compile Include="Repositories\ITagRepostiory.cs" />
     <Compile Include="Services\ITagService.cs" />
+    <Compile Include="Services\IUploadService.cs" />
     <Compile Include="Services\PingServiceService.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Services\TagService.cs" />
+    <Compile Include="Services\UploadService.cs" />
     <Compile Include="ViewModel\BlogSiteViewModel.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IBlogSiteService.cs" />

@@ -23,7 +23,7 @@ namespace AviBlog.Core.Application
         {
             if (string.IsNullOrEmpty(fileName)) return string.Empty;
             if (string.IsNullOrEmpty(virtualDir)) return string.Empty;
-            var path = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data/blogml"), fileName);
+            var path = Path.Combine(HttpContext.Current.Server.MapPath(virtualDir), fileName);
             return path;
         }
 
