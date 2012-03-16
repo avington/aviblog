@@ -8,6 +8,9 @@
 <div id="post-form">
     
     <section>
+        
+        @Html.Partial("_FileUploadForm",Model.Id)
+
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary(true)
@@ -93,7 +96,7 @@
 
             </fieldset>
         }
-        @Html.Partial("_FileUploadForm",Model.Id)
+       
         
     </section>
         

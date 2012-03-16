@@ -1,20 +1,15 @@
 ﻿@using System.Globalization
 @model int
 
-@using (Html.BeginForm("File", "Upload",FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <fieldset>
-                <legend>Upload Files</legend>
-                <div class="editor-label">
-                    Upload Files
-                </div>
-                <div class="editor-field">
-                    <input type="file" name="files" id="files" multiple="multiple" />
-                </div>
-                <div class="clear"></div>
-                <p>
-                    @Html.Hidden("postId",Model.ToString(CultureInfo.InvariantCulture),new {id = "postId"})
-                    <input type="submit" value="Upload" />
-                </p>
-            </fieldset>
-        }
+@using (Html.BeginForm("File", "Upload", FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    <fieldset>
+        <legend>Upload Files</legend>
+        <div class="upload">
+            <span>Upload Files</span>
+            <span><input type="file" name="files" id="files" multiple="multiple" /></span>
+            <span> @Html.Hidden("postId", Model.ToString(CultureInfo.InvariantCulture), new {id = "postId"}) </span>
+            <span> <input type="submit" value="Upload" /> </span>
+        </div>
+    </fieldset>
+}

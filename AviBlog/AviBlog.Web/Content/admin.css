@@ -45,3 +45,6 @@ aside#admin-post-right-side{width:380px;float:left;}
 #edit-blog-form #SubHead,#edit-blog-form #HostName{width:400px;}
 #TagListCommaDelimited { height: 40px;width: 200px;}
 #post-form form section fieldset div.editor-field input#Title{ width: 600px;}
+input#Title { width: 500px;}
+.upload { width: 500px; }
+.upload span { float: left;padding: 0 10px;}
