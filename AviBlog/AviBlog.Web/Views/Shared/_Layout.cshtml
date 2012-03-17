@@ -6,27 +6,27 @@
         <link href='http://fonts.googleapis.com/css?family=Questrial|Acme' rel='stylesheet' type='text/css'/>
         <link href="@Url.Content("~/Content/reset.css")" rel="stylesheet" type="text/css" />
         <link href="@Url.Content("~/Content/Home.css")" rel="stylesheet" type="text/css" />
-        <link href="@Url.Action("Rss","Home")" type="application/rss+xml" rel="" />
+        <link href="@Url.Action("Rss", "Home")" type="application/rss+xml" rel="" />
         <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"> </script>
         <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"> </script>
-        @Html.Action("PrimarySiteHtml", "Layout", new { id = "Head" })
+        @Html.Action("PrimarySiteHtml", "Layout", new {id = "Head"})
         
     </head>
     <body>
         <header id="header">
             <div id="header-wrapper">
                 <div id="header-wrapper-left">
-                    <h1>@Html.ActionLink("Steven Moseley","Index","Home")</h1>
+                    <h1>@Html.ActionLink("Steven Moseley", "Index", "Home")</h1>
                     <p>About that art of writing code, plus other minutiae.</p>
                 </div>
                 <div id="header-wrapper-right">
                     <nav id="nav-main">
                         <ul>
                             <li>
-                                @Html.ActionLink("ARCHIVE","Index","Archive")
+                                @Html.ActionLink("ARCHIVE", "Index", "Archive")
                             </li>
                             <li>
-                                @Html.ActionLink("ABOUT ME","About","Home")
+                                @Html.ActionLink("ABOUT ME", "About", "Home", new {id = 1}, null)
                             </li>
                         </ul>
                     </nav>
@@ -48,7 +48,7 @@
                 @RenderBody()
             </div>
             <aside>
-                @Html.Action("TagCloud","Tags")
+                @Html.Action("TagCloud", "Tags")
                 @Html.Action("PrimarySiteHtml", "Layout", new {id = "aside"})
             </aside>
             <div class="clear"></div>

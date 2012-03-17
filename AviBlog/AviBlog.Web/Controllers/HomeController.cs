@@ -9,10 +9,12 @@ namespace AviBlog.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IPostService _postService;
+        private readonly IProfileUserService _profileUserService;
 
-        public HomeController(IPostService postService)
+        public HomeController(IPostService postService, IProfileUserService profileUserService)
         {
             _postService = postService;
+            _profileUserService = profileUserService;
         }
 
         public ActionResult Index()
@@ -23,9 +25,10 @@ namespace AviBlog.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult About()
+        public ActionResult About(int id)
         {
-            return View();
+            UserViewModel user = _profileUserService.GetUserById(id);
+            return View(user);
         }
 
         public RssResult Rss()

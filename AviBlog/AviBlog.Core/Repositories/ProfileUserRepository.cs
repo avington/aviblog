@@ -94,6 +94,7 @@ namespace AviBlog.Core.Repositories
             user.FirstName = userProfile.FirstName;
             user.Password = userProfile.Password;
             user.UserName = userProfile.UserName;
+            user.AboutMe = userProfile.AboutMe;
             _context.SaveChanges();
             _context.Dispose();
             return string.Empty;

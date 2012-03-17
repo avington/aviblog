@@ -13,5 +13,6 @@ namespace AviBlog.Core.Entities
         public string Email { get; set; }
         public virtual ICollection<UserRole> Roles { get; set; }
         public bool IsActive { get; set; }
+        public string AboutMe { get; set; }
     }
 }

@@ -80,6 +80,7 @@
     <Compile Include="Context\Configurations\HtmlFragmentLocationConfiguration.cs" />
     <Compile Include="Context\Configurations\SettingsConfiguration.cs" />
     <Compile Include="Context\Configurations\PingServiceConfiguration.cs" />
+    <Compile Include="Context\Configurations\StopWordConfiguration.cs" />
     <Compile Include="Encryption\EncryptionHelper.cs" />
     <Compile Include="Encryption\IEncryptionHelper.cs" />
     <Compile Include="Entities\Blog.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\HtmlFragmentLocation.cs" />
     <Compile Include="Entities\Setting.cs" />
+    <Compile Include="Entities\StopWord.cs" />
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Entities\Trackback.cs" />
     <Compile Include="Entities\UserProfile.cs" />

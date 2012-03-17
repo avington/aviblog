@@ -54,6 +54,7 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 
 
 #posts-wrapper  article { font-family: 'Acme', Tahoma; font-weight: 300;line-height: 23px; margin: 10px 5px 15px 5px;padding: 5px 5px 5px 5px;}
+#posts-wrapper  article p { padding: 5px 0;} 
 #posts-wrapper  article h2 a.post-title-link { font-size: 24px;font-weight: 700; color: #1F447D}
 #posts-wrapper  article h2 a.post-title-link:hover { font-size: 24px;font-weight: 700; color: #1F447D}
 #posts-wrapper  article h2 a.post-title-link:active { font-size: 24px;font-weight: 700; color: #1F447D}

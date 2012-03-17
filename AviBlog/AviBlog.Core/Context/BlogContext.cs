@@ -1,10 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System.Data.Common;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using AviBlog.Core.Context.Configurations;
 using AviBlog.Core.Entities;
 
 namespace AviBlog.Core.Context
 {
-    public class BlogContext : DbContext
+    public class BlogContext : DbContext, IDbConnectionFactory
     {
         protected BlogContext()
         {
@@ -25,6 +28,7 @@ namespace AviBlog.Core.Context
         public DbSet<HtmlFragmentLocation> HtmlFragmentLocations { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<PingService> PingServices { get; set; }
+        public DbSet<StopWord> StopWords { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -39,8 +43,13 @@ namespace AviBlog.Core.Context
             modelBuilder.Configurations.Add(new HtmlFragmentLocationConfiguration());
             modelBuilder.Configurations.Add(new SettingsConfiguration());
             modelBuilder.Configurations.Add(new PingServiceConfiguration());
+            modelBuilder.Configurations.Add(new StopWordConfiguration());
             base.OnModelCreating(modelBuilder);
         }
-         
+
+        public DbConnection CreateConnection(string nameOrConnectionString)
+        {
+            return new SqlConnection(nameOrConnectionString);
+        }
     }
 }

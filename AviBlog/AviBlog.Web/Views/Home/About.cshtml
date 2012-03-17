@@ -1,8 +1,14 @@
-﻿@{
-    ViewBag.Title = "About Us";
+﻿@model AviBlog.Core.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>About</h2>
-<p>
-     Put content here.
-</p>
+<h2>About Me</h2>
+
+<div id="posts-wrapper">
+        <article>
+            @Html.Raw( Model.AboutMe)
+    </article>
+</div>

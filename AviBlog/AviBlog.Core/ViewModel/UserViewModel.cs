@@ -34,5 +34,10 @@ namespace AviBlog.Core.ViewModel
 
         [Display(Name = "Active")]
         public bool IsActive { get; set; }
+
+        [Display(Name = "About Me")]
+        [AllowHtml]
+        public string AboutMe { get; set; }
+
     }
 }
