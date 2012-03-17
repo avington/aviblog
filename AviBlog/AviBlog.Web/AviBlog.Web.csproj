@@ -414,6 +414,7 @@
     <Content Include="Views\Layout\_HtmlFragment.cshtml" />
     <Content Include="Views\Posts\Preview.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <None Include="Views\Tags\_ContentMetaTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\blogml\" />

@@ -2,6 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="Description" content="Steven Moseley on programming, technology and the things of life in general."/>
+        @Html.Action("TagStringContentMetaTag","Tags")
+        <meta name="Author" content="Steven Moseley"/>
+        <meta name="copyright" content="Steven Moseley" />
         <title>@ViewBag.Title</title>
         <link href='http://fonts.googleapis.com/css?family=Questrial|Acme' rel='stylesheet' type='text/css'/>
         <link href="@Url.Content("~/Content/reset.css")" rel="stylesheet" type="text/css" />
@@ -17,7 +21,7 @@
             <div id="header-wrapper">
                 <div id="header-wrapper-left">
                     <h1>@Html.ActionLink("Steven Moseley", "Index", "Home")</h1>
-                    <p>About that art of writing code, plus other minutiae.</p>
+                    <p>Talking software development as well as other minutua.</p>
                 </div>
                 <div id="header-wrapper-right">
                     <nav id="nav-main">
