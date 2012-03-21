@@ -78,6 +78,7 @@ namespace AviBlog.Core.Repositories
             updatedPost.IsDeleted = post.IsDeleted;
             updatedPost.IsPublished = post.IsPublished;
             updatedPost.PostContent = post.PostContent;
+            updatedPost.Tags = post.Tags;
             updatedPost.Slug = post.Slug;
             updatedPost.User = user;
             _context.SaveChanges();
