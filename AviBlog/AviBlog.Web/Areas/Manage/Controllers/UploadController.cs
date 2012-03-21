@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using AviBlog.Core.ActionFilters;
 using AviBlog.Core.Services;
 
 namespace AviBlog.Web.Areas.Manage.Controllers
@@ -15,6 +16,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [AdminAuthorize]
         public ActionResult File(string postId, IEnumerable<HttpPostedFileBase> files)
         {
             _uploadService.Upload(files);

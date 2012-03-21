@@ -14,7 +14,7 @@ namespace AviBlog.Core.ActionFilters
         public void OnAuthorization(AuthorizationContext filterContext)
         {
             Debug.WriteLine("Inside OnAuthorization");
-            if (filterContext.HttpContext.User.Identity.IsAuthenticated && filterContext.HttpContext.User.IsInRole("Admin"))
+            if (filterContext.HttpContext.User.Identity.IsAuthenticated )
                 return;
 
             HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl);

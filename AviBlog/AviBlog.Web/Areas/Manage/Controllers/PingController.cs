@@ -40,6 +40,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return Json(new {Status = status, ErrorMessage = errorMessage}, JsonRequestBehavior.AllowGet);
         }
 
+        [AdminAuthorize]
         public ActionResult Delete(int id)
         {
             string errorMessage = _pingServiceService.Delete(id);

@@ -31,6 +31,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
 
         
         [HttpPost]
+        [AdminAuthorize]
         public ActionResult Upload(IEnumerable<HttpPostedFileBase> files, ImportViewModel model)
         {
             string errorMessage = _blogMLService.SaveAndImport(files.ToList(), model);
@@ -40,11 +41,13 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View("Index",modelReloaded);
         }
 
+        [AdminAuthorize]
         public ActionResult Successful()
         {
             return View();
         }
 
+        [AdminAuthorize]
         private ImportViewModel ImportViewModel()
         {
             List<BlogSiteViewModel> blogs = _blogSiteService.GetBlogsAll()

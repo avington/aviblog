@@ -40,6 +40,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View(new SignInViewModel());
         }
 
+        [AdminAuthorize]
         public ActionResult Create()
         {
             var userView = new UserViewModel();

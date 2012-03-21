@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using AviBlog.Core.ActionFilters;
 using AviBlog.Core.Services;
 using AviBlog.Core.ViewModel;
 
@@ -13,12 +14,14 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             _settingsService = settingsService;
         }
 
+        [AdminAuthorize]
         public ActionResult Index()
         {
             var list = _settingsService.GetAllSettings();
             return View(list);
         }
 
+        [AdminAuthorize]
         public ActionResult Edit(int id)
         {
             var view = _settingsService.GetSettingById(id);
@@ -26,6 +29,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [AdminAuthorize]
         public ActionResult Edit(SettingViewModel viewModel)
         {
             string errorMessage = _settingsService.EditSetting(viewModel);
@@ -35,6 +39,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return View(viewModel);
         }
 
+        [AdminAuthorize]
         public ActionResult Delete(int id)
         {
             string errorMessage = _settingsService.DeleteSetting(id);
@@ -47,6 +52,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
             return RedirectToActionPermanent("Index");
         }
 
+        [AdminAuthorize]
         public ActionResult Create()
         {
             var list = new SettingViewModel();
@@ -54,6 +60,7 @@ namespace AviBlog.Web.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [AdminAuthorize]
         public ActionResult Create(SettingViewModel viewModel)
         {
             string errorMessage = _settingsService.AddSetting(viewModel);
