@@ -87,9 +87,11 @@ var pingServiceModel = (function ($, ajaxUrl, indexUrl) {
          $datePicker.datepicker(); //set the publish date picker
          $(document).ready(function () {
              $previewButton.on('click', null, function () {
+                 var tempUrl = $postForm.attr('action');
                  $postForm.attr('action', previewUrl);
                  $postForm.attr('target', '_blank');
-                 $postForm.submit();    
+                 $postForm.submit();
+                 $postForm.attr('action', tempUrl);
              });
          });
 
