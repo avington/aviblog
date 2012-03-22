@@ -189,6 +189,7 @@
     <Compile Include="ViewModel\DropDownViewModel.cs" />
     <Compile Include="ViewModel\HtmlFragmentViewModel.cs" />
     <Compile Include="ViewModel\ImportViewModel.cs" />
+    <Compile Include="ViewModel\NotFoundViewModel.cs" />
     <Compile Include="ViewModel\PingServiceViewModel.cs" />
     <Compile Include="ViewModel\PostListViewModel.cs" />
     <Compile Include="ViewModel\PostViewModel.cs" />

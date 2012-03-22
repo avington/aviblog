@@ -31,5 +31,7 @@ namespace AviBlog.Web.App_Start
                                       x.AddProfile(new PingServiceMappingProfile());
                                   });;
         }
+
+
     }
 }

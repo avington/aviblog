@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="Description" content="Steven Moseley on programming, technology and the things of life in general."/>
-        @Html.Action("TagStringContentMetaTag","Tags")
+        @Html.Action("TagStringContentMetaTag", "Tags")
         <meta name="Author" content="Steven Moseley"/>
         <meta name="copyright" content="Steven Moseley" />
         <title>@ViewBag.Title</title>
@@ -58,7 +58,7 @@
                     <ul>
                         <li>Software Architect and programmer living in sunny South Florida.
                             This blog is dedicated to programming, technology and some times random
-                            thoughts and ideas I just have to express @Html.ActionLink("read more","About","Home")</li>
+                            thoughts and ideas I just have to express @Html.ActionLink("read more", "About", "Home")</li>
                     </ul>
                 </div>
                 @Html.Action("TagCloud", "Tags")
@@ -69,7 +69,27 @@
         <div class="clear"></div>
         <footer>
             <div id="footer-wrapper">
-                footer
+                <div id="footer-section-1">
+                    <nav class="col3 pad_left2 nav-social">
+                        <h4>Follow Me</h4>
+                        <ul>
+                            <li><a href="https://twitter.com/#!/siravington"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
+                            <li><a href="http://www.linkedin.com/pub/steve-moseley/b/122/527"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="">Linkedin</a></li>
+                            <li><a href="https://plus.google.com/106749740819311476842/posts?hl=en"><img src="@Url.Content("~/content/images/icons/google.png")" alt="">Google+</a></li>
+                            <li><a href="http://feeds.feedburner.com/SteveMoseley"><img src="@Url.Content("~/content/images/icons/feed.png")" alt="">RSS Feed</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div id="footer-section-2">
+                    <div id="copy">
+                        <div>
+                            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width: 0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer-section-3"></div>
+                <div class="clear"></div>
             </div>
         </footer>
     </body>

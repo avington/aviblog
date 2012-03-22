@@ -52,6 +52,18 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 #header #header-wrapper-right nav ul li a:hover {color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
 #header #header-wrapper-right nav ul li a:active {color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
 
+footer div#footerwrapper{ max-width: 1190px;margin: 0 auto;}
+footer div#footer-section-1, footer div#footer-section-2, footer div#footer-section-3 { float: left;width: 320px;}
+
+footer nav.nav-social { margin-top: 41px;}
+footer nav.nav-social h4 { color: #fff;font-family: 'Acme', sans-serif; }
+footer nav.nav-social ul li {padding: 2px 10px; float: left;}
+footer nav.nav-social ul li a { color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
+footer nav.nav-social ul li a img { padding-right: 5px;}
+footer nav.nav-social ul li a:hover {color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
+footer nav.nav-social ul li a:active {color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
+footer div#copy { margin: 41px auto 0;}
+footer div#copy div {width: 90px; margin: auto;}
 
 #posts-wrapper  article { font-family: 'Acme', Tahoma; font-weight: 300;line-height: 23px; margin: 10px 5px 15px 5px;padding: 5px 5px 5px 5px;}
 #posts-wrapper  article p { padding: 5px 0;} 

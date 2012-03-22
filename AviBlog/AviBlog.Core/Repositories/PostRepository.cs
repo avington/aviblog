@@ -71,6 +71,9 @@ namespace AviBlog.Core.Repositories
             Post updatedPost = _context.Posts.Find(post.Id);
             if (updatedPost == null) return "The specified post could not be found.";
 
+            updatedPost.Tags.Clear();
+            _context.SaveChanges();
+
             updatedPost.Blog = blog;
             updatedPost.DateModified = post.DateModified;
             updatedPost.DatePublished = post.DatePublished;
