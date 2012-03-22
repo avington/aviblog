@@ -115,6 +115,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Manage\Controllers\PostAdminController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\SiteMapController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Areas\Manage\Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,6 +142,7 @@
     <Content Include="Areas\Manage\Views\Ping\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Ping\_PingServiceForm.cshtml" />
     <Content Include="Areas\Manage\Views\PostAdmin\_FileUploadForm.cshtml" />
+    <Content Include="robots.txt" />
     <Content Include="Views\Shared\_ContentMetaTag.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />

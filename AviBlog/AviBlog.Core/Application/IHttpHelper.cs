@@ -1,4 +1,6 @@
-﻿namespace AviBlog.Core.Application
+﻿using System;
+
+namespace AviBlog.Core.Application
 {
     public interface IHttpHelper
     {
@@ -6,5 +8,6 @@
         string GetCurrentUserName();
         string GetPath(string virtualDir, string fileName);
         string DecodeUrl(string urlEncodedText);
+        Uri GetUrl(string slug);
     }
 }

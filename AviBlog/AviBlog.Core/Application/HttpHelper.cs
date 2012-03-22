@@ -33,6 +33,12 @@ namespace AviBlog.Core.Application
             return HttpContext.Current.Server.UrlDecode(urlEncodedText);
         }
 
+        public Uri GetUrl(string slug)
+        {
+            string url = string.Format("{0}/Posts/Post/{1}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority), slug);
+            return new Uri(url);
+        }
+
         #endregion
     }
 }

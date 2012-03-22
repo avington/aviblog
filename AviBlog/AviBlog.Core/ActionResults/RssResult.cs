@@ -7,7 +7,9 @@ using System.ServiceModel.Syndication;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
+using AviBlog.Core.Application;
 using AviBlog.Core.ViewModel;
+using StructureMap;
 
 namespace AviBlog.Core.ActionResults
 {
@@ -15,11 +17,13 @@ namespace AviBlog.Core.ActionResults
     {
         private readonly PostListViewModel _view;
         private SyndicationFeed _feed;
-        public RssResult(PostListViewModel model)
-            : base("application/rss+xml")
+        private readonly IHttpHelper _httpHelper;
+
+        public RssResult(PostListViewModel model): base("application/rss+xml")
         {
             _view = model;
             if (_view == null) return;
+            _httpHelper = ObjectFactory.GetInstance<IHttpHelper>();
             _feed = new SyndicationFeed(_view.BlogTitle, _view.SubHead, HttpContext.Current.Request.Url, BuildItems());
         }
 
@@ -38,7 +42,7 @@ namespace AviBlog.Core.ActionResults
             var posts = _view.Posts.Take(10);
             foreach (var post in posts)
             {
-                var item = new SyndicationItem(post.Title, post.PostContent, GetUrl(post.Slug),
+                var item = new SyndicationItem(post.Title, post.PostContent, _httpHelper.GetUrl(post.Slug),
                                                post.UniqueId.ToString(), GetLastUpdateTime(post.DatePublished));
                 list.Add(item);
             }
@@ -53,10 +57,5 @@ namespace AviBlog.Core.ActionResults
             return offset;
         }
 
-        private Uri GetUrl(string slug)
-        {
-            string url = string.Format("{0}/Posts/Post/{1}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority), slug);
-            return new Uri(url);
-        }
     }
 }

@@ -1,0 +1,5 @@
+﻿User-agent: *
+Disallow: /Admin/*
+
+
+sitemap: http://www.i-avington.com/sitemap/xml
