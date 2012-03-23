@@ -81,6 +81,9 @@ footer div#copy div {width: 90px; margin: auto;}
 #posts-wrapper article .post-tags-social .post-tags-list li a { background: none #938A07 scroll;border: #ccc solid 1px;color: #fff;text-decoration: none;padding: 2px 5px 2px 5px;margin-right: 10px;}
 #posts-wrapper article .post-tags-social .post-social-list { float: right;}
 #posts-wrapper article .post-tags-social .post-social-list li { float: right;padding: 5px 5px 5px 5px;}
+#posts-wrapper article .post-title-date {	text-align: center;font-size: 12px;line-height: 13px;color: #FFE7DF;padding: 1px;border-radius: 6px;background-color: #938A07;float: left;border: #938A07 solid 1px;margin: 1px 10px 5px 0;padding: 1px 1px 1px 1px;}
+#posts-wrapper article .post-title-date div.post-title-month { padding: 2px 4px 2px 4px; margin: 1px 1px 1px 1px; text-shadow:1px 1px #ccc;}
+#posts-wrapper article .post-title-date div.post-title-day {font-weight:bold;text-shadow:1px 1px #5F210C;color:#222; background-color: #fff; padding: 2px 4px 2px 4px; margin: 1px 1px 1px 1px;}
 /* facebook like button */
 #LikePluginPagelet { width: 50px;}
 
@@ -99,3 +102,4 @@ section aside div.grid-right ul li.tag-cloud-large a { font-size: 16px;font-fami
 
 
 
+    

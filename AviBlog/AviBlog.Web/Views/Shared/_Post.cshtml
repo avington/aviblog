@@ -2,6 +2,7 @@
 
 <article>
     <div>
+        @Html.Partial("_PublishDate",Model.DatePublished)
         <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
     </div>
     <div>@Html.Raw(Model.PostContent) </div>

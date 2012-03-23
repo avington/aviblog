@@ -1,0 +1,13 @@
+﻿@model DateTime?
+
+
+@if (Model.HasValue)
+{
+    <div class="post-title-date">
+        <div class="post-title-month">
+        @Model.Value.ToString("MMM")
+        </div>
+        <div class="post-title-day">@Model.Value.Day.ToString()
+            <br />@Model.Value.Year.ToString()</div>
+    </div>
+}
