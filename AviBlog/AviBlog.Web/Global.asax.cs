@@ -6,7 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using AviBlog.Core.Services;
 using AviBlog.Web.App_Start;
+using StructureMap;
 
 namespace AviBlog.Web
 {
@@ -35,7 +37,7 @@ namespace AviBlog.Web
             FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
             var identity = new GenericIdentity(authTicket.Name, "Forms");
             string[] roles = authTicket.UserData.Split(char.Parse("~"));
-            var principal = new GenericPrincipal(identity,roles);
+            var principal = new GenericPrincipal(identity, roles);
             Context.User = principal;
         }
     }

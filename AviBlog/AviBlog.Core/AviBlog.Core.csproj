@@ -57,6 +57,9 @@
     <Reference Include="DevOne.Security.Cryptography.BCrypt">
       <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
@@ -86,7 +89,9 @@
     <Compile Include="ActionResults\SiteMapResult.cs" />
     <Compile Include="Application\HttpHelper.cs" />
     <Compile Include="Application\IHttpHelper.cs" />
+    <Compile Include="Application\IPingWebRequestHelper.cs" />
     <Compile Include="Application\IStreamHelper.cs" />
+    <Compile Include="Application\PingWebRequestHelper.cs" />
     <Compile Include="Application\StreamHelper.cs" />
     <Compile Include="Context\Configurations\BlogConfiguration.cs" />
     <Compile Include="Context\BlogContext.cs" />
@@ -173,12 +178,14 @@
     <Compile Include="Services\IHtmlFragmentService.cs" />
     <Compile Include="Repositories\IPostRepository.cs" />
     <Compile Include="Mappings\IPostMappingService.cs" />
+    <Compile Include="Services\IPingHttpPostService.cs" />
     <Compile Include="Services\IPingServiceService.cs" />
     <Compile Include="Services\IPostService.cs" />
     <Compile Include="Services\ISettingsService.cs" />
     <Compile Include="Repositories\ITagRepostiory.cs" />
     <Compile Include="Services\ITagService.cs" />
     <Compile Include="Services\IUploadService.cs" />
+    <Compile Include="Services\PingHttpPostService.cs" />
     <Compile Include="Services\PingServiceService.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\SettingsService.cs" />

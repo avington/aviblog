@@ -16,6 +16,7 @@ namespace AviBlog.Core.Services
         private readonly IBlogsSiteMappingService _blogsSiteMappingService;
         private readonly IHttpHelper _helper;
         private readonly IHttpHelper _httpHelper;
+        private readonly IPingHttpPostService _pingHttpPostService;
         private readonly IPostMappingService _postMappingService;
         private readonly IPostRepository _postRepository;
         private readonly IProfileUserRepository _profileUserRepository;
@@ -23,7 +24,7 @@ namespace AviBlog.Core.Services
         public PostService(IPostRepository postRepository, IBlogSiteRepository blogSiteRepository,
                            IPostMappingService postMappingService, IHttpHelper httpHelper,
                            IProfileUserRepository profileUserRepository, IHttpHelper helper,
-                           IBlogsSiteMappingService blogsSiteMappingService)
+                           IBlogsSiteMappingService blogsSiteMappingService, IPingHttpPostService pingHttpPostService)
         {
             _postRepository = postRepository;
             _blogSiteRepository = blogSiteRepository;
@@ -32,6 +33,7 @@ namespace AviBlog.Core.Services
             _profileUserRepository = profileUserRepository;
             _helper = helper;
             _blogsSiteMappingService = blogsSiteMappingService;
+            _pingHttpPostService = pingHttpPostService;
         }
 
         #region IPostService Members
@@ -99,12 +101,15 @@ namespace AviBlog.Core.Services
             SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
 
-            return _postRepository.Add(entity, post.SectedUserId, post.SelectedBlogId);
+            string result = _postRepository.Add(entity, post.SectedUserId, post.SelectedBlogId);
+
+            SendPing(entity, result);
+
+            return result;
         }
 
         public PostViewModel GetPostViewModelById(int id)
         {
-            string errorMessage = "";
             Post post = _postRepository.GetPostById(id);
             PostViewModel viewPost = _postMappingService.MapToView(post);
 
@@ -125,7 +130,9 @@ namespace AviBlog.Core.Services
             SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
 
-            return _postRepository.Edit(entity, post.SectedUserId, post.SelectedBlogId);
+            string result = _postRepository.Edit(entity, post.SectedUserId, post.SelectedBlogId);
+            SendPing(entity, result);
+            return result;
         }
 
         public PostListViewModel GetTopMostRecentPosts(int top)
@@ -210,6 +217,15 @@ namespace AviBlog.Core.Services
         }
 
         #endregion
+
+        private void SendPing(Post entity, string result)
+        {
+            //if post added is successful then ping all the services with the URL
+            if (string.IsNullOrEmpty(result))
+            {
+                _pingHttpPostService.Ping(entity);
+            }
+        }
 
         private static void SetPublishDate(PostViewModel post)
         {

@@ -41,7 +41,7 @@ namespace AviBlog.Core.ActionResults
             var list = new List<SyndicationItem>();
             var posts = _view.Posts.Where(x => x.DatePublished.HasValue)
                 .OrderByDescending(x => x.DatePublished.Value)
-                .Take(20);
+                .Take(10);
             foreach (var post in posts)
             {
                 var item = new SyndicationItem(post.Title, post.PostContent, _httpHelper.GetUrl(post.Slug),

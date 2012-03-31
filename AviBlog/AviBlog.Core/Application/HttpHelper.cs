@@ -39,6 +39,18 @@ namespace AviBlog.Core.Application
             return new Uri(url);
         }
 
+        public T GetSession<T>(string key)
+        {
+            object result =  HttpContext.Current.Session[key] ?? null;
+            if (result == null) return default(T);
+            return (T) result;
+        }
+
+        public void AddSession(string key, object obj)
+        {
+            HttpContext.Current.Session.Add(key,obj);
+        }
+
         #endregion
     }
 }

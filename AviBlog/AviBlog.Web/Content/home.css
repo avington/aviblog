@@ -55,7 +55,7 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 footer div#footerwrapper{ max-width: 1190px;margin: 0 auto;}
 footer div#footer-section-1, footer div#footer-section-2, footer div#footer-section-3 { float: left;width: 320px;}
 
-footer nav.nav-social { margin-top: 41px;}
+footer nav.nav-social { margin: 41px 0 135px;}
 footer nav.nav-social h4 { color: #fff;font-family: 'Acme', sans-serif; }
 footer nav.nav-social ul li {padding: 2px 10px; float: left;}
 footer nav.nav-social ul li a { color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
@@ -64,12 +64,17 @@ footer nav.nav-social ul li a:hover {color: #fff;text-decoration: underline;font
 footer nav.nav-social ul li a:active {color: #fff;text-decoration: underline;font-family: 'Acme', sans-serif; }
 footer div#copy { margin: 41px auto 0;}
 footer div#copy div {width: 90px; margin: auto;}
+footer #footer-blog-description { width: 100%;display: inline-block;font-size: 12px;}
+footer #footer-blog-description div {max-width: 960px; margin: 0 auto; }
+footer #footer-blog-description div ul li { float: left;color: #fff;padding: 10px 50px;}
+
 
 #posts-wrapper  article { font-family: 'Acme', Tahoma; font-weight: 300;line-height: 23px; margin: 10px 5px 15px 5px;padding: 5px 5px 5px 5px;}
 #posts-wrapper  article p { padding: 5px 0;} 
-#posts-wrapper  article h2 a.post-title-link { font-size: 24px;font-weight: 700; color: #1F447D}
-#posts-wrapper  article h2 a.post-title-link:hover { font-size: 24px;font-weight: 700; color: #1F447D}
-#posts-wrapper  article h2 a.post-title-link:active { font-size: 24px;font-weight: 700; color: #1F447D}
+#posts-wrapper  article .post-heading h2 { padding: 7px 0 0 0;}
+#posts-wrapper  article .post-heading h2 a.post-title-link { font-size: 24px;font-weight: 700; color: #1F447D;}
+#posts-wrapper  article .post-heading h2 a.post-title-link:hover { font-size: 24px;font-weight: 700; color: #1F447D}
+#posts-wrapper  article .post-heading h2 a.post-title-link:active { font-size: 24px;font-weight: 700; color: #1F447D}
 
 #posts-wrapper article h3, h2 {padding: 20px 0 0 0;font-size: 22px;font-weight: 600;}
 #posts-wrapper article .post-meta-info {width: 100%;font-size: 12px;padding: 15px 2px 5px;}

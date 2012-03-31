@@ -1,7 +1,7 @@
 ﻿@model AviBlog.Core.ViewModel.PostViewModel
 
 <article>
-    <div>
+    <div  class="post-heading">
         @Html.Partial("_PublishDate",Model.DatePublished)
         <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
     </div>

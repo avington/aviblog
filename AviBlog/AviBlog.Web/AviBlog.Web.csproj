@@ -134,6 +134,10 @@
     <Content Include="Content\images\icons\google.png" />
     <Content Include="Content\images\icons\linkedin.png" />
     <Content Include="Content\images\icons\twitter.png" />
+    <Content Include="Content\Prettify\prettify.css" />
+    <Content Include="Content\Prettify\Themes\desert.css" />
+    <Content Include="Content\Prettify\Themes\sons-of-obsidian.css" />
+    <Content Include="Content\Prettify\Themes\sunburst.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
@@ -143,6 +147,25 @@
     <Content Include="Areas\Manage\Views\Ping\_PingServiceForm.cshtml" />
     <Content Include="Areas\Manage\Views\PostAdmin\_FileUploadForm.cshtml" />
     <Content Include="robots.txt" />
+    <Content Include="Scripts\Prettify\lang-apollo.js" />
+    <Content Include="Scripts\Prettify\lang-clj.js" />
+    <Content Include="Scripts\Prettify\lang-css.js" />
+    <Content Include="Scripts\Prettify\lang-go.js" />
+    <Content Include="Scripts\Prettify\lang-hs.js" />
+    <Content Include="Scripts\Prettify\lang-lisp.js" />
+    <Content Include="Scripts\Prettify\lang-lua.js" />
+    <Content Include="Scripts\Prettify\lang-ml.js" />
+    <Content Include="Scripts\Prettify\lang-n.js" />
+    <Content Include="Scripts\Prettify\lang-proto.js" />
+    <Content Include="Scripts\Prettify\lang-scala.js" />
+    <Content Include="Scripts\Prettify\lang-sql.js" />
+    <Content Include="Scripts\Prettify\lang-tex.js" />
+    <Content Include="Scripts\Prettify\lang-vb.js" />
+    <Content Include="Scripts\Prettify\lang-vhdl.js" />
+    <Content Include="Scripts\Prettify\lang-wiki.js" />
+    <Content Include="Scripts\Prettify\lang-xq.js" />
+    <Content Include="Scripts\Prettify\lang-yaml.js" />
+    <Content Include="Scripts\Prettify\prettify.js" />
     <Content Include="Views\Shared\_ContentMetaTag.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />
@@ -587,7 +610,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1660</DevelopmentServerPort>
+          <DevelopmentServerPort>1661</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1660/aviblog</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

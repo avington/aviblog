@@ -9,5 +9,7 @@ namespace AviBlog.Core.Application
         string GetPath(string virtualDir, string fileName);
         string DecodeUrl(string urlEncodedText);
         Uri GetUrl(string slug);
+        T GetSession<T>(string key);
+        void AddSession(string key, object obj);
     }
 }
