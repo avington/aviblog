@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
 using AviBlog.Core.Application;
@@ -223,7 +224,8 @@ namespace AviBlog.Core.Services
             //if post added is successful then ping all the services with the URL
             if (string.IsNullOrEmpty(result))
             {
-                _pingHttpPostService.Ping(entity);
+                if (ConfigurationManager.AppSettings["PingService"].Equals("true"))
+                    _pingHttpPostService.Ping(entity);
             }
         }
 

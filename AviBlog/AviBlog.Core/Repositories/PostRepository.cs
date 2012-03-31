@@ -61,7 +61,7 @@ namespace AviBlog.Core.Repositories
 
         public string Edit(Post post, int sectedUserId, int selectedBlogId)
         {
-            var slugExists = _context.Posts.First(x => x.Slug == post.Slug);
+            var slugExists = _context.Posts.FirstOrDefault(x => x.Slug == post.Slug);
             if (slugExists !=null && slugExists.Id != post.Id)
                 return "The slug that was created already exists. Modify your title.";
 
@@ -83,6 +83,7 @@ namespace AviBlog.Core.Repositories
             updatedPost.PostContent = post.PostContent;
             updatedPost.Tags = post.Tags;
             updatedPost.Slug = post.Slug;
+            updatedPost.Title = post.Title;
             updatedPost.User = user;
             _context.SaveChanges();
             _context.Dispose();
