@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using AviBlog.Core.Services;
 using AviBlog.Core.ViewModel;
 
@@ -17,6 +18,12 @@ namespace AviBlog.Web.Controllers
         public ActionResult Index()
         {
             PostListViewModel viewModel = _postService.GetAllPostForBlog();
+            viewModel.Posts = viewModel.Posts
+                .Where(x => x.IsPublished && x.DatePublished.HasValue)
+                .OrderByDescending(x => x.DatePublished.Value)
+                .ToList();
+
+            
             return View(viewModel);
         }
     }
