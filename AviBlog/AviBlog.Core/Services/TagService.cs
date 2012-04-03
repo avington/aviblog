@@ -35,6 +35,7 @@ namespace AviBlog.Core.Services
                 var tag = new TagCloudViewModel();
                 tag.TagName = item.Name;
                 tag.TagCount = item.Count;
+                if (tag.TagCount <= 0) continue;
                 if (tag.TagCount < 3) tag.Weight = 1;
                 if (tag.TagCount >= 3 && tag.TagCount < 5) tag.Weight = 2;
                 if (tag.TagCount >= 5) tag.Weight = 3;

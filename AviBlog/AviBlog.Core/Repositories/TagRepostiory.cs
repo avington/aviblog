@@ -20,5 +20,6 @@ namespace AviBlog.Core.Repositories
         {
             return _context.Tags.AsQueryable();
         }
+
     }
 }

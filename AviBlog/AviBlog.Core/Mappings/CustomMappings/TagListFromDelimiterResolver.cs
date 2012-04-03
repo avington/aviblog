@@ -13,7 +13,7 @@ namespace AviBlog.Core.Mappings.CustomMappings
             if (source == null) return new List<Tag>();
             if (string.IsNullOrEmpty(source.TagListCommaDelimited)) return new List<Tag>();
             var tags = source.TagListCommaDelimited.Split(char.Parse(","));
-            var list = tags.Select(tag => new Tag {TagName = tag}).ToList();
+            var list = tags.Select(tag => new Tag {TagName = tag.Trim()}).ToList();
             return list;
         }
     }
