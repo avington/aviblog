@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section HeadTagSection
+{
+    @if (!string.IsNullOrEmpty(Model.Posts.First().Description))
+    {
+        <meta name="Description" content="@Model.Posts.First().Description"/>
+    }
+}  
+
 <div id="posts-wrapper">
     @Html.Partial("_PostWithFeatures",Model.Posts.First())
 </div>

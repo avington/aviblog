@@ -14,7 +14,7 @@ namespace AviBlog.Core.ViewModel
         public string Title { get; set; }
 
         [AllowHtml]
-        [Display(Name = "Excerpt (Optional)")]
+        [Display(Name = "Metatag Description (Optional)")]
         public string Description { get; set; }
 
         [Display(Name = "Content")]

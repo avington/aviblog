@@ -48,3 +48,5 @@ aside#admin-post-right-side{width:380px;float:left;}
 input#Title { width: 500px;}
 .upload { width: 500px; }
 .upload span { float: left;padding: 0 10px;}
+textarea.admin-description { width: 600px; height: 120px; border: 3px solid #cccccc; padding: 5px; font-family: Tahoma, sans-serif; background-position: bottom right; background-repeat: no-repeat;
+}

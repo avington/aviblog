@@ -1,15 +1,16 @@
 ﻿@model AviBlog.Core.ViewModel.PostViewModel
+         
 
 <article>
     <div class="post-heading">
-        @Html.Partial("_PublishDate",Model.DatePublished)
-        <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
+        @Html.Partial("_PublishDate", Model.DatePublished)
+        <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new { id = Model.Slug }, new { @class = "post-title-link" })</h2>
     </div>
     <div>@Html.Raw(Model.PostContent) </div>
     
 
     <div class="post-tags-social">
-        @Html.Partial("_PostTags",Model.Tags)
+        @Html.Partial("_PostTags", Model.Tags)
         @Html.Partial("_PostSocial")
     </div>
     <div class="clear"></div>

@@ -7,6 +7,7 @@
         @Html.Action("TagStringContentMetaTag", "Tags")
         <meta name="Author" content="Steven Moseley"/>
         <meta name="copyright" content="Steven Moseley" />
+        @RenderSection("HeadTagSection",required:false)
         <title>@ViewBag.Title</title>
         <link href='http://fonts.googleapis.com/css?family=Questrial|Acme' rel='stylesheet' type='text/css'/>
         <link href="@Url.Content("~/Content/fonts/cantarell/stylesheet.css")" rel="stylesheet" type="text/css" />
