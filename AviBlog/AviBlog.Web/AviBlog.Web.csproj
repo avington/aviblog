@@ -53,6 +53,9 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.46.4422.26284\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=2.1.266.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AutoMapper.2.1.266\lib\net40\AutoMapper.dll</HintPath>
@@ -61,14 +64,27 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\dotless.1.3.0.0\lib\dotless.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Elmah">
-      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    <Reference Include="EcmaScript.NET.modified">
+      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SquishIt.Framework">
+      <HintPath>..\packages\SquishIt.0.8.6\lib\SquishIt.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SquishIt.Mvc">
+      <HintPath>..\packages\SquishIt.Mvc.0.8.6\lib\SquishIt.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
     </Reference>
@@ -95,6 +111,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AviBlogRegistry.cs" />
@@ -126,6 +145,7 @@
     <Compile Include="App_Start\StructureMapControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\fonts\cantarell\Abattis Cantarell GPL License.txt" />
     <Content Include="Content\fonts\cantarell\cantarell-bold-webfont.svg" />

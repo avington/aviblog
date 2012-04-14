@@ -1,6 +1,6 @@
 ﻿/* defaul properties */
 body, button, input, select, textarea { font-family: 'CantarellNormal', Tahoma; }
-h1  { font-family: 'ChunkFiveRoman', Tahoma; font-weight: 300; line-height: 1; margin: 0 0 25px 0; }, 
+h1  { font-family: 'CantarellBold', Tahoma; font-weight: 300; line-height: 1; margin: 0 0 25px 0; }, 
 h2, h3, h4 { font-family: 'CantarellNormal', Tahoma; font-weight: 300; line-height: 1; margin: 0 0 25px 0; }
 h1 { font-size: 50px; font-weight: 800; }
 h2 { font-size: 35px; }
@@ -33,12 +33,12 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 
 
 #header #header-wrapper-left {float: left;padding: 40px 0 0 0; }
-#header #header-wrapper-left h1 { font-family: 'ChunkFiveRoman', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;}
-#header #header-wrapper-left h1 a { font-family: 'ChunkFiveRoman', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;text-decoration: none;}
-#header #header-wrapper-left h1 a:hover { font-family: 'ChunkFiveRoman', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;text-decoration: none;}
-#header #header-wrapper-left h1 a:active { font-family: 'ChunkFiveRoman', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;text-decoration: none;}
+#header #header-wrapper-left h1 { font-family: 'CantarellBold', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;}
+#header #header-wrapper-left h1 a { font-family: 'CantarellBold', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;text-decoration: none;}
+#header #header-wrapper-left h1 a:hover { font-family: 'CantarellBold', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;text-decoration: none;}
+#header #header-wrapper-left h1 a:active { font-family: 'CantarellBold', sans-serif; color: #fff; padding: 4px 4px 4px 4px;margin: 2px 0 2px 0;text-decoration: none;}
 #header #header-wrapper-left p { color: #fff;padding: 4px 4px 4px 4px;}
-#header #header-wrapper-right { float: right;width: 550px;}
+#header #header-wrapper-right { float: right;width: 525px;}
 #header #header-wrapper-right nav { float: left;}
 #header #header-wrapper-right #nav-main { width: 200px;padding: 56px 0 0 0;}
 #header #header-wrapper-right #nav-main ul li { float: left;padding: 5px 0 5px 0;}
@@ -80,11 +80,12 @@ footer #footer-blog-description div ul li { float: left;color: #fff;padding: 10p
 #posts-wrapper article h3, h2 {padding: 20px 0 0 0;font-size: 22px;font-weight: 600;}
 #posts-wrapper article .post-meta-info {width: 100%;font-size: 12px;padding: 15px 2px 5px;}
 #posts-wrapper article .post-meta-info ul li { float: left;width: 400px;}
-#posts-wrapper article .post-tags-social { width: 100%;padding: 10px 0 7px 0;}
-#posts-wrapper article .post-tag-label { float: left;margin-right: 5px;padding-top: 20px}
-#posts-wrapper article .post-tags-social .post-tags-list { float: left;padding-top: 20px}
-#posts-wrapper article .post-tags-social .post-tags-list li { float: left;}
-#posts-wrapper article .post-tags-social .post-tags-list li a { background: none #938A07 scroll;border: #ccc solid 1px;color: #fff;text-decoration: none;padding: 2px 5px 2px 5px;margin-right: 10px;}
+#posts-wrapper article .post-tags-social { border-bottom: 1px solid #2A5101; height: 76px; margin-bottom: 20px; padding: 10px 0 7px; width: 100%;}
+#posts-wrapper article div#post-info { display: inline-block;width: 100%;border-top: #2A5101 solid 1px;border-bottom: #2A5101 solid 1px;}
+#posts-wrapper article div#post-info ul.post-tags-list li { float: left;margin-right: 5px;padding-top: 20px}
+#posts-wrapper article div#post-info div.post-tag-label { float: left;margin-right: 20px;line-height: 60px;}
+#posts-wrapper article div#post-info ul.post-tags-list { float: left;}
+#posts-wrapper article div#post-info ul.post-tags-list li a { background: none #938A07 scroll;border: #ccc solid 1px;color: #fff;text-decoration: none;padding: 2px 5px 2px 5px;margin-right: 10px;}
 #posts-wrapper article .post-tags-social .post-social-list { float: right;}
 #posts-wrapper article .post-tags-social .post-social-list li { float: right;padding: 5px 5px 5px 5px;}
 #posts-wrapper article .post-title-date {	text-align: center;font-size: 12px;line-height: 13px;color: #FFE7DF;padding: 1px;border-radius: 6px;background-color: #938A07;float: left;border: #938A07 solid 1px;margin: 1px 10px 5px 0;padding: 1px 1px 1px 1px;}

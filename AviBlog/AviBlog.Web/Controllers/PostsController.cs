@@ -17,7 +17,7 @@ namespace AviBlog.Web.Controllers
             _settingsService = settingsService;
         }
 
-
+        [OutputCache(Duration = 6000,VaryByParam = "*")]
         public ActionResult Post(string id)
         {
             PostListViewModel viewModel = _postService.GetPostBySlug(id);
@@ -26,6 +26,7 @@ namespace AviBlog.Web.Controllers
             return View(viewModel);
         }
 
+        [OutputCache(Duration = 6000, VaryByParam = "*")]
         public ActionResult PostSettings(string id)
         {
             SettingViewModel setting = _settingsService.GetSettingByKey(id);

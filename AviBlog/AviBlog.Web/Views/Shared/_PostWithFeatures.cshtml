@@ -8,9 +8,11 @@
     </div>
     <div>@Html.Raw(Model.PostContent) </div>
     
-
-    <div class="post-tags-social">
+    <div id="post-info">
         @Html.Partial("_PostTags", Model.Tags)
+    </div>
+    <div class="post-tags-social">
+        <div id="post-by-line"></div> Authored by: @Model.UserFullName
         @Html.Partial("_PostSocial")
     </div>
     <div class="clear"></div>

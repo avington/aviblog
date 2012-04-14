@@ -1,6 +1,5 @@
-﻿User-agent: *
-Disallow: /Admin/*
-Disallow: /Error/*
+User-agent: *
+Disallow: /InternalError.htm
+Disallow: /GenericError.htm
+Allow: /
 
-
-sitemap: http://www.i-avington.com/sitemap/xml

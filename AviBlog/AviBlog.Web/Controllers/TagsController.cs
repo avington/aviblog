@@ -24,12 +24,14 @@ namespace AviBlog.Web.Controllers
              return View(postList);
          }
 
+        [OutputCache(Duration = 6000, VaryByParam = "*")]
         public ActionResult TagCloud()
         {
             IList<TagCloudViewModel> view = _tagService.GetTagCloud();
             return PartialView("_TagCloud",view);
         }
 
+        [OutputCache(Duration = 6000, VaryByParam = "*")]
         public ActionResult TagStringContentMetaTag()
         {
             IList<TagCloudViewModel> view = _tagService.GetTagCloud();

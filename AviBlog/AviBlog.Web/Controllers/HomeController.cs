@@ -17,6 +17,7 @@ namespace AviBlog.Web.Controllers
             _profileUserService = profileUserService;
         }
 
+        [OutputCache(Duration = 6000, VaryByParam = "*")]
         public ActionResult Index()
         {
             const int top = 5;
@@ -25,12 +26,14 @@ namespace AviBlog.Web.Controllers
             return View(viewModel);
         }
 
+        [OutputCache(Duration = 6000, VaryByParam = "*")]
         public ActionResult About(int id)
         {
             UserViewModel user = _profileUserService.GetUserById(id);
             return View(user);
         }
 
+        [OutputCache(Duration = 6000, VaryByParam = "*")]
         public RssResult Rss()
         {
             var postViewModel = _postService.GetAllPostForBlog();
