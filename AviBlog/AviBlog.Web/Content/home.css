@@ -13,7 +13,7 @@ h5 { font-size: 20px;font-weight: 600; }
 
 /* major layout */
 body { background-color: #938A07; }
-header { width: 100%;background: url('images/header.png') repeat-x; height: 163px;}
+header { width: 100%;background: url('images/header.png') repeat-x; height: 172px;}
 header #header-wrapper { max-width: 1190px;margin: 0 auto;}
 section#body-wrapper { max-width: 1190px;background-color: #fff;border-left: #ccc solid 1px;border-right: #ccc solid 1px;min-height: 400px;margin: 0 auto;padding: 25px 10px;}
 footer {width: 100%; background: url('images/footer.png') repeat-x #222; min-height: 300px;}
@@ -22,10 +22,10 @@ footer #footer-wrapper { max-width: 1190px;margin: 0 auto;}
 .cols{ width:190px;}
 
 @media all and (min-width: 1200px) {.col1{ width: 860px;overflow: hidden;}}
-@media all and (min-width: 900px) and (max-width: 1200px) {.col1{ width:560px;overflow: hidden;}}
-@media all and (max-width: 900px) {.col1{ width:360px;overflow: hidden;}}
-@media all and (max-width: 900px) {section aside { display: none;visibility: hidden;}}
-@media all and (max-width: 900px) {#header-wrapper-right { display: none;visibility: hidden;}}
+@media all and (min-width: 960px) and (max-width: 1200px) {.col1{ width:560px;overflow: hidden;}}
+@media all and (max-width: 960px) {.col1{ width:460px;overflow: hidden;}}
+@media all and (max-width: 960px) {section aside { display: none;visibility: hidden;}}
+@media all and (max-width: 1000px) {#header-wrapper-right { display: none;visibility: hidden;}}
 
 .col3{ width:260px;}
 .col2{ width:220px;}
@@ -71,7 +71,9 @@ footer #footer-blog-description div ul li { float: left;color: #fff;padding: 10p
 
 
 #posts-wrapper  article { font-family: 'CantarellRegular', Tahoma; font-weight: 300;line-height: 23px; margin: 10px 5px 15px 5px;padding: 5px 5px 5px 5px;}
-#posts-wrapper  article p { padding: 5px 0;} 
+#posts-wrapper  article p { padding: 5px 0;font-size: 16px;} 
+#posts-wrapper  article a { font-size: 16px;} 
+#posts-wrapper  article pre { padding: 5px 0;font-size: 13px;} 
 #posts-wrapper  article .post-heading h2 { padding: 7px 0 0 0;}
 #posts-wrapper  article .post-heading h2 a.post-title-link { font-size: 24px;font-weight: 700; color: #1F447D;}
 #posts-wrapper  article .post-heading h2 a.post-title-link:hover { font-size: 24px;font-weight: 700; color: #1F447D}
