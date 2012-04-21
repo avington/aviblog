@@ -1,0 +1,32 @@
+﻿@using AviBlog.Core.Helpers
+@model AviBlog.Core.ViewModel.GoodReadsUserShowViewModel
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    @Html.HiddenFor(x => x.ErrorMessage)
+}else
+{
+    <div class="goodreads-widget grid-right">
+    </div>
+}
+
+<script id="goodreads-template" type="text/x-jquery-tmpl">
+    <h4>Goodreads Status</h4>
+    <ul>
+        {{each Updates}}
+        <li class="clear">
+            <img class="goodreads-book-img" src="${BookImageUrl}"/>
+            <div><a href="${UserLink}">${Name}</a> {{html ActionText}}</div>
+        </li>
+        {{/each}}
+        <li class="last-goodreads-item">Follow me on <a href="${UserLink}">Goodreads</a></li>
+    </ul>
+    
+
+</script>
+
+<script src="@Url.Content("~/js/goodreads.js")" type="text/javascript"> </script>
+<script type="text/javascript">
+    var grApp = new MyApp(@Model.ToJson());
+    grApp.start();
+</script>

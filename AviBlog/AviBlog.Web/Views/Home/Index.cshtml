@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="posts-wrapper">
+<div class="posts-wrapper">
     @foreach (var post in Model.Posts)
     {
         @Html.Partial("_Post",post)

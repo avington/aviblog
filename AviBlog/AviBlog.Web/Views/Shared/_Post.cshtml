@@ -3,10 +3,10 @@
 <article>
     <div  class="post-heading">
         @Html.Partial("_PublishDate", Model.DatePublished)
-        <h2>@Html.ActionLink(Model.Title, "Post", "Posts", 
+        <h2  class="post-heading-headline">@Html.ActionLink(Model.Title, "Post", "Posts", 
             new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
     </div>
-    <div>@Html.Raw(Model.PostContent) </div>
+    <div class="post-body">@Html.Raw(Model.PostContent) </div>
     <div class="post-meta-info">
         <ul>        
             @if (Model.DatePublished.HasValue)

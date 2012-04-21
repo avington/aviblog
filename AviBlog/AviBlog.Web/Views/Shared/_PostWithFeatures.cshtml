@@ -4,11 +4,11 @@
 <article>
     <div class="post-heading">
         @Html.Partial("_PublishDate", Model.DatePublished)
-        <h2>@Html.ActionLink(Model.Title, "Post", "Posts", new { id = Model.Slug }, new { @class = "post-title-link" })</h2>
+        <h2 class="post-heading-headline">@Html.ActionLink(Model.Title, "Post", "Posts", new { id = Model.Slug }, new { @class = "post-title-link" })</h2>
     </div>
-    <div>@Html.Raw(Model.PostContent) </div>
+    <div class="post-body">@Html.Raw(Model.PostContent) </div>
     
-    <div id="post-info">
+    <div class="post-info">
         @Html.Partial("_PostTags", Model.Tags)
     </div>
     <div class="post-tags-social">
