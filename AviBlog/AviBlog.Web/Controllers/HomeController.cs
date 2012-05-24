@@ -8,7 +8,7 @@ namespace AviBlog.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPostService _postService;
+        private readonly IPostService _postService; 
         private readonly IProfileUserService _profileUserService;
 
         public HomeController(IPostService postService, IProfileUserService profileUserService)

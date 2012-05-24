@@ -15,6 +15,7 @@ namespace AviBlog.Web.Controllers
             _postService = postService;
         }
 
+        [OutputCache(Duration = 60000, VaryByParam = "*")]
         public ActionResult Index()
         {
             PostListViewModel viewModel = _postService.GetAllPostForBlog();

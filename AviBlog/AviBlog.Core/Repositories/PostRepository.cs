@@ -85,6 +85,7 @@ namespace AviBlog.Core.Repositories
             updatedPost.Slug = post.Slug;
             updatedPost.Title = post.Title;
             updatedPost.User = user;
+            updatedPost.UniqueId = post.UniqueId;
             _context.SaveChanges();
             _context.Dispose();
             return string.Empty;

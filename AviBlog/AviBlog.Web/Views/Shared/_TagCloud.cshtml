@@ -10,15 +10,15 @@
         {
             if (tag.Weight == 1)
             {
-                <span class="tag-cloud-small">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {id = Url.Encode(tag.TagName)},null)</span>
+                <span class="tag-cloud-small">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {TagId = Url.Encode(tag.TagName)},null)</span>
             }
             if (tag.Weight == 2)
             {
-                <span class="tag-cloud-medium">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {id = Url.Encode(tag.TagName)},null)</span>
+                <span class="tag-cloud-medium">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {TagId = Url.Encode(tag.TagName)},null)</span>
             }
             if (tag.Weight == 3)
             {
-                <span class="tag-cloud-large">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {id = Url.Encode(tag.TagName)},null)</span>
+                <span class="tag-cloud-large">@Html.ActionLink(tag.TagName, "Tag", "Tags", new {TagId = Url.Encode(tag.TagName)},null)</span>
             }
         }
         </li> 

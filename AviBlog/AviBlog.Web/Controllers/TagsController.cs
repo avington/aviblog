@@ -18,20 +18,21 @@ namespace AviBlog.Web.Controllers
             _tagService = tagService;
         }
 
-        public ActionResult Tag(string id)
+        [OutputCache(Duration = 60000, VaryByParam = "*")]
+        public ActionResult Tag(string TagId)
         {
-            PostListViewModel postList = _postService.GetAllPostsForTag(id);
+            PostListViewModel postList = _postService.GetAllPostsForTag(TagId);
              return View(postList);
          }
 
-        [OutputCache(Duration = 6000, VaryByParam = "*")]
+        [OutputCache(Duration = 60000, VaryByParam = "*")]
         public ActionResult TagCloud()
         {
             IList<TagCloudViewModel> view = _tagService.GetTagCloud();
             return PartialView("_TagCloud",view);
         }
 
-        [OutputCache(Duration = 6000, VaryByParam = "*")]
+        [OutputCache(Duration = 60000, VaryByParam = "*")]
         public ActionResult TagStringContentMetaTag()
         {
             IList<TagCloudViewModel> view = _tagService.GetTagCloud();

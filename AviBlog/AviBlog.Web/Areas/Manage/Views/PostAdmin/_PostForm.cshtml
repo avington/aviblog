@@ -18,6 +18,8 @@
             </div>
             <fieldset>
                 <legend>Post</legend>
+                
+                @Html.HiddenFor(x => x.UniqueId)
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Title)

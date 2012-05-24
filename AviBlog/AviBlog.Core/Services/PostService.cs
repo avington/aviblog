@@ -101,6 +101,7 @@ namespace AviBlog.Core.Services
             post.DateModified = DateTime.Now;
             SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
+            entity.UniqueId = Guid.NewGuid();
 
             string result = _postRepository.Add(entity, post.SectedUserId, post.SelectedBlogId);
 
@@ -130,6 +131,9 @@ namespace AviBlog.Core.Services
             post.DateModified = DateTime.Now;
             SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
+
+            if (entity.UniqueId.ToString() == "00000000-0000-0000-0000-000000000000")
+                entity.UniqueId = Guid.NewGuid();
 
             string result = _postRepository.Edit(entity, post.SectedUserId, post.SelectedBlogId);
             SendPing(entity, result);
@@ -188,9 +192,10 @@ namespace AviBlog.Core.Services
 
         public PostListViewModel GetAllPostsForTag(string urlEncodedTag)
         {
-            string tag = _httpHelper.DecodeUrl(urlEncodedTag);
+            string tag = urlEncodedTag.Replace('+', ' ');
             List<Post> posts = _postRepository.GetAllPosts().Where(x => x.Tags.Any(y => y.TagName == tag))
                 .Where(x => x.Blog.IsActive && x.Blog.IsPrimary && !x.IsDeleted && x.IsPublished)
+                .OrderByDescending(x => x.DatePublished)
                 .ToList();
 
             var list = new PostListViewModel {Posts = new List<PostViewModel>()};

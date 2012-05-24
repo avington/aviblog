@@ -22,7 +22,7 @@ namespace AviBlog.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        [OutputCache(Duration = 6000, VaryByParam = "*")]
+        [OutputCache(Duration = 60000, VaryByParam = "*")]
         public ActionResult Index(string id)
         {
             try

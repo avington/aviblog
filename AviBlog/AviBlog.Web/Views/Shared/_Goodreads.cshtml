@@ -27,6 +27,6 @@
 
 <script src="@Url.Content("~/js/goodreads.js")" type="text/javascript"> </script>
 <script type="text/javascript">
-    var grApp = new MyApp(@Model.ToJson());
+    var grApp = new GoodreadsApp(@Model.ToJson());
     grApp.start();
 </script>

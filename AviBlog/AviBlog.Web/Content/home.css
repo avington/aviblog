@@ -55,8 +55,8 @@ footer .footer-wrapper { max-width: 1190px;margin: 0 auto;}
 .footer-section-1, .footer-section-2, .footer-section-3 { float: left;width: 320px;}
 
 .nav-social { margin: 41px 0;}
-.nav-social ul li {padding: 2px 10px; float: left;}
-.nav-social ul li a { color: #fff;text-decoration: underline;font-family: 'CantarellRegular', sans-serif; }
+.nav-social ul li {padding: 2px 10px;float: left;width: 103px;}
+.nav-social ul li a { color: #fff;text-decoration: underline;font-family: 'CantarellRegular', sans-serif;font-weight: 600;}
 .nav-social ul li a img { padding-right: 5px;}
 .nav-social ul li a:hover {color: #fff;text-decoration: underline;font-family: 'CantarellRegular', sans-serif; }
 .nav-social ul li a:active {color: #fff;text-decoration: underline;font-family: 'CantarellRegular', sans-serif; }
@@ -71,7 +71,7 @@ footer .footer-wrapper { max-width: 1190px;margin: 0 auto;}
 .posts-wrapper  article div.post-body p { padding: 5px 0;font-size: 16px;} 
 .posts-wrapper  article div.post-body a { font-size: 16px;} 
 .posts-wrapper  article div.post-body pre { padding: 5px 0;font-size: 13px;} 
-.posts-wrapper  article div.post-body cite{ font-size: 13px; font-style: italic; padding-right: 10px;  padding-left: 10px;} 
+.posts-wrapper article div.post-body cite {font-size: 13px; font-style: italic; padding-right: 10px; padding-left: 9px; margin-left: 25px; display: block; background: whiteSmoke; }
 .posts-wrapper article div.post-body figure{font-size: 13px; line-height: 14px; font-family: 'Courier New' , Courier, monospace;  padding-right: 10px;
     padding-left: 10px;
 } 
@@ -85,7 +85,7 @@ footer .footer-wrapper { max-width: 1190px;margin: 0 auto;}
 .post-meta-info {font-size: 12px;padding: 15px 2px 5px;}
 .post-meta-info ul li { float: left;width: 400px;}
 .post-tags-social {border-bottom: 1px solid #2A5101;margin-bottom: 20px;padding: 10px 0 66px;width: 100%;}
-.post-info { display: inline-block;width: 100%;border-top: #2A5101 solid 1px;border-bottom: #2A5101 solid 1px;}
+.post-info { display: inline-block;width: 100%;border-top: #2A5101 solid 1px;border-bottom: #2A5101 solid 1px;padding-bottom: 25px;}
 .post-info ul.post-tags-list li { float: left;margin-right: 5px;padding-top: 20px}
 .post-tag-label { float: left;margin-right: 20px;line-height: 60px;}
 ul.post-tags-list { float: left;}
@@ -104,17 +104,19 @@ ul.post-tags-list li a { background: none #938A07 scroll;border: #ccc solid 1px;
 .archive-list .post-archive-link { color: blue; }
 
 aside { width: 260px;float: left;}
-.grid-right {width: 300px;padding: 10px 0;}
-.grid-right ul { background-color: whitesmoke;display: inline-block;border-radius: 8px;}
-.grid-right ul li {float: left;margin: 1px 5px 1px 5px;padding: 0 2px;line-height: 20px;}
+.grid-right {width: 317px;padding: 10px 0;}
+.grid-right h4 { color: #3F4547; }
+.grid-right ul {background-color: whiteSmoke;display: inline-block;border-radius: 8px;background-clip: padding-box;-webkit-box-shadow: 2px 3px 8px rgba(0,0,0,.15);-moz-box-shadow: 2px 3px 8px rgba(0,0,0,.15);}
+.grid-right ul li {float: left;margin: 1px 5px 1px 5px;padding: 11px 12px;line-height: 20px;}
+.grid-right ul li a { color: #565656;}
 .tag-cloud-small a { font-size: 12px;font-family: 'CantarellRegular', Tahoma; font-weight: 300;color: #565656;line-height: 30px; padding: 5px;}
 .tag-cloud-medium a { font-size: 14px;font-family: 'CantarellRegular', Tahoma; font-weight: 500;color: #565656;line-height: 30px; padding: 5px;}
 .tag-cloud-large a { font-size: 16px;font-family: 'CantarellRegular', Tahoma; font-weight: 700;color: #565656;line-height: 30px; padding: 5px;}
 .goodreads-widget ul{padding-top: 8px;}
 .goodreads-book-img { float: left;margin-right: 7px;padding-left: 5px;}
-.goodreads-widget ul li { margin: 1px 1px 10px 1px;border-bottom: 1px solid #222;padding-bottom: 5px;}
-.goodreads-widget ul li div { color: #565656;  font-family: 'CantarellRegular',Tahoma;  font-size: 12px;  font-weight: 300; }
-.goodreads-widget ul li div a { color: blue;  font-family: 'CantarellRegular',Tahoma;  font-size: 12px;  font-weight: 300; }
+.goodreads-widget ul li { margin: 1px 1px 10px 1px;border-bottom: 1px solid #3F4547;padding-bottom: 5px;}
+.goodreads-widget ul li div { color: #3F4547;  font-family: 'CantarellRegular',Tahoma;  font-size: 12px;  font-weight: 300; }
+.goodreads-widget ul li div a{ color: #002980;font-family: 'CantarellRegular' ,Tahoma; font-size: 12px; font-weight: 300;}
 .goodreads-widget ul li div a:hover { color: #222;}
 .goodreads-widget ul li.last-goodreads-item { border-bottom: none;}
 
