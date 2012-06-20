@@ -2,7 +2,7 @@ using System.Linq;
 using AutoMapper;
 using AviBlog.Core.Entities;
 
-namespace AviBlog.Core.Mappings.CustomMappings
+namespace AviBlog.Core.Helpers.Mappings.CustomMappings
 {
     public class TagListToDelimiterResolver : ValueResolver<Post, string>
     {

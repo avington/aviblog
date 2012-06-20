@@ -52,7 +52,7 @@ footer .footer-wrapper { max-width: 1190px;margin: 0 auto;}
 .header-wrapper-right nav ul li a:active {color: #fff;text-decoration: underline;font-family: 'CantarellRegular', sans-serif; }
 
 .footerwrapper{ max-width: 1190px;margin: 0 auto;}
-.footer-section-1, .footer-section-2, .footer-section-3 { float: left;width: 320px;}
+.footer-section-1, .footer-section-2, .footer-section-3 { float: left;width: 320px;height: 260px;overflow: hidden;}
 
 .nav-social { margin: 41px 0;}
 .nav-social ul li {padding: 2px 10px;float: left;width: 103px;}
@@ -62,9 +62,9 @@ footer .footer-wrapper { max-width: 1190px;margin: 0 auto;}
 .nav-social ul li a:active {color: #fff;text-decoration: underline;font-family: 'CantarellRegular', sans-serif; }
 .copy { margin: 41px auto 0;}
 .copy div {width: 90px; margin: auto;}
-.footer-blog-description {width: 100%;display: inline-block;font-size: 12px;padding-top: 97px;}
+.footer-blog-description {width: 100%;display: inline-block;font-size: 12px;}
 .footer-blog-description div {max-width: 960px; margin: 0 auto; }
-.footer-blog-description div ul li { float: left;color: #fff;padding: 10px 50px;}
+.footer-blog-description div ul li { float: left;color: #fff;padding: 10px;}
 
 
 .posts-wrapper  article { font-family: 'CantarellRegular', Tahoma; font-weight: 300;line-height: 23px; margin: 10px 5px 15px 5px;padding: 5px 5px 5px 5px;}
@@ -120,6 +120,9 @@ aside { width: 260px;float: left;}
 .goodreads-widget ul li div a:hover { color: #222;}
 .goodreads-widget ul li.last-goodreads-item { border-bottom: none;}
 
-
+div.recent-post-section { padding: 10px 0 10px 10px;}
+.recent-post-section h4 { color: white;padding: 2px 0 5px 0;}
+.recent-post-section li { padding: 5px 0;}
+a.recent-post-item { color: white;padding: 2px 2px;}
 
     

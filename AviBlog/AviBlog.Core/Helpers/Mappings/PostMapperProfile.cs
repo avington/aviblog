@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AviBlog.Core.Entities;
+using AviBlog.Core.Helpers.Mappings.CustomMappings;
 using AviBlog.Core.Mappings.CustomMappings;
 using AviBlog.Core.ViewModel;
 

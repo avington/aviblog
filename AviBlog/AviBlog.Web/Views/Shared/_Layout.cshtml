@@ -6,7 +6,6 @@
 <html itemscope itemtype="http://schema.org/Article">
     <head>
         <meta charset="utf-8" />
-        <meta name="Description" content="Steven Moseley on programming, technology and the things of life in general."/>
         @Html.Action("TagStringContentMetaTag", "Tags")
         <meta name="Author" content="Steven Moseley"/>
         <meta name="copyright" content="Steven Moseley" />
@@ -96,7 +95,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-section-3"></div>
+                <div class="footer-section-3">
+                    @Html.Action("MostRecentPosts","Archive",new {id = 4})
+                </div>
                 <div class="clear"></div>
                 <div class="footer-blog-description" class="clear">
                     <div>

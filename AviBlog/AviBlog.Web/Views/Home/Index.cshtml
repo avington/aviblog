@@ -1,4 +1,11 @@
 ﻿@model AviBlog.Core.ViewModel.PostListViewModel
+           
+
+@section HeadTagSection
+{
+    <meta name="Description" content="Steven Moseley on programming, technology and the things of life in general."/>
+}  
+
 
 @{
     ViewBag.Title = Model.BlogTitle;
@@ -8,7 +15,7 @@
 <div class="posts-wrapper">
     @foreach (var post in Model.Posts)
     {
-        @Html.Partial("_Post",post)
+        @Html.Partial("_Post", post)
     }
 
 </div>
