@@ -4,6 +4,8 @@ using AviBlog.Core.Entities;
 
 namespace AviBlog.Core.Context.Configurations
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class BlogConfiguration : EntityTypeConfiguration<Blog>
     {
         public BlogConfiguration()

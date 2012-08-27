@@ -13,7 +13,7 @@
         <title>@ViewBag.Title</title>
         @Html.PackageCss()
         <link href="@Url.Action("Rss", "Home")" type="application/rss+xml" rel="" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"> </script>
         
         @Html.Action("PrimarySiteHtml", "Layout", new { id = "Head" })
         <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")" type="image/vnd.microsoft.icon" />

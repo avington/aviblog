@@ -47,6 +47,9 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.48.4489.28432\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=2.1.267.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
@@ -57,23 +60,37 @@
     <Reference Include="DevOne.Security.Cryptography.BCrypt">
       <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
     </Reference>
+    <Reference Include="dotless.Core">
+      <HintPath>..\packages\dotless.1.3.0.5\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EcmaScript.NET.modified">
+      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
     <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SquishIt.Framework">
-      <HintPath>..\packages\SquishIt.0.8.6\lib\SquishIt.Framework.dll</HintPath>
+    <Reference Include="SquishIt.Framework, Version=0.8.7.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SquishIt.0.8.7.2\lib\SquishIt.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    <Reference Include="SquishIt.Mvc">
+      <HintPath>..\packages\SquishIt.Mvc.0.8.7.2\lib\SquishIt.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -89,6 +106,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\AdminAuthorizeActionFilter.cs" />
@@ -131,36 +151,36 @@
     <Compile Include="Helpers\JavaScriptSerializerHelper.cs" />
     <Compile Include="Helpers\SlugHelper.cs" />
     <Compile Include="Helpers\SquishItHelper.cs" />
-    <Compile Include="Helpers\Mappings\BlogMLMappingService.cs" />
-    <Compile Include="Helpers\Mappings\BlogSiteMapperProfile.cs" />
-    <Compile Include="Helpers\Mappings\BlogsSiteMappingService.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\BaseFormatter.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\PostCreateDateResolver.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\DateNonNullStringFormatter.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\DateStringFormatter.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\PostModifyDateResolver.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\PostPublishDateResolver.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\TagListToDelimiterResolver.cs" />
-    <Compile Include="Helpers\Mappings\HtmlFragmentMappingService.cs" />
-    <Compile Include="Helpers\Mappings\IBlogMLMappingService.cs" />
-    <Compile Include="Helpers\Mappings\IHtmlFragmentMappingService.cs" />
-    <Compile Include="Helpers\Mappings\IPingServiceMappingService.cs" />
-    <Compile Include="Helpers\Mappings\ISettingMappingService.cs" />
-    <Compile Include="Helpers\Mappings\IUserProfileMappingService.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\LocationTagResolver.cs" />
-    <Compile Include="Helpers\Mappings\PingServiceMappingProfile.cs" />
-    <Compile Include="Helpers\Mappings\PingServiceMappingService.cs" />
-    <Compile Include="Helpers\Mappings\PostMapperProfile.cs" />
-    <Compile Include="Helpers\Mappings\PostMappingService.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\TagListFromDelimiterResolver.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\SlugResolver.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\SelectedBlogIdResolver.cs" />
-    <Compile Include="Helpers\Mappings\CustomMappings\SelectedUserIdResolver.cs" />
-    <Compile Include="Helpers\Mappings\SettingMappingProfile.cs" />
-    <Compile Include="Helpers\Mappings\SettingMappingService.cs" />
-    <Compile Include="Helpers\Mappings\UserMapperProfile.cs" />
-    <Compile Include="Helpers\Mappings\UserProfileMappingService.cs" />
-    <Compile Include="Helpers\Mappings\UserRoleMapperProfile.cs" />
+    <Compile Include="Mappings\BlogMLMappingService.cs" />
+    <Compile Include="Mappings\BlogSiteMapperProfile.cs" />
+    <Compile Include="Mappings\BlogsSiteMappingService.cs" />
+    <Compile Include="Mappings\CustomMappings\BaseFormatter.cs" />
+    <Compile Include="Mappings\CustomMappings\PostCreateDateResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\DateNonNullStringFormatter.cs" />
+    <Compile Include="Mappings\CustomMappings\DateStringFormatter.cs" />
+    <Compile Include="Mappings\CustomMappings\PostModifyDateResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\PostPublishDateResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\TagListToDelimiterResolver.cs" />
+    <Compile Include="Mappings\HtmlFragmentMappingService.cs" />
+    <Compile Include="Mappings\IBlogMLMappingService.cs" />
+    <Compile Include="Mappings\IHtmlFragmentMappingService.cs" />
+    <Compile Include="Mappings\IPingServiceMappingService.cs" />
+    <Compile Include="Mappings\ISettingMappingService.cs" />
+    <Compile Include="Mappings\IUserProfileMappingService.cs" />
+    <Compile Include="Mappings\CustomMappings\LocationTagResolver.cs" />
+    <Compile Include="Mappings\PingServiceMappingProfile.cs" />
+    <Compile Include="Mappings\PingServiceMappingService.cs" />
+    <Compile Include="Mappings\PostMapperProfile.cs" />
+    <Compile Include="Mappings\PostMappingService.cs" />
+    <Compile Include="Mappings\CustomMappings\TagListFromDelimiterResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\SlugResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\SelectedBlogIdResolver.cs" />
+    <Compile Include="Mappings\CustomMappings\SelectedUserIdResolver.cs" />
+    <Compile Include="Mappings\SettingMappingProfile.cs" />
+    <Compile Include="Mappings\SettingMappingService.cs" />
+    <Compile Include="Mappings\UserMapperProfile.cs" />
+    <Compile Include="Mappings\UserProfileMappingService.cs" />
+    <Compile Include="Mappings\UserRoleMapperProfile.cs" />
     <Compile Include="Net\HttpRequestHelper.cs" />
     <Compile Include="Net\IHttpRequestHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,7 +202,7 @@
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BlogMLService.cs" />
     <Compile Include="Services\BlogSiteService.cs" />
-    <Compile Include="Helpers\Mappings\IBlogsSiteMappingService.cs" />
+    <Compile Include="Mappings\IBlogsSiteMappingService.cs" />
     <Compile Include="Services\GoodreadsService.cs" />
     <Compile Include="Services\GoodReadsXmlMappingService.cs" />
     <Compile Include="Services\HtmlFragmentService.cs" />
@@ -192,7 +212,7 @@
     <Compile Include="Services\IGoodReadsXmlMappingService.cs" />
     <Compile Include="Services\IHtmlFragmentService.cs" />
     <Compile Include="Repositories\IPostRepository.cs" />
-    <Compile Include="Helpers\Mappings\IPostMappingService.cs" />
+    <Compile Include="Mappings\IPostMappingService.cs" />
     <Compile Include="Services\IPingHttpPostService.cs" />
     <Compile Include="Services\IPingServiceService.cs" />
     <Compile Include="Services\IPostService.cs" />

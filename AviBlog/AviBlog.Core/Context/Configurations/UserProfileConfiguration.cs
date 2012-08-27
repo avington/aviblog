@@ -1,11 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-using AviBlog.Core.Entities;
-
 namespace AviBlog.Core.Context.Configurations
 {
-    public class UserProfileConfiguration :EntityTypeConfiguration<UserProfile>
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.ModelConfiguration;
+    using AviBlog.Core.Entities;
+
+    public class UserProfileConfiguration : EntityTypeConfiguration<UserProfile>
     {
+        #region Constructors and Destructors
+
         public UserProfileConfiguration()
         {
             Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -14,5 +16,7 @@ namespace AviBlog.Core.Context.Configurations
             Property(x => x.LastName).HasMaxLength(100);
             Property(x => x.Password).HasMaxLength(500);
         }
+
+        #endregion
     }
 }
