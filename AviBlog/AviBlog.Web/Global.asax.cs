@@ -12,6 +12,8 @@ using StructureMap;
 
 namespace AviBlog.Web
 {
+    using AviBlog.Core.Services.Search;
+
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
@@ -39,6 +41,17 @@ namespace AviBlog.Web
             string[] roles = authTicket.UserData.Split(char.Parse("~"));
             var principal = new GenericPrincipal(identity, roles);
             Context.User = principal;
+        }
+
+        protected void Application_End()
+        {
+            EndApplication();
+        }
+
+        public void EndApplication()
+        {
+            var searchEngine =ObjectFactory.GetInstance<ISearchEngineService>();
+            if (searchEngine != null) searchEngine.Dispose();
         }
     }
 }

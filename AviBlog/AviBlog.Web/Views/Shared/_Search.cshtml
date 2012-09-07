@@ -1,0 +1,10 @@
+﻿@model dynamic
+
+
+<div class="grid-right search-panel" id="search-panel">
+    @using (Html.BeginForm("Query", "Search", FormMethod.Get))
+    {
+        <input type="text" id="q" name="q" class="search-box"/>
+        <a href="#" id="search-button" class="search-button"><img src="/Content/images/search.png" alt="Search" /></a>
+    }
+</div>

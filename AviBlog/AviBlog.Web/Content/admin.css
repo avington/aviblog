@@ -1,4 +1,5 @@
-﻿body{background-color:#5c87b2;font-size:.85em;font-family:"Trebuchet MS", Verdana, Helvetica, Sans-Serif;color:#696969;margin:0;padding:0;} 
+﻿ul { list-style: none;}
+body{background-color:#5c87b2;font-size:.85em;font-family:"Trebuchet MS", Verdana, Helvetica, Sans-Serif;color:#696969;margin:0;padding:0;} 
 a:link{color:#034af3;text-decoration:underline;} 
 a:visited{color:#505abc;} a:hover{color:#1d60ff;text-decoration:none;} 
 a:active{color:#12eb87;} p,ul{margin-bottom:20px;line-height:1.6em;} 

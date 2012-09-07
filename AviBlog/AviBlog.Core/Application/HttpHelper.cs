@@ -27,6 +27,11 @@ namespace AviBlog.Core.Application
             return path;
         }
 
+        public string MapPath(string virtualPath)
+        {
+            return HttpContext.Current.Server.MapPath(virtualPath);
+        }
+
         public string DecodeUrl(string urlEncodedText)
         {
             if (string.IsNullOrEmpty(urlEncodedText)) return string.Empty;

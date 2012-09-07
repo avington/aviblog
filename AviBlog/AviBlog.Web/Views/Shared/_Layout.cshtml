@@ -59,10 +59,11 @@
                 @RenderBody()
             </div>
             <aside>
+                @Html.Partial("_Search")
                 <div class="grid-right">
                     <h4>About Me</h4>
                     <ul>
-                        <li>Software Architect and programmer living in sunny South Florida.
+                        <li>Software architect and programmer living in sunny South Florida.
                             This blog is dedicated to programming, technology and some times random
                             thoughts and ideas I just have to express @Html.ActionLink("read more", "About", "Home", new {id =1}, null)</li>
                     </ul>
@@ -112,5 +113,6 @@
         </footer>
 
         @Html.Action("PrimarySiteHtml", "Layout", new { id = "Head" })
+        @Html.PackageFooterJs()
     </body>
 </html>

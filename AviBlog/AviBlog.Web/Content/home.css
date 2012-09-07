@@ -119,10 +119,16 @@ aside { width: 260px;float: left;}
 .goodreads-widget ul li div a{ color: #002980;font-family: 'CantarellRegular' ,Tahoma; font-size: 12px; font-weight: 300;}
 .goodreads-widget ul li div a:hover { color: #222;}
 .goodreads-widget ul li.last-goodreads-item { border-bottom: none;}
+.search-panel { margin: 5px 0 5px 5px;}
+.search-box { height: 24px;width: 275px;}
+.search-button { padding: 1px 1px 3px 1px;}
+.search-button img{ margin: 2px 0 0 2px;vertical-align: middle;padding-bottom: 5px;}
 
 div.recent-post-section { padding: 10px 0 10px 10px;}
 .recent-post-section h4 { color: white;padding: 2px 0 5px 0;}
 .recent-post-section li { padding: 5px 0;}
 a.recent-post-item { color: white;padding: 2px 2px;}
+.search-result-section ul li { padding: 5px;}
+a.search-post-item { color: #1F447D;}
 
     

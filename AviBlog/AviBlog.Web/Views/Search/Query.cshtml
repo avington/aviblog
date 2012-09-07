@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AviBlog.Core.Services.Search.SearchEngineResult>
+
+@{
+    ViewBag.Title = "Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="search-result-section">
+    <h4>Search Results</h4>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@Html.ActionLink(item.Title,"Post","Posts", new {id = item.Slug}, new {@class = "search-post-item"})</li>
+        }
+    </ul>
+</div>
