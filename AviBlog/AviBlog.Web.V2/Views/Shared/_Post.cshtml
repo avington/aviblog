@@ -1,0 +1,18 @@
+﻿@model AviBlog.Core.ViewModel.PostViewModel
+
+<article>
+    <div  class="post-heading">
+        @Model.DatePublished
+        <h2  class="post-heading-headline">@Html.ActionLink(Model.Title, "Post", "Posts", 
+            new {id = Model.Slug}, new {@class = "post-title-link"})</h2>
+    </div>
+    <div class="post-body">@Html.Raw(Model.PostContent) </div>
+    <div class="post-meta-info">
+        <ul>        
+            @if (Model.DatePublished.HasValue)
+            {
+                <li class="align-left">Published on: @Model.DatePublished.Value.ToLongDateString()</li>
+            }
+        </ul>
+    </div>
+</article>

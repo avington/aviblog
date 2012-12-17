@@ -1,11 +1,12 @@
-﻿namespace AviBlog.Core.Helpers
+﻿using SquishIt.Framework.CSS;
+
+namespace AviBlog.Core.Helpers
 {
     using System;
     using System.Configuration;
     using System.Web.Mvc;
 
     using SquishIt.Framework;
-    using SquishIt.Framework.Css;
 
     public static class SquishItHelper
     {
@@ -33,7 +34,7 @@
                     .Add("~/Scripts/underscore.min.js")
                     .Add("~/Scripts/backbone.min.js")
                     .Add("~/Scripts/jQuery.tmpl.min.js")
-                    .Add("~/Scripts/modernizr-2.5.3.js")
+                    .Add("~/Scripts/modernizr-2.6.2.js")
                     .ForceRelease()
                     .Render("~/Scripts/combinedHead_#.js");
 

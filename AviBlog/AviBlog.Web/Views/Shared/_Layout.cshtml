@@ -12,8 +12,8 @@
         @RenderSection("HeadTagSection", required: false)
         <title>@ViewBag.Title</title>
         @Html.PackageCss()
-        <link href="@Url.Action("Rss", "Home")" type="application/rss+xml" rel="" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"> </script>
+        <link href="http://feeds.feedburner.com/SteveMoseley" type="application/rss+xml" rel="" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
         
         @Html.Action("PrimarySiteHtml", "Layout", new { id = "Head" })
         <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")" type="image/vnd.microsoft.icon" />
@@ -44,7 +44,7 @@
                     <nav class="col3 pad_left2 nav-social">
                         <h4 class="follow-me-title">Follow Me</h4>
                         <ul>
-                            <li><a href="https://twitter.com/#!/siravington"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
+                            <li><a href="https://twitter.com/#!/_avington"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
                             <li><a href="http://www.linkedin.com/pub/steve-moseley/b/122/527"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="">Linkedin</a></li>
                             <li><a href="https://plus.google.com/106749740819311476842/posts?hl=en"><img src="@Url.Content("~/content/images/icons/google.png")" alt="">Google+</a></li>
                             <li><a href="http://feeds.feedburner.com/SteveMoseley"><img src="@Url.Content("~/content/images/icons/feed.png")" alt="">RSS Feed</a></li>
@@ -65,7 +65,7 @@
                     <ul>
                         <li>Software architect and programmer living in sunny South Florida.
                             This blog is dedicated to programming, technology and some times random
-                            thoughts and ideas I just have to express @Html.ActionLink("read more", "About", "Home", new {id =1}, null)</li>
+                            thoughts and ideas I just have to express @Html.ActionLink("read more", "About", "Home", new { id = 1 }, null)</li>
                     </ul>
                 </div>
                 @Html.Action("TagCloud", "Tags")
@@ -81,7 +81,7 @@
                     <nav class="col3 pad_left2 nav-social">
                         <h4 class="follow-me-title">Follow Me</h4>
                         <ul>
-                            <li><a href="https://twitter.com/#!/siravington"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
+                            <li><a href="https://twitter.com/#!/_avington"><img src="@Url.Content("~/content/images/icons/twitter.png")" alt="">Twitter</a></li>
                             <li><a href="http://www.linkedin.com/pub/steve-moseley/b/122/527"><img src="@Url.Content("~/content/images/icons/linkedin.png")" alt="">Linkedin</a></li>
                             <li><a href="https://plus.google.com/106749740819311476842/posts?hl=en"><img src="@Url.Content("~/content/images/icons/google.png")" alt="">Google+</a></li>
                             <li><a href="http://feeds.feedburner.com/SteveMoseley"><img src="@Url.Content("~/content/images/icons/feed.png")" alt="">RSS Feed</a></li>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="footer-section-3">
-                    @Html.Action("MostRecentPosts","Archive",new {id = 4})
+                    @Html.Action("MostRecentPosts", "Archive", new { id = 4 })
                 </div>
                 <div class="clear"></div>
                 <div class="footer-blog-description" class="clear">

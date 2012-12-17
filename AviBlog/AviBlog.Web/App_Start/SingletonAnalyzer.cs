@@ -1,13 +1,15 @@
-﻿namespace AviBlog.Web.App_Start
+﻿using Lucene.Net.Util;
+
+namespace AviBlog.Web.App_Start
 {
     using Lucene.Net.Analysis;
     using Lucene.Net.Analysis.Snowball;
 
     public class SingletonAnalyzer
     {
-        private static volatile Analyzer instance;
+        private static volatile Analyzer _instance;
 
-        private static readonly object syncRoot = new object();
+        private static readonly object SyncRoot = new object();
 
         private SingletonAnalyzer() {}
 
@@ -15,17 +17,17 @@
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    lock (syncRoot)
+                    lock (SyncRoot)
                     {
-                        if (instance == null)
+                        if (_instance == null)
                         {
-                            instance = new SnowballAnalyzer("English");
+                            _instance = new SnowballAnalyzer(Version.LUCENE_30,  "English");
                         }
                     }
                 }
-                return instance;
+                return _instance;
             }
         }
     }

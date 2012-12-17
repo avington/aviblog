@@ -1,0 +1,14 @@
+﻿@model AviBlog.Core.ViewModel.PostListViewModel
+
+@{
+    ViewBag.Title = "Steven Moseley";
+}
+
+<section class="posts-wrapper">
+    @foreach (var post in Model.Posts)
+    {
+        @Html.Partial("_Post", post)
+        <div class="clear"></div>
+    }   
+
+</section>

@@ -27,7 +27,7 @@
                     lock (syncRoot)
                     {
                         if (instance == null && HttpContext.Current != null)
-                            instance =
+                            instance = 
                                 FSDirectory.Open(
                                     new DirectoryInfo(HttpContext.Current.Server.MapPath("~/App_data/lucene_search/")));
                     }

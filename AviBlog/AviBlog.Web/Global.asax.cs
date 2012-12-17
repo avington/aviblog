@@ -29,6 +29,7 @@ namespace AviBlog.Web
             RouteManager.RegisterRoutes(RouteTable.Routes);
             Bootstrapper.RegisterGlobalFilters(GlobalFilters.Filters);
             Bootstrapper.RegisterMappings();
+            Bootstrapper.RegisterViewEngine();
         }
 
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)

@@ -1,5 +1,7 @@
 ﻿namespace AviBlog.Web.Areas.Manage.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
 
     using AviBlog.Core.ActionFilters;
@@ -25,7 +27,11 @@
         public JsonResult Reindex()
         {
             var errors = _searchIndexService.RebuildIndex();
-            if (errors != null && errors.Count > 0) return Json(new { Status = errors });
+            if (errors != null && errors.Count > 0)
+            {
+                var errorList = errors.Select(error => error.Exception.Message).ToList();
+                return Json(new { Status = errorList.ToArray() });
+            }
             var status = new { Status = new[] { "Success" } };
             return Json(status);
         }

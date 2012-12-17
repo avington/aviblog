@@ -1,16 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web.Mvc;
-using AviBlog.Core.Application;
-using AviBlog.Core.Entities;
-using AviBlog.Core.Mappings;
-using AviBlog.Core.Repositories;
-using AviBlog.Core.ViewModel;
-
 namespace AviBlog.Core.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AviBlog.Core.Application;
+    using AviBlog.Core.Entities;
+    using AviBlog.Core.Mappings;
+    using AviBlog.Core.Repositories;
+    using AviBlog.Core.Services.Search;
+    using AviBlog.Core.ViewModel;
+
     public class PostService : IPostService
     {
         private readonly IBlogSiteRepository _blogSiteRepository;
@@ -21,11 +23,18 @@ namespace AviBlog.Core.Services
         private readonly IPostMappingService _postMappingService;
         private readonly IPostRepository _postRepository;
         private readonly IProfileUserRepository _profileUserRepository;
+        private readonly ISearchEngineService _searchEngineService;
 
-        public PostService(IPostRepository postRepository, IBlogSiteRepository blogSiteRepository,
-                           IPostMappingService postMappingService, IHttpHelper httpHelper,
-                           IProfileUserRepository profileUserRepository, IHttpHelper helper,
-                           IBlogsSiteMappingService blogsSiteMappingService, IPingHttpPostService pingHttpPostService)
+        public PostService(
+            IPostRepository postRepository,
+            IBlogSiteRepository blogSiteRepository,
+            IPostMappingService postMappingService,
+            IHttpHelper httpHelper,
+            IProfileUserRepository profileUserRepository,
+            IHttpHelper helper,
+            IBlogsSiteMappingService blogsSiteMappingService,
+            IPingHttpPostService pingHttpPostService,
+            ISearchEngineService searchEngineService)
         {
             _postRepository = postRepository;
             _blogSiteRepository = blogSiteRepository;
@@ -35,6 +44,7 @@ namespace AviBlog.Core.Services
             _helper = helper;
             _blogsSiteMappingService = blogsSiteMappingService;
             _pingHttpPostService = pingHttpPostService;
+            _searchEngineService = searchEngineService;
         }
 
         #region IPostService Members
@@ -59,6 +69,7 @@ namespace AviBlog.Core.Services
 
         public string FlagPostAsDeleted(int id)
         {
+            _searchEngineService.RemovePost(id);
             return _postRepository.Delete(id);
         }
 
@@ -132,8 +143,7 @@ namespace AviBlog.Core.Services
             SetPublishDate(post);
             Post entity = _postMappingService.MapToEntity(post);
 
-            if (entity.UniqueId.ToString() == "00000000-0000-0000-0000-000000000000")
-                entity.UniqueId = Guid.NewGuid();
+            if (entity.UniqueId.ToString() == "00000000-0000-0000-0000-000000000000") entity.UniqueId = Guid.NewGuid();
 
             string result = _postRepository.Edit(entity, post.SectedUserId, post.SelectedBlogId);
             SendPing(entity, result);
@@ -148,7 +158,7 @@ namespace AviBlog.Core.Services
                 .Take(top)
                 .OrderByDescending(x => x.DatePublished)
                 .ToList();
-            var viewModel = new PostListViewModel {Posts = new List<PostViewModel>()};
+            var viewModel = new PostListViewModel { Posts = new List<PostViewModel>() };
             if (posts.Count == 0)
             {
                 viewModel.ErrorMessage = "No posts were found.";
@@ -168,21 +178,20 @@ namespace AviBlog.Core.Services
             return viewModel;
         }
 
-
         public PostListViewModel GetPostBySlug(string slug)
         {
             Post post =
                 _postRepository.GetAllPosts().FirstOrDefault(
                     x => x.Slug == slug && x.Blog.IsActive && x.Blog.IsPrimary && !x.IsDeleted && x.IsPublished);
-            if (post == null) return new PostListViewModel {ErrorMessage = "The specified post was not found."};
+            if (post == null) return new PostListViewModel { ErrorMessage = "The specified post was not found." };
 
             var list = new PostListViewModel
-                           {
-                               BlogId = post.Blog.Id,
-                               BlogTitle = post.Blog.BlogName,
-                               SubHead = post.Blog.SubHead,
-                               Posts = new List<PostViewModel>()
-                           };
+                {
+                    BlogId = post.Blog.Id,
+                    BlogTitle = post.Blog.BlogName,
+                    SubHead = post.Blog.SubHead,
+                    Posts = new List<PostViewModel>()
+                };
             PostViewModel item = _postMappingService.MapToView(post);
             item.Tags = MapTags(post);
             item.UserFullName = string.Format("{0} {1}", post.User.FirstName, post.User.LastName);
@@ -198,13 +207,12 @@ namespace AviBlog.Core.Services
                 .OrderByDescending(x => x.DatePublished)
                 .ToList();
 
-            var list = new PostListViewModel {Posts = new List<PostViewModel>()};
+            var list = new PostListViewModel { Posts = new List<PostViewModel>() };
             if (posts.Count == 0)
             {
                 list.ErrorMessage = "The selected posts were not found.";
                 return list;
             }
-
 
             Blog blog = posts.First().Blog;
             UserProfile user = posts.First().User;
@@ -227,28 +235,23 @@ namespace AviBlog.Core.Services
         private void SendPing(Post entity, string result)
         {
             //if post added is successful then ping all the services with the URL
-            if (string.IsNullOrEmpty(result))
-            {
-                if (ConfigurationManager.AppSettings["PingService"].Equals("true"))
-                    _pingHttpPostService.Ping(entity);
-            }
+            if (string.IsNullOrEmpty(result)) if (ConfigurationManager.AppSettings["PingService"].Equals("true")) _pingHttpPostService.Ping(entity);
         }
 
         private static void SetPublishDate(PostViewModel post)
         {
-            if (post.IsPublished && post.UseCurrentDateTime)
-                post.DatePublished = DateTime.Now;
-            else if (post.IsPublished && !post.DatePublished.HasValue)
-                post.DatePublished = DateTime.Now;
+            if (post.IsPublished && post.UseCurrentDateTime) post.DatePublished = DateTime.Now;
+            else if (post.IsPublished && !post.DatePublished.HasValue) post.DatePublished = DateTime.Now;
         }
 
         private IList<TagViewModel> MapTags(Post post)
         {
-            return post.Tags.Select(item => new TagViewModel
-                                                {
-                                                    Id = item.Id,
-                                                    Name = item.TagName
-                                                }).ToList();
+            return post.Tags.Select(
+                item => new TagViewModel
+                    {
+                        Id = item.Id,
+                        Name = item.TagName
+                    }).ToList();
         }
 
         private IEnumerable<UserViewModel> GetUserList()
@@ -256,7 +259,7 @@ namespace AviBlog.Core.Services
             List<UserViewModel> users = _profileUserRepository
                 .GetUserProfiles()
                 .Where(x => x.IsActive)
-                .Select(x => new UserViewModel {Id = x.Id, UserName = x.UserName})
+                .Select(x => new UserViewModel { Id = x.Id, UserName = x.UserName })
                 .ToList();
             return users;
         }
@@ -265,7 +268,7 @@ namespace AviBlog.Core.Services
         {
             List<BlogSiteViewModel> blogList = _blogSiteRepository.GetAllBlogs()
                 .Where(x => x.IsActive)
-                .Select(x => new BlogSiteViewModel {BlogId = x.Id, BlogName = x.BlogName})
+                .Select(x => new BlogSiteViewModel { BlogId = x.Id, BlogName = x.BlogName })
                 .ToList()
                 ;
             return blogList;
@@ -275,8 +278,7 @@ namespace AviBlog.Core.Services
         {
             string blogId = _helper.GetCookieValue("blog");
             int id;
-            if (!int.TryParse(blogId, out id))
-                id = 0;
+            if (!int.TryParse(blogId, out id)) id = 0;
             Blog blog = _blogSiteRepository.GetAllBlogs()
                             .FirstOrDefault(x => x.Id == id) ?? _blogSiteRepository.GetAllBlogs()
                                                                     .FirstOrDefault(x => x.IsPrimary);

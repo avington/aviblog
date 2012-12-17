@@ -32,6 +32,11 @@ namespace AviBlog.Web.App_Start
                                   });;
         }
 
+        public static void RegisterViewEngine()
+        {
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new RazorViewEngine());
 
+        }
     }
 }

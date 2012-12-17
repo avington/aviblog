@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviBlog.Web.Tests", "AviBlo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviBlog.Core", "AviBlog.Core\AviBlog.Core.csproj", "{93BC5AA4-BAEC-4F42-BEA1-F96CC3EDA81A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviBlog.Web.V2", "AviBlog.Web.V2\AviBlog.Web.V2.csproj", "{0035E8B5-A107-4A9C-B041-8D3C9A694B99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{348B4722-38A9-4B67-BCDD-3C0B260ED9C8}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +39,12 @@ Global
 		{93BC5AA4-BAEC-4F42-BEA1-F96CC3EDA81A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93BC5AA4-BAEC-4F42-BEA1-F96CC3EDA81A}.Release-FTP|Any CPU.ActiveCfg = Release-FTP|Any CPU
 		{93BC5AA4-BAEC-4F42-BEA1-F96CC3EDA81A}.Release-FTP|Any CPU.Build.0 = Release-FTP|Any CPU
+		{0035E8B5-A107-4A9C-B041-8D3C9A694B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0035E8B5-A107-4A9C-B041-8D3C9A694B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0035E8B5-A107-4A9C-B041-8D3C9A694B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0035E8B5-A107-4A9C-B041-8D3C9A694B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0035E8B5-A107-4A9C-B041-8D3C9A694B99}.Release-FTP|Any CPU.ActiveCfg = Release|Any CPU
+		{0035E8B5-A107-4A9C-B041-8D3C9A694B99}.Release-FTP|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

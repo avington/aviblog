@@ -1,0 +1,1 @@
+﻿var searchSite=function(n){var t=function(){var t=n("#search-button"),i=n("#q"),r=n("#search-panel form");t.on("click",function(){i.val()!==""&&r.submit()})};return{init:t}}(jQuery);jQuery(document).ready(function(){searchSite.init()});
