@@ -4,19 +4,81 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/content/fonts")" rel="stylesheet" type="text/css" />
     <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/styles/css")" rel="stylesheet" type="text/css" />
     <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
-    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
+    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")" type=""></script>
 </head>
     <body>
         <header>
             <div class="logo">
-                <a href="/">Steven <span>Moseley</span></a>
+                <a href="/">Steven <br/><span>Moseley</span></a>
+                <p>Software & Life</p>
+            </div>
+            <div class="header-social">
+                <a href="#"><img src="~/Styles/images/twitter-icon.png" alt="twitter"/></a>
+                <a href="#"><img src="~/Styles/images/linkedin-icon.png" alt="linkedin"/></a>
+                <a href="#"><img src="~/Styles/images/google-icon.png" alt="google"/></a>
+                <a href="#"><img src="~/Styles/images/rss-icon.png" alt="rss"/></a>
             </div>
         </header>
+
+        @RenderSection("socialList",required: false)
+
         <div class="page-wrap">
-            @RenderBody()
+            <nav class="main-nav">
+                <a href="#" class="nav-home"><span aria-hidden="true" data-icon="&#72;"></span> Home</a>
+                <a href="#" class="nav-about"><span aria-hidden="true" data-icon="&#65;"></span>About</a>
+                <a href="#" class="nav-archive"><span aria-hidden="true" data-icon="&#89;"></span>Archive</a>
+                <a href="#" class="nav-code"><span aria-hidden="true" data-icon="&#71;"></span>Code</a>
+            </nav>
+            <nav class="mobile-social-nav">
+                <a href="#"><img src="~/Styles/images/twitter-icon-32.png" alt="twitter"/></a>
+                <a href="#"><img src="~/Styles/images/linkedin-icon-32.png" alt="linkedin"/></a>
+                <a href="#"><img src="~/Styles/images/google-icon-32.png" alt="google"/></a>
+                <a href="#"><img src="~/Styles/images/rss-icon-32.png" alt="rss"/></a>
+            </nav>
+            <div class="grid">
+                <div class="grid-1-2">
+                    @RenderBody()
+                </div>    
+                <aside class="grid-1-4">
+                    <div class="module">
+                        test
+                    </div>
+                    <div class="module">
+                        test
+                    </div>
+                    <div class="module">
+                        test
+                    </div><div class="module">
+                        test
+                    </div>
+                </aside>
+                <aside class="grid-1-4">
+                    <div class="module">
+                        test
+                    </div>
+                    <div class="module">
+                        test
+                    </div>
+                    <div class="module">
+                        test
+                    </div>
+                    <div class="module">
+                        test
+                    </div>
+                    <div class="module">
+                        test
+                    </div>
+                </aside>
+            </div> <!-- end div.grid -->
+            
         </div> <!-- end of page wrap -->
+        
+        <footer>
+            
+        </footer>
         
     </body>
 </html>

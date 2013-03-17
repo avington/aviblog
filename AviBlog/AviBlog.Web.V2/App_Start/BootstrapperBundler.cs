@@ -10,13 +10,24 @@
         {
             bool isMinimized = Convert.ToBoolean(ConfigurationManager.AppSettings["CompressStaticFiles"]);
 
+            var fonts = InitializeBundleCss("~/content/fonts", isMinimized);
+            fonts.AddFile("~/Styles/fonts/BEBASNEUE/stylesheet.css");
+            fonts.AddFile("~/Styles/fonts/cantarell/stylesheet.css");
+            fonts.AddFile("~/Styles/fonts/chunkfive/stylesheet.css");
+            fonts.AddFile("~/Styles/fonts/heydings_icons/stylesheet.css");
+            fonts.AddFile("~/Styles/fonts/MonospaceTypewriter/stylesheet.css");
+            BundleTable.Bundles.Add(fonts);
+            
+
             var scripts = InitializeBundleJs("~/Scripts/js", isMinimized);
-            scripts.AddDirectory("~/Scripts", "*.js");
+            scripts.AddDirectory("~/Scripts/a", "*.js");
+            scripts.AddDirectory("~/Scripts/b", "*.js");
             BundleTable.Bundles.Add(scripts);
 
             var css = InitializeBundleCss("~/styles/css", isMinimized);
-            css.AddDirectory("~/Styles/normalize", "*.css");
+            css.AddDirectory("~/Content", "*.css");
             css.AddDirectory("~/Styles", "*.css");
+
 
             BundleTable.Bundles.Add(css);
         }

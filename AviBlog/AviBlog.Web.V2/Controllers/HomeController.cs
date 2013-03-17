@@ -21,7 +21,7 @@
         [OutputCache(Duration = 6000, VaryByParam = "*")]
         public ActionResult Index()
         {
-            const int top = 5;
+            const int top = 15;
             PostListViewModel viewModel = _postService.GetTopMostRecentPosts(top);
 
             return View(viewModel);

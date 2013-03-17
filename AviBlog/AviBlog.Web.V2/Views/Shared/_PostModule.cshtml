@@ -1,0 +1,16 @@
+﻿@model AviBlog.Core.ViewModel.PostViewModel
+
+<article class="module">
+    <h2>@Html.ActionLink(Model.Title,"Post","Posts",new {id = Model.Slug}, new {@class = "post-summary-module-title"})</h2>
+    <time class="post-summary-module-date">        
+        @if (Model.DatePublished.HasValue)
+        {
+            @Model.DatePublished.Value.ToLongDateString()
+        }
+    </time>
+
+    <div class="post-summary-module-description">@Html.Raw(Model.Description) </div>
+
+    <a href="@Url.Action("Post","Posts", new {id = Model.Slug})">Read More &rarr;</a>
+</article>
+

@@ -4,4 +4,34 @@
     ViewBag.Title = Model.Posts[0].Title;
 }
 
-<h2>title</h2>
+
+
+<article class="module post">
+    <h2>@Model.Posts[0].Title</h2>
+
+    
+    <div class="post-content">
+        @Html.Raw(Model.Posts[0].PostContent)
+    </div>
+</article>
+
+
+@section socialList  {
+    <ul class="post-social-list">
+        <li><h5>Share</h5></li>
+        <li>
+            @Html.Action("PostSettings", "Posts", new {id = "GooglePlusOneScript"})
+        </li>
+        <li>
+            @Html.Action("PostSettings", "Posts", new {id = "LinkedInScript"})
+        </li>
+        <li>
+            @Html.Action("PostSettings", "Posts", new {id = "FaceBookLikeScript"})
+            @Html.Action("PostSettings", "Posts", new {id = "FaceBookLikeUrl"})
+        </li>
+        <li>
+            @Html.Action("PostSettings", "Posts", new {id = "TwitterTweetThisUrl"})
+            @Html.Action("PostSettings", "Posts", new {id = "TwitterTweetthisScript"})
+        </li>
+    </ul>
+}

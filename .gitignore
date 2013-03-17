@@ -107,6 +107,8 @@ publish
 bin/*.dll
 bin/*.pdb
 bin/*.xml
+bin/debug/
+bin/release/
 obj/*.dll
 obj/*.pdb
 obj/*.xml
@@ -117,6 +119,7 @@ ClientBin
 stylecop.*
 ~$*
 *.dbmdl
+.sass-cache/
 Generated_Code #added for RIA/Silverlight projects
 
 # Backup & report files from converting an old project file to a newer
