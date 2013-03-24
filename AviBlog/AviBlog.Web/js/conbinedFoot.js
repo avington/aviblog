@@ -1,1 +1,1 @@
-﻿var searchSite=function(n){var t=function(){var t=n("#search-button"),i=n("#q"),r=n("#search-panel form");t.on("click",function(){i.val()!==""&&r.submit()})};return{init:t}}(jQuery);jQuery(document).ready(function(){searchSite.init()});
+﻿var searchSite=function(n){var t=function(){var r=n("#search-button"),i=n("#q"),t=n("#search-panel form");r.on("click",function(){i.val()!==""&&t.submit()})};return{init:t}}(jQuery);jQuery(document).ready(function(){searchSite.init()});

@@ -18,7 +18,7 @@ namespace AviBlog.Web.App_Start
                 if (controllerType == null) return null;
                 return ObjectFactory.GetInstance(controllerType) as IController;
             }
-            catch (StructureMapException ex)
+            catch
             {
                 //if structuremap throws an error at this point I am going to assume that it is a 404 error
                     IController errorController = ObjectFactory.GetInstance<ErrorController>();
